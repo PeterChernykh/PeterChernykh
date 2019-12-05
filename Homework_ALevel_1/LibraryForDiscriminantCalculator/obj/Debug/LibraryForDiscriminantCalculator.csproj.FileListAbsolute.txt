@@ -1,0 +1,4 @@
+C:\Users\Peter\source\repos\Homework_ALevel_1\LibraryForDiscriminantCalculator\bin\Debug\LibraryForDiscriminantCalculator.dll
+C:\Users\Peter\source\repos\Homework_ALevel_1\LibraryForDiscriminantCalculator\bin\Debug\LibraryForDiscriminantCalculator.pdb
+C:\Users\Peter\source\repos\Homework_ALevel_1\LibraryForDiscriminantCalculator\obj\Debug\LibraryForDiscriminantCalculator.dll
+C:\Users\Peter\source\repos\Homework_ALevel_1\LibraryForDiscriminantCalculator\obj\Debug\LibraryForDiscriminantCalculator.pdb

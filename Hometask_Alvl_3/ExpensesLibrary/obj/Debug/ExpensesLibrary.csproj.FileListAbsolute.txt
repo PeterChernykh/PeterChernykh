@@ -1,0 +1,5 @@
+C:\Users\Peter\source\repos\Hometask_Alvl_3\ExpensesLibrary\bin\Debug\ExpensesLibrary.dll
+C:\Users\Peter\source\repos\Hometask_Alvl_3\ExpensesLibrary\bin\Debug\ExpensesLibrary.pdb
+C:\Users\Peter\source\repos\Hometask_Alvl_3\ExpensesLibrary\obj\Debug\ExpensesLibrary.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Hometask_Alvl_3\ExpensesLibrary\obj\Debug\ExpensesLibrary.dll
+C:\Users\Peter\source\repos\Hometask_Alvl_3\ExpensesLibrary\obj\Debug\ExpensesLibrary.pdb

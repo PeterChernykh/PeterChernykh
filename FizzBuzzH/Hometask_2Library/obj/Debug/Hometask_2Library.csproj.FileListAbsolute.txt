@@ -1,0 +1,10 @@
+C:\Users\Peter\source\repos\FizzBuzzH\Hometask_2Library\bin\Debug\Hometask_2Library.dll
+C:\Users\Peter\source\repos\FizzBuzzH\Hometask_2Library\bin\Debug\Hometask_2Library.pdb
+C:\Users\Peter\source\repos\FizzBuzzH\Hometask_2Library\obj\Debug\Hometask_2Library.dll
+C:\Users\Peter\source\repos\FizzBuzzH\Hometask_2Library\obj\Debug\Hometask_2Library.pdb
+C:\Users\Peter\source\repos\FizzBuzzH\Hometask_2Library\obj\Debug\Hometask_2Library.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\AllHomeworksALevel\FizzBuzzH\Hometask_2Library\bin\Debug\Hometask_2Library.dll
+C:\Users\Peter\source\repos\AllHomeworksALevel\FizzBuzzH\Hometask_2Library\bin\Debug\Hometask_2Library.pdb
+C:\Users\Peter\source\repos\AllHomeworksALevel\FizzBuzzH\Hometask_2Library\obj\Debug\Hometask_2Library.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\AllHomeworksALevel\FizzBuzzH\Hometask_2Library\obj\Debug\Hometask_2Library.dll
+C:\Users\Peter\source\repos\AllHomeworksALevel\FizzBuzzH\Hometask_2Library\obj\Debug\Hometask_2Library.pdb

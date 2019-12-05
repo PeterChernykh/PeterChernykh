@@ -1,0 +1,9 @@
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\obj\Debug\Array_ALevel_HW5.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\bin\Debug\Array_ALevel_HW5.exe.config
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\bin\Debug\Array_ALevel_HW5.exe
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\bin\Debug\Array_ALevel_HW5.pdb
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\bin\Debug\ArrayClassLibrary.dll
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\bin\Debug\ArrayClassLibrary.pdb
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\obj\Debug\Array_ALevel_HW5.csproj.CopyComplete
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\obj\Debug\Array_ALevel_HW5.exe
+C:\Users\Peter\source\repos\Array_ALevel_HW5\Array_ALevel_HW5\obj\Debug\Array_ALevel_HW5.pdb

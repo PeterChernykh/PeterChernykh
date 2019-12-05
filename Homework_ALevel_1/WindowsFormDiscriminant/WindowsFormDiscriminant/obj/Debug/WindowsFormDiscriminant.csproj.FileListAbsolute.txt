@@ -1,0 +1,9 @@
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\bin\Debug\WindowsFormDiscriminant.exe.config
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\bin\Debug\WindowsFormDiscriminant.exe
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\bin\Debug\WindowsFormDiscriminant.pdb
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\obj\Debug\WindowsFormDiscriminant.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\obj\Debug\WindowsFormDiscriminant.Form1.resources
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\obj\Debug\WindowsFormDiscriminant.Properties.Resources.resources
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\obj\Debug\WindowsFormDiscriminant.csproj.GenerateResource.cache
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\obj\Debug\WindowsFormDiscriminant.exe
+C:\Users\Peter\source\repos\WindowsFormDiscriminant\WindowsFormDiscriminant\obj\Debug\WindowsFormDiscriminant.pdb

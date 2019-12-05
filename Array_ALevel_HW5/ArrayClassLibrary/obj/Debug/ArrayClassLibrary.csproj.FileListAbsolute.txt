@@ -1,0 +1,5 @@
+C:\Users\Peter\source\repos\Array_ALevel_HW5\ArrayClassLibrary\bin\Debug\ArrayClassLibrary.dll
+C:\Users\Peter\source\repos\Array_ALevel_HW5\ArrayClassLibrary\bin\Debug\ArrayClassLibrary.pdb
+C:\Users\Peter\source\repos\Array_ALevel_HW5\ArrayClassLibrary\obj\Debug\ArrayClassLibrary.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Array_ALevel_HW5\ArrayClassLibrary\obj\Debug\ArrayClassLibrary.dll
+C:\Users\Peter\source\repos\Array_ALevel_HW5\ArrayClassLibrary\obj\Debug\ArrayClassLibrary.pdb
