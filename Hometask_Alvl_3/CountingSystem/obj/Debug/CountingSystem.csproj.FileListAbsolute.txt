@@ -1,9 +1,0 @@
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\bin\Debug\CountingSystem.exe.config
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\bin\Debug\CountingSystem.exe
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\bin\Debug\CountingSystem.pdb
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\obj\Debug\CountingSystem.csprojAssemblyReference.cache
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\obj\Debug\CountingSystem.exe
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\obj\Debug\CountingSystem.pdb
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\bin\Debug\ExpensesLibrary.dll
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\bin\Debug\ExpensesLibrary.pdb
-C:\Users\Peter\source\repos\Hometask_Alvl_3\CountingSystem\obj\Debug\CountingSystem.csproj.CopyComplete
