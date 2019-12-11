@@ -1,0 +1,6 @@
+C:\Users\Peter\source\repos\ALevel_Practise7\ALevel_Practise7\obj\Debug\ALevel_Practise7.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\ALevel_Practise7\ALevel_Practise7\bin\Debug\ALevel_Practise7.exe.config
+C:\Users\Peter\source\repos\ALevel_Practise7\ALevel_Practise7\bin\Debug\ALevel_Practise7.exe
+C:\Users\Peter\source\repos\ALevel_Practise7\ALevel_Practise7\bin\Debug\ALevel_Practise7.pdb
+C:\Users\Peter\source\repos\ALevel_Practise7\ALevel_Practise7\obj\Debug\ALevel_Practise7.exe
+C:\Users\Peter\source\repos\ALevel_Practise7\ALevel_Practise7\obj\Debug\ALevel_Practise7.pdb
