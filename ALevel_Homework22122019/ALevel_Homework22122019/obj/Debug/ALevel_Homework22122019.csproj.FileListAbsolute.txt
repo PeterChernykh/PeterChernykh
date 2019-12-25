@@ -1,0 +1,6 @@
+C:\Users\Peter\source\repos\ALevel_Homework22122019\ALevel_Homework22122019\bin\Debug\ALevel_Homework22122019.exe.config
+C:\Users\Peter\source\repos\ALevel_Homework22122019\ALevel_Homework22122019\bin\Debug\ALevel_Homework22122019.exe
+C:\Users\Peter\source\repos\ALevel_Homework22122019\ALevel_Homework22122019\bin\Debug\ALevel_Homework22122019.pdb
+C:\Users\Peter\source\repos\ALevel_Homework22122019\ALevel_Homework22122019\obj\Debug\ALevel_Homework22122019.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\ALevel_Homework22122019\ALevel_Homework22122019\obj\Debug\ALevel_Homework22122019.exe
+C:\Users\Peter\source\repos\ALevel_Homework22122019\ALevel_Homework22122019\obj\Debug\ALevel_Homework22122019.pdb
