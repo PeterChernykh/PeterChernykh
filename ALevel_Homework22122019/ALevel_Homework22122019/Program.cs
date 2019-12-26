@@ -13,9 +13,6 @@ namespace ALevel_Homework22122019
             AddPeople LearningProcess = new AddPeople();
 
             LearningProcess.AddToRoomFour();
-            LearningProcess.AddToRoomThree();
-            LearningProcess.AddToRoomTwo();
-            LearningProcess.AddToRoomOne();
         }
     }
 }
