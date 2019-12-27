@@ -15,5 +15,6 @@ namespace ALevel_Homework22122019
             availablePlaces = rnd.Next(7, 15);
             return availablePlaces;
         }
+
     }
 }

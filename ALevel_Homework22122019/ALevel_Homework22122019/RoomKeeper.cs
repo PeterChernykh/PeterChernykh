@@ -9,10 +9,9 @@ namespace ALevel_Homework22122019
 
     public class RoomKeeper
     {
-        public List<Room> newPerson = new List<Room>();
+        public List<MaxStudent> newPerson = new List<MaxStudent>();
        
-
-        public void Add(Room person)
+        public void Add(MaxStudent person)
         {
             newPerson.Add(person);
         }

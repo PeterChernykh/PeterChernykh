@@ -6,28 +6,23 @@ using System.Threading.Tasks;
 
 namespace ALevel_Homework22122019
 {
-    class AddPeople
+    public class AddPeople
     {
-        public void AddToRoomFour()
+        public void AddToRoom()
         {
-            Room availablePlacesFour = new Room();
-
-            var maxStudentsFour = availablePlacesFour.MaxStudents();
-
-            var isTeacher = new Teacher();
-
-            isTeacher.NewTeacher();
-
             RoomKeeper currentlyInRoom = new RoomKeeper();
 
-            while (currentlyInRoom.newPerson.Count < maxStudentsFour)
+            MaxStudent availablePlaces = new MaxStudent();
+
+            var maxStudents = availablePlaces.MaxStudents();
+
+            while (currentlyInRoom.newPerson.Count < maxStudents)
             {
-                var addPerson = new Room();
+                var addPerson = new MaxStudent();
                 currentlyInRoom.newPerson.Add(addPerson);
 
                 Console.WriteLine($"Currently in room {currentlyInRoom.newPerson.Count} people");
             }
         }
-
     }
 }

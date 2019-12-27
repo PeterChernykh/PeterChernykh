@@ -10,9 +10,14 @@ namespace ALevel_Homework22122019
     {
         public static void Main(string[] args)
         {
-            AddPeople LearningProcess = new AddPeople();
+            var isTeacher = new Teacher();
 
-            LearningProcess.AddToRoomFour();
+            isTeacher.NewTeacher();
+
+            AddPeople addPeople = new AddPeople();
+
+            addPeople.AddToRoom();
+
         }
     }
 }
