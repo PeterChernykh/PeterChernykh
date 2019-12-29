@@ -10,6 +10,19 @@ namespace ALevel_homewok221212019
     {
         static void Main(string[] args)
         {
+            Admin admin = new Admin();
+            Student student = new Student();
+
+            student.Name = "Alex";
+
+            RoomService actionInRoom = new RoomService();
+
+            Room currentRoom = new Room();
+
+            actionInRoom.GetRoomCapasityByRole(admin, currentRoom);
+
+
+
         }
     }
 }

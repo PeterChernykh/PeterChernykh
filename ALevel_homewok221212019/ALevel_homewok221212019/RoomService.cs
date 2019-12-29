@@ -12,29 +12,33 @@ namespace ALevel_homewok221212019
         {
             if (person.CanMakeRoomRevision)
             {
-                return room.Capasity;
+                return room.Capasity;//рум капасити пустой
             }
 
             throw new System.Exception($"User with role {person.GetType()} can make room revision");
         }
 
-        public void AddPersonToRoom(Person person, Room room)
+        public void AddPersonToRoom(Person person, Room room)//может изменить на рум киппер
         {
             var checkCapasity = new RoomKeeper();
 
             if (person.CanBeInRoom)
             {
-                if (room.Capasity< checkCapasity.rooms.Count)
+                if (checkCapasity.rooms.Count< room.Capasity)//сравниваем значение капасити, которое мы указали и колличество айтемов в листе//откуда брать значение для сравнивания? room.Capasity пустой
                 {
 
-                    checkCapasity.rooms.Add(person);
+                    checkCapasity.rooms.Add(room);
+                    Console.WriteLine($"Currently in room - {checkCapasity.rooms.Count} and can be up to {room.Capasity}");
                 }
                 else
                 {
                     Console.WriteLine("There are no free places ");
                 }
             }
-            throw new System.Exception($"User woth role {person.GetType()} cannot be in the room");
+            else
+            {
+               Console.WriteLine($"User with role {person.GetType()} cannot be in the room");
+            }
         }
 
         //public int Capasity()
