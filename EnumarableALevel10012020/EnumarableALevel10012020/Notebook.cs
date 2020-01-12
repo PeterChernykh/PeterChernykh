@@ -9,8 +9,8 @@ namespace EnumarableALevel10012020
 
         public Notebook(int serialNumber, string name)
         {
-            this.SerialNumber = serialNumber;
-            this.Name = name;
+            SerialNumber = serialNumber;
+            Name = name;
         }
     }
 }

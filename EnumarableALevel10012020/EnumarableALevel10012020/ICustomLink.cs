@@ -4,7 +4,7 @@ namespace EnumarableALevel10012020
 {
     public interface ICustomLink
     {
-        void Add(int serialNumber, string name);
+        void Add(Notebook value);
         Notebook this[int index] { get; }
         void Delete(Notebook value);
     }

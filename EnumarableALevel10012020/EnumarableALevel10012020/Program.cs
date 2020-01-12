@@ -7,6 +7,8 @@ namespace EnumarableALevel10012020
     {
         static void Main(string[] args)
         {
+            var igor = new Notebook(1, "Igor");
+
             var notebookCollection = new CustomList();
 
             notebookCollection = notebookCollection.Add(new Notebook(1, "Igor"));
