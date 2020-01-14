@@ -6,7 +6,6 @@ namespace EnumarableALevel10012020
     {
         public int SerialNumber { get; set; }
         public string Name { get; set; }    
-        public static int Count { get; set; }
         
         public Notebook(int serialNumber, string name)
         {

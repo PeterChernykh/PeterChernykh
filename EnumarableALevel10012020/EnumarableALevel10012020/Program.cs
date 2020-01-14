@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 
 namespace EnumarableALevel10012020
 {
@@ -13,16 +12,29 @@ namespace EnumarableALevel10012020
 
             var notebookCollection = new CustomList();
 
-            notebookCollection.Add(new Notebook(1, "Igor"));
-            notebookCollection.Add(new Notebook(2, "Vasia"));
-            notebookCollection.Add(new Notebook(3, "KYPJIbik"));
+            notebookCollection.Add(igor);
+            notebookCollection.Add(vasia);
+            notebookCollection.Add(KYPJIbik);
 
-             foreach (Notebook notebook in notebookCollection)
-             Console.WriteLine(notebook.Name);
+            foreach (Notebook notebook in notebookCollection)
+            {
+                Console.WriteLine(notebook.Name);
+            }
 
+            Console.WriteLine("======================================");
 
+            var pupkin = notebookCollection[1];
 
-                Console.ReadKey();
+            foreach (Notebook notebook in notebookCollection)
+            {
+                Console.WriteLine(notebook.Name);
+            }
+
+            notebookCollection.Delete(pupkin);
+
+            Console.WriteLine("======================================");
+
+            Console.ReadKey();
         }
     }
 }

@@ -6,6 +6,6 @@ namespace EnumarableALevel10012020
     {
         void Add(Notebook value);
         Notebook this[int index] { get; }
-        void Delete(Notebook value);
+        bool Delete(Notebook value);
     }
 }
