@@ -1,0 +1,75 @@
+CREATE DATABASE TestDB
+
+CREATE TABLE Department1
+(
+Id INT,
+PRIMARY KEY (Id),
+Name NVARCHAR(15)
+)
+
+CREATE TABLE Employee
+(
+Id INT,
+PRIMARY KEY(Id),
+Department_Id INT,
+Chief_Id INT,
+Name NVARCHAR(15),
+Salary INT
+)
+
+INSERT INTO Employee (Id, Department_Id, Chief_Id, Name, Salary)
+VALUES (1, 1, NULL, 'Peter', 350), (2,1,1,	'Alex', 300),(3,1,1,	'Rob' ,300), (4,1,2,	'Node',250), (5,2,NULL,	'Lex',380),(6,2,5,	'Paul',320),
+(7,2,5,	'Paul' ,330),(8,2,5,	'Rex '  , 	310),(9,2,5,	'Rob'   ,	330),(10,2,7,	'Peter'  ,200),(11,2,7,	'Kirill   ' ,190),
+(12,3,NULL,	'Max  '   ,400), (13,3,12,	'Peter'    ,380), (14,3,13,	'Vitaliy'   ,350), (15,3,13,	'Leonard',340),
+(16,4,NULL,	'Mark   '  ,600),(17,4,NULL,	'Oleg   '   ,650), (18,4,17,	'Egor   '    ,400),(19,4,17,	'Igor   ',700),(20,4,17,	'Malik',710),
+(21, 4, 1, 'Avraam', 670);
+
+INSERT INTO DEpartment1 (Id, Name)
+VALUES(1, 'Billing'), (2, 'SSL'),(3, 'Hosting'), (4,'Domans');
+
+--№1
+SELECT Department_id, COUNT (*) AS Employee_Count
+FROM Employee
+GROUP BY Department_Id
+ORDER BY Department_Id DESC
+
+--№3
+SELECT Department_Id, COUNT(Department_Id) as Employee_Count
+FROM Employee
+GROUP BY Department_Id
+HAVING COUNT(Department_Id)  <= 3
+ORDER BY Department_Id
+
+--№4
+SELECT Department_id, COUNT (*) AS Employee_Count, MAX(Salary) AS Max_Salary_Department
+FROM Employee
+GROUP BY Department_Id
+ORDER BY Department_Id
+
+--№5
+SELECT TOP (1) Department_id, SUM(Salary) AS Total_Salary_Department
+FROM Employee
+GROUP BY Department_Id
+ORDER BY Total_Salary_Department DESC
+
+--№2
+SELECT group1.Id Id1, group2.Id Id2, group2.Name, group2.Salary
+FROM Employee group1
+INNER JOIN Employee group2 ON group1.Id = group2.Chief_Id
+WHERE group2.Salary>group1.Salary
+ORDER BY group2.Name, group2.Salary
+
+--#6
+SELECT group1.Id Employee_id, group2.Id Chief_id, group1.Name, group1.Department_Id, group2.Department_Id AS Chief_Department_Id
+FROM Employee group1
+INNER JOIN Employee group2 ON group1.Chief_Id = group2.Id
+WHERE group2.Department_Id != group1.Department_Id
+ORDER BY group1.Id
+
+--# 7
+SELECT TOP(1) salary AS second_Max_Salary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee)
+ORDER BY salary DESC
+
+
