@@ -1,0 +1,49 @@
+USE NEWDB
+
+CREATE TABLE Users
+(
+Id INT IDENTITY PRIMARY KEY,
+FirstName VARCHAR (15),
+LastName VARCHAR (15)
+);
+
+CREATE TABLE User_telephone
+(
+userId INT PRIMARY KEY NOT NULL,
+userTelephoneNumber VARCHAR(15),
+firstPhoneOperator VARCHAR(10),
+secondUserPhone VARCHAR(15),
+secondPhoneOperator VARCHAR(10),
+thirdUserPhone VARCHAR(15),
+thirdPhoneOperator VARCHAR(10)
+);
+
+INSERT Users (FirstName, LastName)
+VALUES ('Peter', 'Parker'), ('Stas', 'Fastov'), ('Artem', 'Logvinov'),
+('Mahmood', 'Ibn'), ('Kobe', 'Bryant'), ('Angrew', 'Botichelly');
+
+INSERT User_telephone (userId, userTelephoneNumber, firstPhoneOperator)
+VALUES (1, 38099922929,'MTS');
+
+INSERT User_telephone (userId, userTelephoneNumber, firstPhoneOperator, secondUserPhone, secondPhoneOperator, thirdUserPhone, thirdPhoneOperator)
+VALUES (2, 380688484844, 'KIEVSTAR', 3806637373, 'MTS', 38044747444, 'Intercity');
+
+INSERT User_telephone (userId, userTelephoneNumber, firstPhoneOperator, secondUserPhone, secondPhoneOperator, thirdUserPhone, thirdPhoneOperator)
+VALUES (3, 380999221219, 'MTS', 38066376783, 'MTS', 38044678444, 'Intercity');
+
+INSERT User_telephone (userId, userTelephoneNumber, firstPhoneOperator, secondUserPhone, secondPhoneOperator)
+VALUES (4, 380958921219, 'MTS', 38093678444, 'LIFE');
+
+INSERT User_telephone (userId, userTelephoneNumber, firstPhoneOperator)
+VALUES (5, 380242424242, 'Kobe''s');
+
+INSERT User_telephone (userId, userTelephoneNumber, firstPhoneOperator, secondUserPhone, secondPhoneOperator)
+VALUES (6, 380505555055, 'MTS', 38067889990, 'KIEVSTAR');
+__________________________________________________________________________________________________________________________________
+CREATE VIEW newIncorrectView (Id, FirstName, LastName, PhoneNumber)
+AS SELECT
+NEWDB.dbo.Users.Id AS Id,
+NEWDB.dbo.Users.FirstName AS FirstName,
+NEWDB.dbo.Users.LastName AS LastName,
+NEWDB.dbo.User_telephone.UserTelephoneNumber + NEWDB.dbo.User_telephone.SecondUserPhone + NEWDB.dbo.User_telephone.ThirdUserPhone AS phoneNumber
+FROM NEWDB.dbo.Users INNER JOIN NEWDB.dbo.User_telephone ON NEWDB.dbo.Users.Id = NEWDB.dbo.User_telephone.userId
