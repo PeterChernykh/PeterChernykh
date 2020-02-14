@@ -72,4 +72,10 @@ FROM Employee
 WHERE salary < (SELECT MAX(salary) FROM Employee)
 ORDER BY salary DESC
 
+HomeWork#2
 
+CREATE  PROCEDURE testProcedure(@salary INT, @department_Id INT)  AS BEGIN 
+SELECT * FROM Employee WHERE Employee.Salary > @salary AND Employee.Department_Id!=@department_Id;
+END;
+
+EXECUTE testProcedure @salary=400, @department_Id=1;
