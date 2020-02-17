@@ -3,7 +3,7 @@ using System.Linq;
 using Homework11.BLL.Interfaces;
 using Homework11.BLL.Models;
 using Homework11.DAL.Interfaces;
-using Homework11.DAL.Model;
+using Homework11.DAL.Models;
 
 namespace Homework11.BLL.Services
 {
@@ -43,6 +43,19 @@ namespace Homework11.BLL.Services
         {
             var car = DALObjectCreator.carObject(carModel);
             carModelRepo.Update(car);
+        }
+
+        public CarModel GetDetails(int id)
+        {
+
+            Car car = carModelRepo.GetDeteils(id);
+
+            var carsModel = new CarModel()
+            {
+                Id = car.Id,
+                Model = car.Model
+            };
+            return carsModel;
         }
     }
 }

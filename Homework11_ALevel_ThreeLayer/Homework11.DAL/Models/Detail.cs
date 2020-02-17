@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Homework11.DAL.Model
+﻿namespace Homework11.DAL.Models
 {
     public class Detail
     {
@@ -8,5 +6,6 @@ namespace Homework11.DAL.Model
         public int CarId { get; set; }
         public string DetailName { get; set; }
         public Car Car { get; set; }
+        public int Cost { get; set; }
     }
 }

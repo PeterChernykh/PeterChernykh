@@ -15,7 +15,8 @@ namespace Homework11.PL
             {
                 Id = detailViewModel.Id,
                 CarId = detailViewModel.CarId,
-                DetailName = detailViewModel.DetailName
+                DetailName = detailViewModel.DetailName,
+                Cost = detailViewModel.Cost
 
             };
 

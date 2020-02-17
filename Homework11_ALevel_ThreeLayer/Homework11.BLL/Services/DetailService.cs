@@ -3,7 +3,8 @@ using System.Linq;
 using Homework11.BLL.Interfaces;
 using Homework11.BLL.Models;
 using Homework11.DAL.Interfaces;
-using Homework11.DAL.Model;
+using Homework11.DAL.Models;
+using Homework11.BLL.Validation;
 
 namespace Homework11.BLL.Services
 {
@@ -23,7 +24,8 @@ namespace Homework11.BLL.Services
                              {
                                  Id = detail.Id,
                                  CarId = detail.CarId,
-                                 DetailName = detail.DetailName
+                                 DetailName = detail.DetailName,
+                                 Cost = detail.Cost
                              };
             return detailModels;
         }
@@ -44,6 +46,25 @@ namespace Homework11.BLL.Services
         {
             var detail = DALObjectCreator.detailObject(detailModel);
             detailModelRepo.Update(detail);
+        }
+
+        public DetailModel GetCar(int id)
+        {
+            Detail detail = detailModelRepo.GetCar(id);
+
+            //if(detail.DetailName == null)
+            //{
+            //    throw new ValidationException("The detail has been lost, the new detail is required","");
+            //}
+
+            var detailsModel = new DetailModel()
+            {
+                Id = detail.Id,
+                CarId = detail.CarId,
+                DetailName = detail.DetailName,
+                Cost = detail.Cost
+            };
+            return detailsModel;
         }
     }
 }

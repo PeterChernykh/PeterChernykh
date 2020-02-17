@@ -1,8 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Homework11.PL.Interfaces;
 using Homework11.PL.Models;
 using Homework11.BLL.Interfaces;
+using Homework11.BLL.Models;
+using Homework11.BLL.Validation;
 
 namespace Homework11.PL.Controller
 {
@@ -34,7 +37,8 @@ namespace Homework11.PL.Controller
                              {
                                  Id = detailModel.Id,
                                  CarId = detailModel.CarId,
-                                 DetailName = detailModel.DetailName
+                                 DetailName = detailModel.DetailName,
+                                 Cost = detailModel.Cost
                              };
             return carsModels;
         }
@@ -43,6 +47,20 @@ namespace Homework11.PL.Controller
         {
             var detailModel = BLLObjectCreator.detailModelObject(detailViewModel);
             detailViewModelRepo.UpdateDetail(detailModel);
+        }
+
+        public DetailViewModel GetCar(int id)
+        {
+            DetailModel detailModel = detailViewModelRepo.GetCar(id);
+
+            var detailViewModel = new DetailViewModel()
+            {
+                Id = detailModel.Id,
+                CarId = detailModel.CarId,
+                DetailName = detailModel.DetailName,
+                Cost = detailModel.Cost
+            };
+            return detailViewModel;
         }
     }
 }

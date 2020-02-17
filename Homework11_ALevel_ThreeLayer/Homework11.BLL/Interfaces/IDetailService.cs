@@ -9,5 +9,6 @@ namespace Homework11.BLL.Interfaces
         void AddNewDetail(DetailModel detail);
         void UpdateDetail(DetailModel detail);
         void DeleteDetail(DetailModel detail);
+        DetailModel GetCar(int id);
     }
 }

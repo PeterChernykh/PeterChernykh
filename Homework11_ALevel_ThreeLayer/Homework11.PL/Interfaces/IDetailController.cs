@@ -9,5 +9,6 @@ namespace Homework11.PL.Interfaces
         void AddNewDetail(DetailViewModel detailViewModel);
         void UpdateDetail(DetailViewModel detailViewModel);
         void DeleteDetail(DetailViewModel detailViewModel);
+        DetailViewModel GetCar(int id);
     }
 }

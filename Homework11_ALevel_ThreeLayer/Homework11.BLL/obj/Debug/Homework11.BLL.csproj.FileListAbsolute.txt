@@ -8,3 +8,13 @@ C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debu
 C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debug\Homework11.BLL.csproj.CopyComplete
 C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debug\Homework11.BLL.dll
 C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debug\Homework11.BLL.pdb
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\bin\Debug\Homework11.BLL.dll
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\bin\Debug\Homework11.BLL.pdb
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\bin\Debug\Homework11.DAL.dll
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\bin\Debug\Dapper.dll
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\bin\Debug\Homework11.DAL.pdb
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\bin\Debug\Dapper.xml
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debug\Homework11.BLL.csprojAssemblyReference.cache
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debug\Homework11.BLL.csproj.CopyComplete
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debug\Homework11.BLL.dll
+G:\PeterChernykh\Homework11_ALevel_ThreeLayer\Homework11.BLL\obj\Debug\Homework11.BLL.pdb

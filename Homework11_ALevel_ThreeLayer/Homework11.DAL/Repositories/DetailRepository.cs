@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Homework11.DAL.Interfaces;
-using Homework11.DAL.Model;
+using Homework11.DAL.Models;
 using Dapper;
 using System.Data.SqlClient;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Homework11.DAL.Repository
             };
         }
 
-        public Detail Get(int id)
+        public Detail GetCar(int id)
         {
             var sql = $"SELECT * FROM Details Detail INNER JOIN Cars Car on Detail.CarId = Car.Id WHERE Detail.Id = {id}";
 
@@ -68,7 +68,8 @@ namespace Homework11.DAL.Repository
                         {
                             Id = (int)reader["Id"],
                             DetailName = (string)reader["DetailName"],
-                            CarId = (int) reader ["CarId"]
+                            CarId = (int) reader ["CarId"],
+                            Cost = (int)reader["Cost"]
                         });
                     }
                 }
@@ -79,7 +80,7 @@ namespace Homework11.DAL.Repository
 
         public void Insert(Detail detail)
         {
-            var sql = $"INSERT INTO Details (CarId, DetailName) OUTPUT INSERTED.Id VALUES ({detail.CarId}, '{detail.DetailName}')";
+            var sql = $"INSERT INTO Details (CarId, DetailName, Cost) OUTPUT INSERTED.Id VALUES ({detail.CarId}, '{detail.DetailName}',{detail.Cost})";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -93,7 +94,7 @@ namespace Homework11.DAL.Repository
 
         public void Update(Detail detail)
         {
-            var sql = $"UPDATE Details SET DetailName = '{detail.DetailName}' WHERE ID = {detail.Id}";
+            var sql = $"UPDATE Details SET DetailName = '{detail.DetailName}', Cost = {detail.Cost} WHERE ID = {detail.Id}";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -102,6 +103,5 @@ namespace Homework11.DAL.Repository
                 connection.Close();
             };
         }
-        //TODO: price for the details
     }
 }

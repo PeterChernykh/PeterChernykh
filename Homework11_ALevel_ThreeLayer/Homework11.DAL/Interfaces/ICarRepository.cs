@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Homework11.DAL.Model;
+using Homework11.DAL.Models;
 
 namespace Homework11.DAL.Interfaces
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Homework11.DAL.Interfaces;
-using Homework11.DAL.Model;
+using Homework11.DAL.Models;
 using Dapper;
 using System.Data.SqlClient;
 using System.Linq;

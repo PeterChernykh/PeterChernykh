@@ -1,6 +1,4 @@
-﻿using System.Data.SqlClient;
-
-namespace Homework11.DAL
+﻿namespace Homework11.DAL
 {
     public static class Connection
     {

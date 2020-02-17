@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Homework11.DAL.Model
+namespace Homework11.DAL.Models
 {
     public class Car
     {

@@ -7,7 +7,7 @@ namespace Homework11.PL.Interfaces
     {
             IEnumerable<CarViewModel> GetAllСars();
             void AddNewCar(CarViewModel carViewModel);
-            //CarModel GetCar(int? id);
+            CarViewModel GetDetails(int id);
             void UpdateCarDetail(CarViewModel carViewModel);
             void DeleteCar(CarViewModel carViewModel);
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Homework11.PL.Interfaces;
 using Homework11.PL.Models;
 using Homework11.BLL.Interfaces;
+using Homework11.BLL.Models;
 
 namespace Homework11.PL.Controller
 {
@@ -44,6 +45,18 @@ namespace Homework11.PL.Controller
         {
             var carModel = BLLObjectCreator.carModelObject(carViewModel);
             carViewModelRepo.UpdateCar(carModel);
+        }
+
+        public CarViewModel GetDetails(int id)
+        {
+            CarModel carModel = carViewModelRepo.GetDetails(id);
+
+            var carViewModel = new CarViewModel()
+            {
+                Id = carModel.Id,
+                Model = carModel.Model
+            };
+            return carViewModel;
         }
     }
 }

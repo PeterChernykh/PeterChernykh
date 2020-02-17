@@ -7,7 +7,7 @@ namespace Homework11.BLL.Interfaces
     {
         IEnumerable<CarModel> GetAllСars();
         void AddNewCar(CarModel car);
-        //CarModel GetCar(int? id);
+        CarModel GetDetails(int id);
         void UpdateCar(CarModel car);
         void DeleteCar(CarModel car);
     }
