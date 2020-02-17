@@ -1,0 +1,8 @@
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\bin\Debug\Homework11.DAL.dll
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\bin\Debug\Homework11.DAL.pdb
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\bin\Debug\Dapper.dll
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\bin\Debug\Dapper.xml
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\obj\Debug\Homework11.DAL.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\obj\Debug\Homework11.DAL.csproj.CopyComplete
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\obj\Debug\Homework11.DAL.dll
+C:\Users\Peter\source\repos\Homework11_ALevel_ThreeLayer\Homework11.DAL\obj\Debug\Homework11.DAL.pdb
