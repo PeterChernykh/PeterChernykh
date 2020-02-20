@@ -1,0 +1,10 @@
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\bin\Debug\Homework10.PL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\bin\Debug\Homework10.PL.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\bin\Debug\Homework10.BLL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\bin\Debug\Homework10.DAL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\bin\Debug\Homework10.BLL.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\bin\Debug\Homework10.DAL.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\obj\Debug\Homework10.PL.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\obj\Debug\Homework10.PL.csproj.CopyComplete
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\obj\Debug\Homework10.PL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.PL\obj\Debug\Homework10.PL.pdb

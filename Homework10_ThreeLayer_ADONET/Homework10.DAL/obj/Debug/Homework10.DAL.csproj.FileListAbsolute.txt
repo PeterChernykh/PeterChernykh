@@ -1,0 +1,5 @@
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.DAL\bin\Debug\Homework10.DAL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.DAL\bin\Debug\Homework10.DAL.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.DAL\obj\Debug\Homework10.DAL.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.DAL\obj\Debug\Homework10.DAL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10.DAL\obj\Debug\Homework10.DAL.pdb

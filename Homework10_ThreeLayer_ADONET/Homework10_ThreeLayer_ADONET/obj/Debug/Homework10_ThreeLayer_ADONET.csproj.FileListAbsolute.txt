@@ -1,0 +1,13 @@
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10_ThreeLayer_ADONET.exe.config
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10_ThreeLayer_ADONET.exe
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10_ThreeLayer_ADONET.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10.BLL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10.DAL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10.BLL.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10.DAL.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\obj\Debug\Homework10_ThreeLayer_ADONET.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\obj\Debug\Homework10_ThreeLayer_ADONET.csproj.CopyComplete
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\obj\Debug\Homework10_ThreeLayer_ADONET.exe
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\obj\Debug\Homework10_ThreeLayer_ADONET.pdb
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10.PL.dll
+C:\Users\Peter\source\repos\Homework10_ThreeLayer_ADONET\Homework10_ThreeLayer_ADONET\bin\Debug\Homework10.PL.pdb
