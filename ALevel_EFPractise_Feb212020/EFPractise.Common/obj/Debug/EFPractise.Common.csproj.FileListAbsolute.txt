@@ -1,0 +1,5 @@
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.Common\bin\Debug\EFPractise.Common.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.Common\bin\Debug\EFPractise.Common.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.Common\obj\Debug\EFPractise.Common.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.Common\obj\Debug\EFPractise.Common.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.Common\obj\Debug\EFPractise.Common.pdb

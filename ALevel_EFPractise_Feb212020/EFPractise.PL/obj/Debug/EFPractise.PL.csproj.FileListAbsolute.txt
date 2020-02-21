@@ -1,0 +1,15 @@
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.PL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.PL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.BLL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.Common.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.DAL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EntityFramework.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.BLL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.Common.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.DAL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.DAL.dll.config
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\bin\Debug\EntityFramework.xml
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.csproj.CopyComplete
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.pdb

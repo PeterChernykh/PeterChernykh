@@ -1,0 +1,20 @@
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\ALevel_ EFPractise_Feb212020.exe.config
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\ALevel_ EFPractise_Feb212020.exe
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\ALevel_ EFPractise_Feb212020.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.PL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.Common.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.BLL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.DAL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.PL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.Common.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.BLL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.DAL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.DAL.dll.config
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.xml
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.csproj.CopyComplete
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.exe
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.SqlServer.xml

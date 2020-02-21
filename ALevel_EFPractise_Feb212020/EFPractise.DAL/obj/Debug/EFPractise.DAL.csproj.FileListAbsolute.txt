@@ -1,0 +1,13 @@
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\bin\Debug\EFPractise.DAL.dll.config
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\bin\Debug\EFPractise.DAL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\bin\Debug\EFPractise.DAL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\obj\Debug\EFPractise.DAL.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\obj\Debug\EFPractise.DAL.csproj.CopyComplete
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\obj\Debug\EFPractise.DAL.dll
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\obj\Debug\EFPractise.DAL.pdb
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\obj\Debug\EFPractise.DAL.Migrations.Initial_Create.resources
+C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.DAL\obj\Debug\EFPractise.DAL.csproj.GenerateResource.cache
