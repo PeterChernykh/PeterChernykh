@@ -30,7 +30,7 @@ namespace Homework11.DAL.Repository
         public Car GetDeteils(int id)
         {
             var sql = $"SELECT * FROM Cars Car INNER JOIN Details Detail on Car.Id = Detail.CarId WHERE Car.Id = {id}";
-
+ 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();

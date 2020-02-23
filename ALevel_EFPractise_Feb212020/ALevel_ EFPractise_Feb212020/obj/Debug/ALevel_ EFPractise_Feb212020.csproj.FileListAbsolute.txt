@@ -18,3 +18,23 @@ C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb2
 C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.pdb
 C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.SqlServer.xml
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\ALevel_ EFPractise_Feb212020.exe.config
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\ALevel_ EFPractise_Feb212020.exe
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\ALevel_ EFPractise_Feb212020.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.PL.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.SqlServer.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.Common.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.BLL.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.DAL.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.PL.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.xml
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EntityFramework.SqlServer.xml
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.Common.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.BLL.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.DAL.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\bin\Debug\EFPractise.DAL.dll.config
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.csprojAssemblyReference.cache
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.csproj.CopyComplete
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.exe
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\ALevel_ EFPractise_Feb212020\obj\Debug\ALevel_ EFPractise_Feb212020.pdb

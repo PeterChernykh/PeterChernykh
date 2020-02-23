@@ -1,0 +1,13 @@
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\bin\Debug\Homework12_DAL.dll.config
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\bin\Debug\Homework12_DAL.dll
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\bin\Debug\Homework12_DAL.pdb
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\bin\Debug\EntityFramework.dll
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\bin\Debug\EntityFramework.xml
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.csproj.CopyComplete
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.dll
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.pdb
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.Migrations.InitialCreate.resources
+C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.csproj.GenerateResource.cache

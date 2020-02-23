@@ -13,3 +13,18 @@ C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug
 C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.csproj.CopyComplete
 C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.dll
 C:\Users\Peter\source\repos\ALevel_ EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.PL.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.PL.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.BLL.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.Common.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.DAL.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EntityFramework.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.BLL.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.Common.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.DAL.pdb
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EFPractise.DAL.dll.config
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\bin\Debug\EntityFramework.xml
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.csprojAssemblyReference.cache
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.csproj.CopyComplete
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.dll
+G:\PeterChernykh\ALevel_EFPractise_Feb212020\EFPractise.PL\obj\Debug\EFPractise.PL.pdb

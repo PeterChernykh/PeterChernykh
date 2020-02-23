@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EFPractise.DAL\EFPractise.DAL.csproj">
+      <Project>{10EEE990-6A1B-44D9-85B8-DFF739131483}</Project>
+      <Name>EFPractise.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EFPractise.PL\EFPractise.PL.csproj">
       <Project>{F2CF0AA2-9BBB-4D2F-8355-CD6535140604}</Project>
       <Name>EFPractise.PL</Name>

@@ -1,5 +1,7 @@
 ﻿using EFPractise.DAL.IRepositories;
 using EFPractise.DAL.Models;
+using System;
+using System.Collections.Generic;
 
 namespace EFPractise.DAL.Repositories
 {
@@ -16,6 +18,12 @@ namespace EFPractise.DAL.Repositories
         {
             _ctx.Jewelleries.Add(model);
             _ctx.SaveChanges();
+        }
+
+        public IEnumerable<Jewellery> GetAll()
+        {
+            var allJew = _ctx.Jewelleries;
+            return allJew;
         }
 
 
