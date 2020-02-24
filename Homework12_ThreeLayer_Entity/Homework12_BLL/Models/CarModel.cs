@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Homework12_BLL.Models
 {
     public class CarModel
     {
-            public int Id { get; set; }//TODO:убрать айди
+            public int Id { get; set; }
             public string Model { get; set; }
             public IEnumerable<DetailModel> Details { get; set; }
     }

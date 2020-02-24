@@ -3,11 +3,8 @@ using Homework12_BLL.Models;
 using Homework12_DAL.Interfaces;
 using Homework12_DAL.Models;
 using Homework12_DAL.Repositories;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Homework12_BLL.Services
 {
@@ -23,7 +20,7 @@ namespace Homework12_BLL.Services
 
         }
 
-        public void AddNewCar(CarModel carModel)
+        public void Add(CarModel carModel)
         {
             var car = new Car
             {
@@ -40,33 +37,21 @@ namespace Homework12_BLL.Services
             _dbCar.Insert(car);
         }
 
-        public void DeleteCar(CarModel carModel)
+        public void Delete(int id)
         {
-            var car = new Car
-            {
-                Model = carModel.Model,
-                Details = carModel.Details.Select(x => new Detail
-                {
-                    DetailName = x.DetailName,//TODO: check caskad removing
-                    Cost = x.Cost,
-                    CarId = x.CarId
-                }
-               ).ToList(),
-            };
-            _dbCar.Delete(car);
+            _dbCar.Delete(id);
         }
 
-        public IEnumerable<CarModel> GetAllСars()
+        public IEnumerable<CarModel> GetAll()
         {
             var detailModels = from detail in _dbDetail.GetAll()
                                select new DetailModel()
-                               {
+                               { 
                                    Id = detail.Id,
                                    DetailName = detail.DetailName,
                                    Cost = detail.Cost,
                                    CarId = detail.CarId
                                };
-
 
             var carModels = from car in _dbCar.GetAll()
                            select new CarModel()
@@ -78,30 +63,22 @@ namespace Homework12_BLL.Services
             return carModels;
         }
 
+        public void Update(CarModel carModel)
+        {
+            var car = _dbCar.GetAll().Where(x => x.Id == carModel.Id).FirstOrDefault();
+
+            car.Model = carModel.Model;
+
+            _dbCar.Update(car);
+        }
+
         public CarModel GetCarById(int id)
         {
-            var cars = GetAllСars();
+            var cars = GetAll();
 
             var car = cars.Where(x => x.Id == id).FirstOrDefault();
 
             return car;
-        }
-
-        public void UpdateCar(CarModel carModel)
-        {
-            var car = new Car
-            {
-                Model = carModel.Model,
-                Details = carModel.Details.Select(x => new Detail
-                {
-                    DetailName = x.DetailName,
-                    Cost = x.Cost,
-                    CarId = x.CarId
-                }
-                ).ToList(),
-            };
-
-            _dbCar.Update(car);
         }
     }
 }

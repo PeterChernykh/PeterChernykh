@@ -15,8 +15,9 @@ namespace Homework12_DAL.Repositories
             _db = new MyDBContext();
         }
 
-        public void Delete(Detail detail)
+        public void Delete(int id)
         {
+            var detail =  _db.Details.Where(x => x.Id == id).FirstOrDefault();
             _db.Details.Remove(detail);
             _db.SaveChanges();
         }
@@ -34,7 +35,7 @@ namespace Homework12_DAL.Repositories
 
         public void Update(Detail detail)
         {
-            _db.Entry(detail).State = EntityState.Modified;
+            _db.Entry(detail).State = EntityState.Modified; 
             _db.SaveChanges();
         }
     }

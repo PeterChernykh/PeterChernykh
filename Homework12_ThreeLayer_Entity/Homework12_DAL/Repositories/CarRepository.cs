@@ -15,16 +15,16 @@ namespace Homework12_DAL.Repositories
             _db = new MyDBContext();
         }
 
-        public void Delete(Car car)
+        public void Delete(int id)
         {
+            var car = _db.Cars.Where(x => x.Id == id).FirstOrDefault();
             _db.Cars.Remove(car);
             _db.SaveChanges();
         }
 
         public IEnumerable<Car> GetAll()
         {
-            var allCars =  _db.Cars.ToList();
-            return allCars;
+            return _db.Cars.ToList();
         }
 
         public void Insert(Car car)

@@ -3,11 +3,8 @@ using Homework12_BLL.Models;
 using Homework12_BLL.Services;
 using Homework12_PL.Interfaces;
 using Homework12_PL.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Homework12_PL.Controller
 {
@@ -23,73 +20,74 @@ namespace Homework12_PL.Controller
             _dbDetail = new DetailService();
         }
 
-        public void AddNewCar(CarViewModel carViewModel)
+        public void Add(CarViewModel carViewModel)
         {
             var car = new CarModel
             {
-                Model = "Opel",
+                Model = "Rover",
                 Details = new List<DetailModel>
                 {
                     new DetailModel
                     {
-                        DetailName = "Wheel",
-                        Cost = 1500,
+                        DetailName = "Chop",
+                        Cost = 777,
                     },
                     new DetailModel
                     {
-                        DetailName = "Door",
-                        Cost = 1500,
+                        DetailName = "Chair",
+                        Cost = 1277,
                     },
                     new DetailModel
                     {
                         DetailName = "Stearing wheel",
-                        Cost = 1500,
+                        Cost = 77772,
                     }
                 }
             };
-            _dbCar.AddNewCar(car);
+            _dbCar.Add(car);
         }
 
-        public void DeleteCar(CarViewModel carViewModel)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _dbCar.Delete(id);
         }
 
-        public IEnumerable<CarViewModel> GetAllСars()
+        public IEnumerable<CarViewModel> GetAll()
         {
-            var allDetails = _dbDetail.GetAll();
-            
-            var detailViewModels = from detail in allDetails
+
+            var detailModels = from detail in _dbDetail.GetAll()
                                select new DetailViewModel()
                                {
                                    DetailName = detail.DetailName,
                                    Cost = detail.Cost,
-                                   CarViewModel = new CarViewModel
-                                   {
-                                       Model = detail.CarModel.Model,
-                                   },
                                    CarId = detail.CarId
                                };
 
-
-            var carViewModels = from car in _dbCar.GetAllСars()
+            var carModels = from car in _dbCar.GetAll()
                             select new CarViewModel()
                             {
                                 Model = car.Model,
-                                Details = detailViewModels.Where(x => x.CarId == car.Id).ToList()
+                                Details = detailModels.Where(x => x.CarId == car.Id).ToList()
                             };
+            return carModels.ToList();
+        }
 
-            return carViewModels;
+        public void Update(CarViewModel carViewModel)
+        {
+            var carModel = new CarModel
+            {
+                Id = 3,
+                Model = "Jaguar"
+            };
+
+            _dbCar.Update(carModel);
         }
 
         public CarViewModel GetCarById(int id)
         {
-            throw new NotImplementedException();
-        }
+            var car = GetAll().Where(x => x.Id == id).FirstOrDefault();
 
-        public void UpdateCar(CarViewModel carViewModel)
-        {
-            throw new NotImplementedException();
+            return car;
         }
     }
 }

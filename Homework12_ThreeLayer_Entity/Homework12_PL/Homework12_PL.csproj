@@ -54,6 +54,10 @@
       <Project>{FA08CBA2-C652-43AA-A6E8-5215C441E7FC}</Project>
       <Name>Homework12_BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Homework12_DAL\Homework12_DAL.csproj">
+      <Project>{CD17CF39-474E-4612-B07F-C94DA80913D3}</Project>
+      <Name>Homework12_DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

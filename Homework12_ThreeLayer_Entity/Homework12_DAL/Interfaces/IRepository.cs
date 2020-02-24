@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Homework12_DAL.Models;
+﻿using System.Collections.Generic;
 
 namespace Homework12_DAL.Interfaces
 {
@@ -11,7 +6,7 @@ namespace Homework12_DAL.Interfaces
     {
         IEnumerable<T> GetAll();
         void Insert(T item);
-        void Delete(T item);
+        void Delete(int id);
         void Update(T item);
     }
 }

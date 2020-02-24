@@ -1,11 +1,5 @@
-﻿using Homework12_BLL.Services;
-using Homework12_PL.Controller;
+﻿using Homework12_PL.Controller;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Homework12_DAL.Repositories;
 
 namespace Homework12_ThreeLayer_Entity
 {
@@ -13,14 +7,21 @@ namespace Homework12_ThreeLayer_Entity
     {
         static void Main(string[] args)
         {
-            var carRepository = new CarRepository();
-            var carService = new CarService();
             var carController = new CarController();
+            var detailController = new DetailController();
 
+            
+            var allDetailsController = detailController.GetAll();
+            detailController.Add(null);
+            detailController.Delete(7);
+            var fifthDetail = detailController.GetById(5);
+            detailController.Update(null);
 
-           carRepository.GetAll();
-           carService.GetAllСars();
-           // carController.GetAllСars();
+            var allCarViewModels = carController.GetAll();
+            carController.Add(null);
+            carController.Delete(4);
+            var secondCar = carController.GetCarById(2);
+            carController.Update(null);
 
             Console.ReadKey();
         }
