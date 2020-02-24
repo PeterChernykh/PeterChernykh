@@ -11,3 +11,16 @@ C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug
 C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug\Homework12_PL.csproj.CopyComplete
 C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug\Homework12_PL.dll
 C:\Users\Peter\source\repos\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug\Homework12_PL.pdb
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\Homework12_PL.dll
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\Homework12_PL.pdb
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\Homework12_BLL.dll
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\Homework12_DAL.dll
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\EntityFramework.dll
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\Homework12_BLL.pdb
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\Homework12_DAL.pdb
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\Homework12_DAL.dll.config
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\bin\Debug\EntityFramework.xml
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug\Homework12_PL.csprojAssemblyReference.cache
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug\Homework12_PL.csproj.CopyComplete
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug\Homework12_PL.dll
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_PL\obj\Debug\Homework12_PL.pdb

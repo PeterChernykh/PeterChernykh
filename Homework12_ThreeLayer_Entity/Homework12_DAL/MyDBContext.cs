@@ -12,7 +12,7 @@ namespace Homework12_DAL
     {
         public  MyDBContext() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=EFHomeworkDatabase;Integrated Security=True")
         {
-
+           Database.SetInitializer<MyDBContext>(new MigrateDatabaseToLatestVersion<MyDBContext, Homework12_DAL.Migrations.Configuration>());
         }
 
         public DbSet<Car> Cars { get; set; }
