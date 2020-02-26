@@ -14,14 +14,14 @@ namespace Homework12_ThreeLayer_Entity
             var allDetailsController = detailController.GetAll();
             //detailController.Add(null);
             //detailController.Delete(7);
-            var fifthDetail = detailController.GetById(5);
+            //var fifthDetail = detailController.GetById(5);
             detailController.Update(null);
 
             var allCarViewModels = carController.GetAll();
-            carController.Add(null);
+            //carController.Add(null);
             //carController.Delete(4);
-            var secondCar = carController.GetCarById(2);
-            carController.Update(null);
+            //var secondCar = carController.GetCarById(2);
+            //carController.Update(null);
 
             Console.ReadKey();
         }

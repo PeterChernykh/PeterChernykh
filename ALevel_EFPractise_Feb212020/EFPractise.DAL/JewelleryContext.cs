@@ -13,5 +13,6 @@ namespace EFPractise.DAL
         public DbSet<Jewellery> Jewelleries { get; set; }
         public DbSet<Gemstone> Gemstones { get; set; }
         public DbSet<GemstoneType> GemstoneTypes { get; set; }
+        public DbSet<Country> Countries { get; set; }
     }
 }

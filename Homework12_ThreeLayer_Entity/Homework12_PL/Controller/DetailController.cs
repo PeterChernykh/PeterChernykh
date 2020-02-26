@@ -43,8 +43,10 @@ namespace Homework12_PL.Controller
                                       Cost = detail.Cost,
                                       CarViewModel = new CarViewModel
                                       {
+                                          Id = detail.CarModel.Id,
                                           Model = detail.CarModel.Model,
                                       },
+                                      CarId = detail.CarId
                                   };
             return detailViewModel.ToList();
         }
@@ -53,9 +55,9 @@ namespace Homework12_PL.Controller
         {
             var detailModel = new DetailModel
             {
-                Id = 9,
-                DetailName = "Updata",
-                Cost = 1997,
+                Id = 1,
+                DetailName = "Rolls",
+                Cost = 436743,
             };
 
             _dbDetail.Update(detailModel);

@@ -9,5 +9,7 @@ namespace EFPractise.DAL.Models
         public string Name { get; set; }
         public long LicenseNumber { get; set; }
         public DateTime DataCreated { get; set; }
+
+        public Country Country { get; set; }
     }
 }

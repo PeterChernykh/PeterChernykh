@@ -44,22 +44,20 @@ namespace Homework12_BLL.Services
 
         public IEnumerable<CarModel> GetAll()
         {
-            var detailModels = from detail in _dbDetail.GetAll()
-                               select new DetailModel()
-                               { 
-                                   Id = detail.Id,
-                                   DetailName = detail.DetailName,
-                                   Cost = detail.Cost,
-                                   CarId = detail.CarId
-                               };
 
             var carModels = from car in _dbCar.GetAll()
-                           select new CarModel()
-                           {
-                               Id = car.Id,
-                               Model = car.Model,
-                               Details = detailModels.Where(x => x.CarId == car.Id).ToList()
-                           };
+                            from detail in _dbDetail.GetAll()
+                            select new CarModel()
+                            {
+                                Id = car.Id,
+                                Model = car.Model,
+                                Details = car.Details.Select(x => new DetailModel 
+                                {
+
+                                    DetailName = x.DetailName,
+                                    Cost = x.Cost
+                                })
+                            };
             return carModels;
         }
 

@@ -17,14 +17,15 @@ namespace Homework12_DAL.Repositories
 
         public void Delete(int id)
         {
-            var detail =  _db.Details.Where(x => x.Id == id).FirstOrDefault();
+            var details = _db.Details;
+            var detail = details.Where(x => x.Id == id).FirstOrDefault();
             _db.Details.Remove(detail);
             _db.SaveChanges();
         }
 
         public IEnumerable <Detail> GetAll()
         {
-            return _db.Details.ToList();
+            return _db.Details.AsNoTracking().ToList();
         }
 
         public void Insert(Detail detail)
@@ -35,8 +36,21 @@ namespace Homework12_DAL.Repositories
 
         public void Update(Detail detail)
         {
-            _db.Entry(detail).State = EntityState.Modified; 
+            var newDetail = GetById(detail.Id);
+
+            newDetail.DetailName = detail.DetailName;
+            newDetail.Cost = detail.Cost;
+
+            _db.Entry(newDetail);
             _db.SaveChanges();
+        }
+
+        public Detail GetById(int id)
+        {
+            var dets = _db.Details.ToList();
+            var detail = _db.Details.Where(x => x.Id == id).AsNoTracking().FirstOrDefault();
+
+            return detail;
         }
     }
 }

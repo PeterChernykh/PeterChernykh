@@ -17,14 +17,16 @@ namespace Homework12_DAL.Repositories
 
         public void Delete(int id)
         {
-            var car = _db.Cars.Where(x => x.Id == id).FirstOrDefault();
+            var cars = _db.Cars;
+            var car = cars.Where(x => x.Id == id).FirstOrDefault();
+
             _db.Cars.Remove(car);
             _db.SaveChanges();
         }
 
         public IEnumerable<Car> GetAll()
         {
-            return _db.Cars.ToList();
+            return _db.Cars.AsNoTracking().ToList();
         }
 
         public void Insert(Car car)
@@ -35,8 +37,11 @@ namespace Homework12_DAL.Repositories
 
         public void Update(Car car)
         {
-            _db.Entry(car).State = EntityState.Modified;
-            _db.SaveChanges();
+            //var cars = _db.Cars;
+            //var car = cars.Where(x => x.Id == id).FirstOrDefault();
+
+            //_db.Entry(car);
+            //_db.SaveChanges();
         }
     }
 }

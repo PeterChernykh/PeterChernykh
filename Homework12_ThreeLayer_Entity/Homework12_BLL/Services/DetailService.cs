@@ -33,9 +33,10 @@ namespace Homework12_BLL.Services
                                   Id = detail.Car.Id,
                                   Model = detail.Car.Model
                               },
-                              CarId = detail.CarId,
+                              CarId = detail.CarId
                        };
 
+            
             return details.ToList();
         }
 
@@ -60,10 +61,13 @@ namespace Homework12_BLL.Services
 
         public void Update(DetailModel detailModel)
         {
-            var detail = _dbDetail.GetAll().Where(x => x.Id == detailModel.Id).FirstOrDefault(); ;
-
-            detail.DetailName = detailModel.DetailName;
-            detail.Cost = detailModel.Cost;
+            var detail = new Detail
+            {
+                Id = detailModel.Id,
+                CarId = detailModel.CarId,
+                DetailName = detailModel.DetailName,
+                Cost = detailModel.Cost
+            };
 
             _dbDetail.Update(detail);
         }

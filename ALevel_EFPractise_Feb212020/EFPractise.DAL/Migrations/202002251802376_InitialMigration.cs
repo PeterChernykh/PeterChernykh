@@ -3,10 +3,34 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial_Create : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Countries",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Manufacturers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ContryId = c.Int(nullable: false),
+                        Name = c.String(),
+                        LicenseNumber = c.Long(nullable: false),
+                        DataCreated = c.DateTime(nullable: false),
+                        Country_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Countries", t => t.Country_Id)
+                .Index(t => t.Country_Id);
+            
             CreateTable(
                 "dbo.Gemstones",
                 c => new
@@ -46,18 +70,6 @@
                 .ForeignKey("dbo.Manufacturers", t => t.ManufactorerId, cascadeDelete: true)
                 .Index(t => t.ManufactorerId);
             
-            CreateTable(
-                "dbo.Manufacturers",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ContryId = c.Int(nullable: false),
-                        Name = c.String(),
-                        LicenseNumber = c.Long(nullable: false),
-                        DataCreated = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
         }
         
         public override void Down()
@@ -65,13 +77,16 @@
             DropForeignKey("dbo.Jewelleries", "ManufactorerId", "dbo.Manufacturers");
             DropForeignKey("dbo.Gemstones", "Jewellery_Id", "dbo.Jewelleries");
             DropForeignKey("dbo.Gemstones", "GemstoneTypeId", "dbo.GemstoneTypes");
+            DropForeignKey("dbo.Manufacturers", "Country_Id", "dbo.Countries");
             DropIndex("dbo.Jewelleries", new[] { "ManufactorerId" });
             DropIndex("dbo.Gemstones", new[] { "Jewellery_Id" });
             DropIndex("dbo.Gemstones", new[] { "GemstoneTypeId" });
-            DropTable("dbo.Manufacturers");
+            DropIndex("dbo.Manufacturers", new[] { "Country_Id" });
             DropTable("dbo.Jewelleries");
             DropTable("dbo.GemstoneTypes");
             DropTable("dbo.Gemstones");
+            DropTable("dbo.Manufacturers");
+            DropTable("dbo.Countries");
         }
     }
 }

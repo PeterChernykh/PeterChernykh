@@ -1,7 +1,9 @@
 ﻿namespace EFPractise.DAL.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using EFPractise.DAL.Models;
+    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<EFPractise.DAL.JewelleryContext>
     {
@@ -12,9 +14,10 @@
 
         protected override void Seed(EFPractise.DAL.JewelleryContext context)
         {
-            context.GemstoneTypes.Add(new GemstoneType { Name = "Diamont" });
-            context.GemstoneTypes.Add(new GemstoneType { Name = "Ametist" });
-            context.GemstoneTypes.Add(new GemstoneType { Name = "Emerald" });
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data.
         }
     }
 }
