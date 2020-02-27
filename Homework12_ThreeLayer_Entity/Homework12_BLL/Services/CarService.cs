@@ -53,10 +53,17 @@ namespace Homework12_BLL.Services
                                 Details = car.Details.Select(x => new DetailModel
                                 {
                                     Id = x.Id,
+<<<<<<< HEAD
                                     Name = x.Name,
                                     Cost = x.Cost,
                                     CarId = x.CarId
 
+=======
+                                    DetailName = x.DetailName,
+                                    Cost = x.Cost,
+                                    CarId = x.CarId
+                                    
+>>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
                                 })
                             };
             return carModels;
@@ -77,7 +84,11 @@ namespace Homework12_BLL.Services
 
         public CarModel GetById(int id)
         {
+<<<<<<< HEAD
             var car = _dbCar.GetById(id);
+=======
+           var car = _dbCar.GetById(id);
+>>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
 
             var carModel = new CarModel
             {
@@ -85,7 +96,11 @@ namespace Homework12_BLL.Services
                 Model = car.Model,
                 Details = car.Details.Select(x => new DetailModel
                 {
+<<<<<<< HEAD
                     Name = x.Name,
+=======
+                    DetailName = x.DetailName,
+>>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
                     Cost = x.Cost
                 })
             };

@@ -22,7 +22,11 @@ namespace Homework12_PL.Controller
         {
             var detail = new DetailModel
             {
+<<<<<<< HEAD
                 Name = "Boom Wheel",
+=======
+                DetailName = "Boom Wheel",
+>>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
                 Cost = 45454,
                 CarId = 3
             };
@@ -56,7 +60,11 @@ namespace Homework12_PL.Controller
             var detailModel = new DetailModel
             {
                 Id = 1,
+<<<<<<< HEAD
                 Name = "PeterDetail",
+=======
+                DetailName = "PeterDetail",
+>>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
                 Cost = 000000,
             };
 
@@ -70,13 +78,21 @@ namespace Homework12_PL.Controller
             var detailViewModel = new DetailViewModel
             {
                 Id = detailModel.Id,
+<<<<<<< HEAD
                 Name = detailModel.Name,
+=======
+                DetailName = detailModel.DetailName,
+>>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
                 Cost = detailModel.Cost,
                 CarViewModel = new CarViewModel
                 {
                     Id = detailModel.CarModel.Id,
                     Model = detailModel.CarModel.Model,
+<<<<<<< HEAD
                 }
+=======
+                }    
+>>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
             };
 
             return detailViewModel;
