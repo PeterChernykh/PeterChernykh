@@ -9,5 +9,6 @@ namespace Homework12_BLL.Interfaces
         void Add(CarModel carModel);
         void Update(CarModel carModel);
         void Delete(int id);
+        CarModel GetById(int id);
     }
 }

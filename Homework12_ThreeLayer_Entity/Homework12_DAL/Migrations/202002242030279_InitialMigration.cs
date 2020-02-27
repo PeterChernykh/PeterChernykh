@@ -21,7 +21,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        DetailName = c.String(),
+                        Name = c.String(),
                         Cost = c.Int(nullable: false),
                         CarId = c.Int(nullable: false),
                     })

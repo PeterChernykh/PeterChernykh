@@ -9,5 +9,6 @@ namespace Homework12_BLL.Interfaces
         void Delete(int id);
         void Add(DetailModel detailModel);
         void Update(DetailModel detailModel);
+        DetailModel GetById(int id);
     }
 }

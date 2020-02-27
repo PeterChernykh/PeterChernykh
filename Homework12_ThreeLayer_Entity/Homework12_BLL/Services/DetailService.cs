@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Homework12_BLL.Services
 {
-    public class DetailService: IDetailService
+    public class DetailService : IDetailService
     {
         private readonly IRepository<Detail> _dbDetail;
         private readonly IRepository<Car> _dbCar;
@@ -26,7 +26,7 @@ namespace Homework12_BLL.Services
                           select new DetailModel
                           {
                               Id = detail.Id,
-                              DetailName = detail.DetailName,
+                              Name = detail.Name,
                               Cost = detail.Cost,
                               CarModel = new CarModel
                               {
@@ -34,13 +34,13 @@ namespace Homework12_BLL.Services
                                   Model = detail.Car.Model
                               },
                               CarId = detail.CarId
-                       };
+                          };
 
-            
+
             return details.ToList();
         }
 
-        public void Delete (int id)
+        public void Delete(int id)
         {
             _dbDetail.Delete(id);
         }
@@ -49,11 +49,11 @@ namespace Homework12_BLL.Services
         {
             var car = _dbCar.GetAll().Where(x => x.Id == detailModel.CarId).FirstOrDefault();
 
-            var detail = new Detail 
+            var detail = new Detail
             {
-                DetailName = detailModel.DetailName,
+                Name = detailModel.Name,
                 Cost = detailModel.Cost,
-                CarId = car.Id
+                CarId = detailModel.CarId
             };
 
             _dbDetail.Insert(detail);
@@ -64,8 +64,8 @@ namespace Homework12_BLL.Services
             var detail = new Detail
             {
                 Id = detailModel.Id,
-                CarId = detailModel.CarId,
-                DetailName = detailModel.DetailName,
+
+                Name = detailModel.Name,
                 Cost = detailModel.Cost
             };
 
@@ -74,9 +74,21 @@ namespace Homework12_BLL.Services
 
         public DetailModel GetById(int id)
         {
-            var detail = GetAll().Where(x => x.Id == id).FirstOrDefault();
+            var detail = _dbDetail.GetById(id);
 
-            return detail;
+            var detailModel = new DetailModel
+            {
+                Id = detail.Id,
+                Name = detail.Name,
+                Cost = detail.Cost,
+                CarModel = new CarModel
+                {
+                    Id = detail.Car.Id,
+                    Model = detail.Car.Model,
+                }
+            };
+
+            return detailModel;
         }
     }
 }
