@@ -46,16 +46,17 @@ namespace Homework12_BLL.Services
         {
 
             var carModels = from car in _dbCar.GetAll()
-                            from detail in _dbDetail.GetAll()
                             select new CarModel()
                             {
                                 Id = car.Id,
                                 Model = car.Model,
                                 Details = car.Details.Select(x => new DetailModel 
                                 {
-
+                                    Id = x.Id,
                                     DetailName = x.DetailName,
-                                    Cost = x.Cost
+                                    Cost = x.Cost,
+                                    CarId = x.CarId
+                                    
                                 })
                             };
             return carModels;
@@ -63,20 +64,33 @@ namespace Homework12_BLL.Services
 
         public void Update(CarModel carModel)
         {
-            var car = _dbCar.GetAll().Where(x => x.Id == carModel.Id).FirstOrDefault();
+            var car = new Car
+            {
+                Id = carModel.Id,
+                Model = carModel.Model
+            };
 
             car.Model = carModel.Model;
 
             _dbCar.Update(car);
         }
 
-        public CarModel GetCarById(int id)
+        public CarModel GetById(int id)
         {
-            var cars = GetAll();
+           var car = _dbCar.GetById(id);
 
-            var car = cars.Where(x => x.Id == id).FirstOrDefault();
+            var carModel = new CarModel
+            {
+                Id = car.Id,
+                Model = car.Model,
+                Details = car.Details.Select(x => new DetailModel
+                {
+                    DetailName = x.DetailName,
+                    Cost = x.Cost
+                })
+            };
 
-            return car;
+            return carModel;
         }
     }
 }

@@ -22,9 +22,9 @@ namespace Homework12_PL.Controller
         {
             var detail = new DetailModel
             {
-                DetailName = "Diamond Stering Wheel",
-                Cost = 1000000,
-                CarId = 1
+                DetailName = "Boom Wheel",
+                Cost = 45454,
+                CarId = 3
             };
             _dbDetail.Add(detail);
         }
@@ -56,8 +56,8 @@ namespace Homework12_PL.Controller
             var detailModel = new DetailModel
             {
                 Id = 1,
-                DetailName = "Rolls",
-                Cost = 436743,
+                DetailName = "PeterDetail",
+                Cost = 000000,
             };
 
             _dbDetail.Update(detailModel);
@@ -65,9 +65,21 @@ namespace Homework12_PL.Controller
 
         public DetailViewModel GetById(int id)
         {
-            var detail = GetAll().Where(x => x.Id == id).FirstOrDefault();
+            var detailModel = _dbDetail.GetById(id);
 
-            return detail;
+            var detailViewModel = new DetailViewModel
+            {
+                Id = detailModel.Id,
+                DetailName = detailModel.DetailName,
+                Cost = detailModel.Cost,
+                CarViewModel = new CarViewModel
+                {
+                    Id = detailModel.CarModel.Id,
+                    Model = detailModel.CarModel.Model,
+                }    
+            };
+
+            return detailViewModel;
         }
     }
 }

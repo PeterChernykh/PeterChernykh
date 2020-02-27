@@ -10,7 +10,6 @@ namespace Homework12_PL.Controller
 {
     public class CarController : ICarController
     {
-
         private readonly ICarService _dbCar;
         private readonly IDetailService _dbDetail;
 
@@ -24,23 +23,23 @@ namespace Homework12_PL.Controller
         {
             var car = new CarModel
             {
-                Model = "Rover",
+                Model = "NotPetercar",
                 Details = new List<DetailModel>
                 {
                     new DetailModel
                     {
-                        DetailName = "Chop",
-                        Cost = 777,
+                        DetailName = "Mirror",
+                        Cost = 1111,
                     },
                     new DetailModel
                     {
-                        DetailName = "Chair",
-                        Cost = 1277,
+                        DetailName = "Door",
+                        Cost = 2222,
                     },
                     new DetailModel
                     {
-                        DetailName = "Stearing wheel",
-                        Cost = 77772,
+                        DetailName = "Glass",
+                        Cost = 3333,
                     }
                 }
             };
@@ -55,29 +54,28 @@ namespace Homework12_PL.Controller
         public IEnumerable<CarViewModel> GetAll()
         {
 
-            var detailModels = from detail in _dbDetail.GetAll()
-                               select new DetailViewModel()
-                               {
-                                   DetailName = detail.DetailName,
-                                   Cost = detail.Cost,
-                                   CarId = detail.CarId
-                               };
-
-            var carModels = from car in _dbCar.GetAll()
+            var carViewModels = from car in _dbCar.GetAll()
                             select new CarViewModel()
                             {
+                                Id = car.Id,
                                 Model = car.Model,
-                                Details = detailModels.Where(x => x.CarId == car.Id).ToList()
+                                Details = car.Details.Select(x => new DetailViewModel
+                                {
+                                    Id = x.Id,
+                                    DetailName = x.DetailName,
+                                    Cost = x.Cost,
+                                    CarId = x.CarId
+                                })
                             };
-            return carModels.ToList();
+            return carViewModels;
         }
 
         public void Update(CarViewModel carViewModel)
         {
             var carModel = new CarModel
             {
-                Id = 3,
-                Model = "Jaguar"
+                Id = 1,
+                Model = "PeterCar"
             };
 
             _dbCar.Update(carModel);
@@ -85,9 +83,20 @@ namespace Homework12_PL.Controller
 
         public CarViewModel GetCarById(int id)
         {
-            var car = GetAll().Where(x => x.Id == id).FirstOrDefault();
+            var carModel = _dbCar.GetById(id);
 
-            return car;
+            var carViewModel = new CarViewModel
+            {
+                Id = carModel.Id,
+                Model = carModel.Model,
+                Details = carModel.Details.Select(x => new DetailViewModel
+                {
+                    DetailName = x.DetailName,
+                    Cost = x.Cost
+                })
+            };
+
+            return carViewModel;
         }
     }
 }

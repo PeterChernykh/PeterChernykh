@@ -8,5 +8,6 @@ namespace Homework12_DAL.Interfaces
         void Insert(T item);
         void Delete(int id);
         void Update(T item);
+        T GetById(int id);
     }
 }

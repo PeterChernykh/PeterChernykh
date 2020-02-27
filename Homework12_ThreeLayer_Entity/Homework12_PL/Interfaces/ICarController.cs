@@ -9,5 +9,6 @@ namespace Homework12_PL.Interfaces
         void Add(CarViewModel carModel);
         void Update(CarViewModel carModel);
         void Delete(int id);
+
     }
 }

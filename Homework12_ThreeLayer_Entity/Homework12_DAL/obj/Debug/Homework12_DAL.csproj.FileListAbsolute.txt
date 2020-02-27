@@ -25,3 +25,4 @@ G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework1
 G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.pdb
 G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.Migrations.InitialMigration.resources
 G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.csproj.GenerateResource.cache
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_DAL\obj\Debug\Homework12_DAL.Migrations.migrationFeb26.resources
