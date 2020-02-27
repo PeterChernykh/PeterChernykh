@@ -37,11 +37,7 @@ namespace Homework12_DAL.Repositories
         {
             var updatedDetail = GetById(detail.Id);
 
-<<<<<<< HEAD
             updatedDetail.Name = detail.Name;
-=======
-            updatedDetail.DetailName = detail.DetailName;
->>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
             updatedDetail.Cost = detail.Cost;
 
             _db.Entry(updatedDetail);

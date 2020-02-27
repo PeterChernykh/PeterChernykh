@@ -49,21 +49,12 @@ namespace Homework12_BLL.Services
         {
             var car = _dbCar.GetAll().Where(x => x.Id == detailModel.CarId).FirstOrDefault();
 
-<<<<<<< HEAD
             var detail = new Detail
             {
                 Name = detailModel.Name,
                 Cost = detailModel.Cost,
                 CarId = detailModel.CarId
             };
-=======
-                var detail = new Detail
-                {
-                    DetailName = detailModel.DetailName,
-                    Cost = detailModel.Cost,
-                    CarId = detailModel.CarId
-                };
->>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
 
             _dbDetail.Insert(detail);
         }
@@ -73,13 +64,8 @@ namespace Homework12_BLL.Services
             var detail = new Detail
             {
                 Id = detailModel.Id,
-<<<<<<< HEAD
 
                 Name = detailModel.Name,
-=======
-  
-                DetailName = detailModel.DetailName,
->>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
                 Cost = detailModel.Cost
             };
 
@@ -93,11 +79,7 @@ namespace Homework12_BLL.Services
             var detailModel = new DetailModel
             {
                 Id = detail.Id,
-<<<<<<< HEAD
                 Name = detail.Name,
-=======
-                DetailName = detail.DetailName,
->>>>>>> b314a4ae73474be64f46208452be66b64950d2d2
                 Cost = detail.Cost,
                 CarModel = new CarModel
                 {
