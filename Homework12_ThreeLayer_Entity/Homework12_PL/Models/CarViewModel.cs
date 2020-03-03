@@ -7,5 +7,8 @@ namespace Homework12_PL.Models
         public int Id { get; set; }
         public string Model { get; set; }
         public IEnumerable<DetailViewModel> Details { get; set; }
+
+        public int ManufacturerId { get; set; }
+        public ManufacturerViewModel Manufacturer { get; set; }
     }
 }

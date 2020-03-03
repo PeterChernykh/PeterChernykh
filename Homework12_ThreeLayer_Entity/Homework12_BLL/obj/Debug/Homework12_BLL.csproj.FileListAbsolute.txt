@@ -20,3 +20,5 @@ G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_BLL\obj\Debug\Homework1
 G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_BLL\obj\Debug\Homework12_BLL.csproj.CopyComplete
 G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_BLL\obj\Debug\Homework12_BLL.dll
 G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_BLL\obj\Debug\Homework12_BLL.pdb
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_BLL\bin\Debug\Homework12_Common.dll
+G:\PeterChernykh\Homework12_ThreeLayer_Entity\Homework12_BLL\bin\Debug\Homework12_Common.pdb

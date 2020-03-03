@@ -43,16 +43,23 @@
   <ItemGroup>
     <Compile Include="Controller\CarController.cs" />
     <Compile Include="Controller\DetailController.cs" />
+    <Compile Include="Controller\ManufacturerCollection.cs" />
     <Compile Include="Interfaces\ICarController.cs" />
     <Compile Include="Interfaces\IDetailController.cs" />
+    <Compile Include="Interfaces\IManufacturerCollection.cs" />
     <Compile Include="Models\CarViewModel.cs" />
     <Compile Include="Models\DetailViewModel.cs" />
+    <Compile Include="Models\ManufacturerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Homework12_BLL\Homework12_BLL.csproj">
       <Project>{FA08CBA2-C652-43AA-A6E8-5215C441E7FC}</Project>
       <Name>Homework12_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Homework12_Common\Homework12_Common.csproj">
+      <Project>{83B9046C-731D-4A8A-BAE4-0893E32E69C9}</Project>
+      <Name>Homework12_Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Homework12_DAL\Homework12_DAL.csproj">
       <Project>{CD17CF39-474E-4612-B07F-C94DA80913D3}</Project>

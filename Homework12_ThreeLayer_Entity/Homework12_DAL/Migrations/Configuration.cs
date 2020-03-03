@@ -16,10 +16,10 @@
 
         protected override void Seed(Homework12_DAL.MyDBContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            //context.DetailTypes.Add(new Models.DetailType { Name = "Wheel" });
+            //context.DetailTypes.Add(new Models.DetailType { Name = "Door" });
+            //context.DetailTypes.Add(new Models.DetailType { Name = "Engine" });
+            //context.DetailTypes.Add(new Models.DetailType { Name = "SteeringWheel" });
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Homework12_BLL.Interfaces;
 using Homework12_BLL.Models;
 using Homework12_BLL.Services;
+using Homework12_Common;
 using Homework12_DAL.Repositories;
 using Homework12_PL.Interfaces;
 using Homework12_PL.Models;
@@ -22,9 +23,11 @@ namespace Homework12_PL.Controller
         {
             var detail = new DetailModel
             {
-                Name = "Boom Wheel",
-                Cost = 45454,
-                CarId = 3
+                Name = "Engine",
+                Type = DetailTypeEnum.Engine,
+                Cost = 1280,
+                CarId = 8,
+                ManufacturerId = 2
             };
             _dbDetail.Add(detail);
         }
@@ -46,7 +49,13 @@ namespace Homework12_PL.Controller
                                           Id = detail.CarModel.Id,
                                           Model = detail.CarModel.Model,
                                       },
-                                      CarId = detail.CarId
+                                      Type = (DetailTypeEnum)detail.Type,
+                                      CarId = detail.CarId,
+                                      Manufacturer = new ManufacturerViewModel
+                                      {
+                                          Id = detail.Manufacturer.Id,
+                                          Name = detail.Manufacturer.Name
+                                      }
                                   };
             return detailViewModel.ToList();
         }
@@ -76,6 +85,13 @@ namespace Homework12_PL.Controller
                 {
                     Id = detailModel.CarModel.Id,
                     Model = detailModel.CarModel.Model,
+                },
+                Type = (DetailTypeEnum)detailModel.Type,
+                CarId = detailModel.CarId,
+                Manufacturer = new ManufacturerViewModel
+                {
+                    Id = detailModel.Manufacturer.Id,
+                    Name = detailModel.Manufacturer.Name
                 }
             };
 

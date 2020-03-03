@@ -10,13 +10,15 @@ namespace Homework12_DAL
 {
     public class MyDBContext : DbContext
     {
-        public  MyDBContext() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=EFHomeworkDatabase;Integrated Security=True")
+        public MyDBContext() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=EFHomeworkDatabaseTest;Integrated Security=True")
         {
-          Database.SetInitializer<MyDBContext>(new MigrateDatabaseToLatestVersion<MyDBContext, Homework12_DAL.Migrations.Configuration>());
+            Database.SetInitializer<MyDBContext>(new MigrateDatabaseToLatestVersion<MyDBContext, Homework12_DAL.Migrations.Configuration>());
         }
 
         public DbSet<Car> Cars { get; set; }
         public DbSet<Detail> Details { get; set; }
+        public DbSet<DetailType> DetailTypes { get; set; }
+        public DbSet<Manufacturer> Manufacturers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -38,6 +40,33 @@ namespace Homework12_DAL
                 .HasKey(x => x.Id)
                 .Property(x => x.Name)
                 .HasMaxLength(20);
+
+            modelBuilder.Entity<DetailType>()
+                .ToTable("DetailTypes")
+                .HasKey(x => x.Id)
+                .Property(x => x.Name)
+                .HasMaxLength(18);
+
+            modelBuilder.Entity<DetailType>()
+                .HasMany(x => x.Details)
+                .WithRequired(x => x.DetailType)
+                .HasForeignKey(x => x.DetailTypeId);
+
+            modelBuilder.Entity<Manufacturer>()
+                .ToTable("Manufacturers")
+                .HasKey(x => x.Id)
+                .Property(x => x.Name)
+                .HasMaxLength(20);
+
+            modelBuilder.Entity<Manufacturer>()
+                .HasMany(x => x.Cars)
+                .WithRequired(x => x.Manufacturer)
+                .HasForeignKey(x => x.ManufacturerId);
+
+            modelBuilder.Entity<Manufacturer>()
+                .HasMany(x => x.Details)
+                .WithRequired(x => x.Manufacturer)
+                .HasForeignKey(x => x.ManufacturerId);
         }
     }
 }
