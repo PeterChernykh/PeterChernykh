@@ -1,5 +1,6 @@
 ﻿using Homework12_PL.Controller;
 using System;
+using Homework12_BLL.Services;
 
 namespace Homework12_ThreeLayer_Entity
 {
@@ -10,9 +11,9 @@ namespace Homework12_ThreeLayer_Entity
             var carController = new CarController();
             var detailController = new DetailController();
             var manufacturerController = new ManufacturerCollection();
+            var manufacturerService = new ManufacturerService();
 
-
-            var allDetailsController = detailController.GetAll();
+            //var allDetailsController = detailController.GetAll();
             //detailController.Add(null);
             //detailController.Delete(24);
             //var fifthDetail = detailController.GetById(9);
@@ -26,9 +27,9 @@ namespace Homework12_ThreeLayer_Entity
 
             //var allManuf =  manufacturerController.GetAll();
 
+            //var mostExpensive = manufacturerService.GetMostExpensive();
+
             Console.ReadKey();
         }
     }
 }
-
-//TODO: Сделать репозиторий Мануфактуры, сделать метод эдд и добавлять мануфактуры только там, во всех остальных местах использовать мунуфактур айди

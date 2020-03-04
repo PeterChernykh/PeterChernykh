@@ -85,12 +85,5 @@ namespace Homework12_PL.Controller
             };
             return manufModel;
         }
-
-        //public int checkManufactorer(int id)
-        //{
-        //    var chosenManufId = _dbManuf.checkManufactorer(id);
-
-        //    return chosenManufId;
-        //}
     }
 }

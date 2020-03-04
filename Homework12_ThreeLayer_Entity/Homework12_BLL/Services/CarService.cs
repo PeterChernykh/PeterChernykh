@@ -12,10 +12,13 @@ namespace Homework12_BLL.Services
     public class CarService : ICarService
     {
         private readonly IRepository<Car> _dbCar;
+        private readonly IManufacturerService _dbManufacturer;
 
         public CarService()
         {
             _dbCar = new CarRepository();
+            _dbManufacturer = new ManufacturerService();
+
 
         }
 
@@ -30,10 +33,10 @@ namespace Homework12_BLL.Services
                     Cost = x.Cost,
                     CarId = x.CarId,
                     DetailTypeId = (int)x.Type,
-                    ManufacturerId = x.ManufacturerId
+                    ManufacturerId = _dbManufacturer.CheckManufacturer(x.Manufacturer.Id, x.Manufacturer.Name)
                 }
                 ).ToList(),
-                ManufacturerId = carModel.ManufacturerId
+                ManufacturerId = _dbManufacturer.CheckManufacturer(carModel.Manufacturer.Id, carModel.Manufacturer.Name)
             };
 
             _dbCar.Insert(car);

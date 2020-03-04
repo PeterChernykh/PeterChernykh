@@ -52,7 +52,6 @@ namespace Homework12_BLL.Services
 
         public void Add(DetailModel detailModel)
         {
-            //var car = _dbCar.GetAll().Where(x => x.Id == detailModel.CarId).FirstOrDefault();
 
             var detail = new Detail
             {
@@ -62,7 +61,7 @@ namespace Homework12_BLL.Services
                 Manufacturer = new Manufacturer
                 { 
                     Id = detailModel.ManufacturerId
-                }  //TODO:check      
+                }  
             };
 
             _dbDetail.Insert(detail);

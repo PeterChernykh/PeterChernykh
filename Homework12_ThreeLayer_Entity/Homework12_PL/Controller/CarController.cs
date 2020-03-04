@@ -13,14 +13,10 @@ namespace Homework12_PL.Controller
     public class CarController : ICarController
     {
         private readonly ICarService _dbCar;
-        private readonly IDetailService _dbDetail;
-        private readonly IManufacturerService _dbManuf ;
 
         public CarController()
         {
             _dbCar = new CarService();
-            _dbDetail = new DetailService();
-            _dbManuf = new ManufacturerService();
         }
 
         public void Add(CarViewModel carViewModel)
@@ -32,27 +28,21 @@ namespace Homework12_PL.Controller
                 {
                     new DetailModel
                     {
-                        Name = "Wheel",
+                        Name = "Door",
                         Cost = 150,
                         Type = DetailTypeEnum.Wheel,
-                        ManufacturerId = _dbManuf.checkManufactorer(2),
+                        Manufacturer = new ManufacturerModel
+                        {
+                            Id = 8,
+                            Name = "UNKNOWN"
+                        }
                     },
-                    //new DetailModel
-                    //{
-                    //    Name = "Wheel",
-                    //    Cost = 100,
-                    //    Type = DetailTypeEnum.Wheel,
-                    //    ManufacturerId = _dbManuf.checkManufactorer(3),
-                    //},
-                    //new DetailModel
-                    //{
-                    //    Name = "SteeringWheel",
-                    //    Cost = 3333,
-                    //    Type = DetailTypeEnum.SteeringWheel,
-                    //    ManufacturerId = _dbManuf.checkManufactorer(2),
-                    //}
                 },
-                ManufacturerId = _dbManuf.checkManufactorer(2),
+                Manufacturer = new ManufacturerModel
+                {
+                    Id = 12,
+                    Name = "Volvo"
+                }
             };
 
 

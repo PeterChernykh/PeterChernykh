@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Homework12_DAL.Repositories
 {
-    public class ManufacturerRepository : IRepository<Manufacturer>
+    public class ManufacturerRepository : IManufacturer
     {
         private readonly MyDBContext _db;
 
@@ -17,14 +17,9 @@ namespace Homework12_DAL.Repositories
             _db = new MyDBContext();
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Manufacturer> GetAll()
         {
-            return _db.Manufacturers.ToList();
+            return _db.Manufacturers.AsNoTracking().ToList();
         }
 
         public Manufacturer GetById(int id)
@@ -32,15 +27,18 @@ namespace Homework12_DAL.Repositories
             var manufacturer = _db.Manufacturers.Where(x => x.Id == id).FirstOrDefault();
             return manufacturer;
         }
-
-        public void Insert(Manufacturer item)
+        public Manufacturer DeniedManufacturer()
         {
-            throw new NotImplementedException();
+            var manufacturers = GetAll();
+
+            var deniedManufacturer = manufacturers.FirstOrDefault(x => x.Id == 1);
+
+            return deniedManufacturer;
         }
-
-        public void Update(Manufacturer item)
+        public void Insert(Manufacturer manufacturer)
         {
-            throw new NotImplementedException();
+            _db.Manufacturers.Add(manufacturer);
+            _db.SaveChanges();
         }
     }
 }

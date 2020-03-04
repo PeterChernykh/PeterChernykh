@@ -14,72 +14,22 @@ namespace Homework12_BLL.Services
 {
     public class ManufacturerService : IManufacturerService
     {
-        private readonly IRepository<Manufacturer> _dbManuf;
+        private readonly IManufacturer _dbManufacturer;
 
         public ManufacturerService()
         {
-            _dbManuf = new ManufacturerRepository();
+            _dbManufacturer = new ManufacturerRepository();
+
         }
 
         public IEnumerable<ManufacturerModel> GetAll()
         {
-            var manuf = from manufacturer in _dbManuf.GetAll()
+            var manuf = from manufacturer in _dbManufacturer.GetAll()
                         select new ManufacturerModel
                         {
-                          Id = manufacturer.Id,
-                          Name = manufacturer.Name,
-                          CarsModel = manufacturer.Cars.Select(x => new CarModel
-                          {
-                              Id = x.Id,
-                              Model = x.Model,
-                              ManufacturerId = x.ManufacturerId,
-                              Details = x.Details.Select (y => new DetailModel
-                              {
-                                  Id = y.Id,
-                                  Cost = y.Cost,
-                                  Type = (DetailTypeEnum)y.DetailTypeId,
-                                  ManufacturerId = y.ManufacturerId,
-                              }),
-                          }),
-                          DetailsModel = manufacturer.Details.Select (x => new DetailModel
-                          {
-                              Id = x.Id,
-                              Name = x.Name,
-                              Cost = x.Cost,
-                              Type = (DetailTypeEnum)x.DetailTypeId,
-                              ManufacturerId = x.ManufacturerId
-                          })
-                        };
-            return manuf;
-        }
-
-        public int checkManufactorer(int  id)
-        {
-            var chosenManuf = _dbManuf.GetById(id);
-
-            var manufacturers = _dbManuf.GetAll();
-
-            var deniedManufacturer = manufacturers.FirstOrDefault(x => x.Id == 1);
-
-            if (chosenManuf == deniedManufacturer)
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                return chosenManuf.Id;
-            }
-        }
-
-        public ManufacturerModel GetById(int id)
-        {
-            var manuf = _dbManuf.GetById(id);
-
-            var manufModel =  new ManufacturerModel
-                        {
-                            Id = manuf.Id,
-                            Name = manuf.Name,
-                            CarsModel = manuf.Cars.Select(x => new CarModel
+                            Id = manufacturer.Id,
+                            Name = manufacturer.Name,
+                            CarsModel = manufacturer.Cars.Select(x => new CarModel
                             {
                                 Id = x.Id,
                                 Model = x.Model,
@@ -92,16 +42,135 @@ namespace Homework12_BLL.Services
                                     ManufacturerId = y.ManufacturerId,
                                 }),
                             }),
-                            DetailsModel = manuf.Details.Select(x => new DetailModel
+                            DetailsModel = manufacturer.Details.Select(x => new DetailModel
                             {
                                 Id = x.Id,
+                                CarId = x.CarId,
                                 Name = x.Name,
                                 Cost = x.Cost,
                                 Type = (DetailTypeEnum)x.DetailTypeId,
                                 ManufacturerId = x.ManufacturerId
                             })
                         };
+            return manuf;
+        }
+
+        public int CheckManufacturer(int id, string name)
+        {
+            var deniedManufacturer = _dbManufacturer.DeniedManufacturer();
+
+            if (deniedManufacturer.Id == id)
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                try
+                {
+                    var newManufacturer = GetById(id);
+
+                    return id;
+                }
+                catch
+                {
+                    var newManufacturer = CheckName(name);
+                    return newManufacturer.Id;
+                }
+            }
+        }
+
+        public ManufacturerModel GetById(int id)
+        {
+            var manuf = _dbManufacturer.GetById(id);
+
+            var manufModel = new ManufacturerModel
+            {
+                Id = manuf.Id,
+                Name = manuf.Name,
+                CarsModel = manuf.Cars.Select(x => new CarModel
+                {
+                    Id = x.Id,
+                    Model = x.Model,
+                    ManufacturerId = x.ManufacturerId,
+                    Details = x.Details.Select(y => new DetailModel
+                    {
+                        Id = y.Id,
+                        Cost = y.Cost,
+                        Type = (DetailTypeEnum)y.DetailTypeId,
+                        ManufacturerId = y.ManufacturerId,
+                    }),
+                }),
+                DetailsModel = manuf.Details.Select(x => new DetailModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Cost = x.Cost,
+                    Type = (DetailTypeEnum)x.DetailTypeId,
+                    ManufacturerId = x.ManufacturerId
+                })
+            };
             return manufModel;
+        }
+
+        public void Add(ManufacturerModel manufacturerModel)
+        {
+            var newManufacturer = new Manufacturer
+            {
+                Id = manufacturerModel.Id,
+                Name = manufacturerModel.Name
+            };
+        }
+
+        public Manufacturer CheckName(string name)
+        {
+            var allManufacturers = _dbManufacturer.GetAll();
+            var manufacturerName = allManufacturers.FirstOrDefault(x => x.Name == name);
+
+            if (manufacturerName == null)
+            {
+                var newManufacturer = new Manufacturer
+                {
+                    Name = name
+                };
+
+                _dbManufacturer.Insert(newManufacturer);
+
+                manufacturerName = newManufacturer;
+            }
+
+            return manufacturerName;
+        }
+
+        public ManufacturerModel GetMostExpensive()
+        {
+
+            var result = new ManufacturerModel
+            {
+                //Name = manufWithCar.Name,
+                //CarsModel = manufWithCar.CarsModel.Select(x => new CarModel
+                //{
+                //    Id = x.Id,
+                //    Model = x.Model,
+                //    ManufacturerId = x.ManufacturerId,
+                //    Details = x.Details.Select(y => new DetailModel
+                //    {
+                //        Id = y.Id,
+                //        Cost = y.Cost,
+                //        Type = (DetailTypeEnum)y.Type,
+                //        ManufacturerId = y.ManufacturerId,
+                //    }),
+                //}),
+                //DetailsModel = manufWithCar.DetailsModel.Select(x => new DetailModel
+                //{
+                //    Id = x.Id,
+                //    Name = x.Name,
+                //    Cost = x.Cost,
+                //    Type = (DetailTypeEnum)x.Type,
+                //    ManufacturerId = x.ManufacturerId
+                //})
+            };
+
+            return result;
         }
     }
 }
