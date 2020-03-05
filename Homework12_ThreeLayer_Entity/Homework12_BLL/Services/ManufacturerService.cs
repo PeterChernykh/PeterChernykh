@@ -141,36 +141,65 @@ namespace Homework12_BLL.Services
             return manufacturerName;
         }
 
-        public ManufacturerModel GetMostExpensive()
+        public CarManufacturerModel GetMostExpensive()
         {
-
-            var result = new ManufacturerModel
+            var allManufacturers = _dbManufacturer.GetAll();
+            var manufacturer = allManufacturers.OrderBy(x => x.Cars.Max(y => y.Details.Sum(z => z.Cost))).FirstOrDefault();
+            var manufacturerCars = manufacturer.Cars.Select(x => new CarModel
             {
-                //Name = manufWithCar.Name,
-                //CarsModel = manufWithCar.CarsModel.Select(x => new CarModel
-                //{
-                //    Id = x.Id,
-                //    Model = x.Model,
-                //    ManufacturerId = x.ManufacturerId,
-                //    Details = x.Details.Select(y => new DetailModel
-                //    {
-                //        Id = y.Id,
-                //        Cost = y.Cost,
-                //        Type = (DetailTypeEnum)y.Type,
-                //        ManufacturerId = y.ManufacturerId,
-                //    }),
-                //}),
-                //DetailsModel = manufWithCar.DetailsModel.Select(x => new DetailModel
-                //{
-                //    Id = x.Id,
-                //    Name = x.Name,
-                //    Cost = x.Cost,
-                //    Type = (DetailTypeEnum)x.Type,
-                //    ManufacturerId = x.ManufacturerId
-                //})
-            };
+                Id = x.Id,
+                Model = x.Model,
+                Details = x.Details.Select(y => new DetailModel
+                {
+                    Id = y.Id,
+                    Name = y.Name,
+                    Cost = y.Cost,
+                }),
+            });
+            var expensiveCar = manufacturerCars.OrderByDescending(y => y.Details.Sum(z => z.Cost)).FirstOrDefault();
 
-            return result;
+
+            var carManufacturerModel = new CarManufacturerModel
+            {
+                CarsModel = new CarModel
+                {
+                    Id = expensiveCar.Id,
+                    Model = expensiveCar.Model,
+                    Details = expensiveCar.Details.Select(y => new DetailModel
+                    {
+                        Name = y.Name,
+                        Cost =y.Cost,
+                        Type = y.Type,
+                        CarId = y.CarId
+                    })
+                },
+                ManufacturerModel = new ManufacturerModel
+                {
+                    Id = manufacturer.Id,
+                    Name = manufacturer.Name,
+                    CarsModel = manufacturer.Cars.Select(i => new CarModel
+                    {
+                        Id = i.Id,
+                        Model = i.Model,
+                        Details = i.Details.Select(y => new DetailModel
+                        {
+                            Id = y.Id,
+                            Name = y.Name,
+                            Cost = y.Cost,
+                            CarId = y.CarId
+                        })
+                    }),
+                    DetailsModel = manufacturer.Details.Select(x => new DetailModel
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        Cost = x.Cost,
+                        ManufacturerId = x.ManufacturerId
+                    })
+                }
+            };
+            return carManufacturerModel;
+
         }
     }
 }

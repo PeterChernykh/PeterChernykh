@@ -44,6 +44,7 @@
     <Compile Include="Interfaces\ICarService.cs" />
     <Compile Include="Interfaces\IDetailService.cs" />
     <Compile Include="Interfaces\IManufacturerService.cs" />
+    <Compile Include="Models\CarManufacturerModel.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\ManufacturerModel.cs" />
