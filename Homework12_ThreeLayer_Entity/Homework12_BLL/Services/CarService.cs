@@ -4,6 +4,7 @@ using Homework12_Common;
 using Homework12_DAL.Interfaces;
 using Homework12_DAL.Models;
 using Homework12_DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,7 +27,7 @@ namespace Homework12_BLL.Services
         {
             var car = new Car
             {
-                Model = carModel.Model,
+                Model = CheckNameSpaces(carModel.Model),
                 Details = carModel.Details.Select(x => new Detail
                 {
                     Name = x.Name,
@@ -120,6 +121,36 @@ namespace Homework12_BLL.Services
             };
 
             return carModel;
+        }
+        public string CheckNameSpaces(string name)
+        {
+            int spaceCount =0;
+
+            for(int i =0; i<name.Length; i++)
+            {
+               if(name[i] == ' ')
+                {
+                    spaceCount++;
+                }
+               else if(spaceCount == 2)
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            return name;
+            
+
+
+            //    int l = strlen(str);
+            //int i, cnt = 0;
+            //for (i = 0; i < l; ++i)
+            //    if (str[i] == ' ')
+            //        cnt++;
+            //printf("Spaces: %d\n", cnt);
+            //return 0;
+
+
         }
     }
 }

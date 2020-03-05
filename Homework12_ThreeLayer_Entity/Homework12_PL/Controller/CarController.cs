@@ -23,7 +23,7 @@ namespace Homework12_PL.Controller
         {
             var car = new CarModel
             {
-                Model = "Toyota",
+                Model = "Toyota Toyota",
                 Details = new List<DetailModel>
                 {
                     new DetailModel

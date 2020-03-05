@@ -20,14 +20,14 @@ namespace Homework12_ThreeLayer_Entity
             //detailController.Update(null);
 
             //var allCarViewModels = carController.GetAll();
-            //carController.Add(null);
+            carController.Add(null);
             //carController.Delete(6);
             //var secondCar = carController.GetCarById(1);
             //carController.Update(null);
 
             //var allManuf =  manufacturerController.GetAll();
 
-            var mostExpensiveCar = manufacturerService.GetMostExpensive();
+            //var mostExpensiveCar = manufacturerService.GetMostExpensive();
 
             Console.ReadKey();
         }
