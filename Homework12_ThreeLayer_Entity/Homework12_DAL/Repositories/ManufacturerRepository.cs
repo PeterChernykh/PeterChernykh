@@ -24,7 +24,7 @@ namespace Homework12_DAL.Repositories
 
         public Manufacturer GetById(int id)
         {
-            var manufacturer = _db.Manufacturers.Where(x => x.Id == id).FirstOrDefault();
+            var manufacturer = _db.Manufacturers.FirstOrDefault(x => x.Id == id);
             return manufacturer;
         }
         public Manufacturer DeniedManufacturer()

@@ -40,13 +40,12 @@ namespace Homework12_DAL.Repositories
             updatedDetail.Name = detail.Name;
             updatedDetail.Cost = detail.Cost;
 
-            _db.Entry(updatedDetail);
             _db.SaveChanges();
         }
 
         public Detail GetById(int id)
         {
-            var detail = _db.Details.Where(x => x.Id == id).FirstOrDefault();
+            var detail = _db.Details.FirstOrDefault(x => x.Id == id);
 
             return detail;
         }
