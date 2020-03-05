@@ -27,7 +27,7 @@ namespace Homework12_BLL.Services
         {
             var car = new Car
             {
-                Model = CheckNameSpaces(carModel.Model),
+                Model = carModel.Model,
                 Details = carModel.Details.Select(x => new Detail
                 {
                     Name = x.Name,
@@ -121,23 +121,6 @@ namespace Homework12_BLL.Services
             };
 
             return carModel;
-        }
-        public string CheckNameSpaces(string name)
-        {
-            int spaceCount = 0;
-
-            for (int i = 0; i < name.Length; i++)
-            {
-                if (name[i] == ' ')
-                {
-                    spaceCount++;
-                }
-                else if (spaceCount > 2)
-                {
-                    throw new NotImplementedException();
-                }
-            }
-            return name;
         }
     }
 }

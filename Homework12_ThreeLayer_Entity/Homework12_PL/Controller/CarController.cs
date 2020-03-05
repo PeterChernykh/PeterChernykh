@@ -23,7 +23,7 @@ namespace Homework12_PL.Controller
         {
             var car = new CarModel
             {
-                Model = "Toyota Toyota",
+                Model = CheckNameSpaces("Toyota Toyota"),
                 Details = new List<DetailModel>
                 {
                     new DetailModel
@@ -125,6 +125,24 @@ namespace Homework12_PL.Controller
             };
 
             return carViewModel;
+        }
+
+        public string CheckNameSpaces(string name)
+        {
+            int spaceCount = 0;
+
+            for (int i = 0; i < name.Length; i++)
+            {
+                if (name[i] == ' ')
+                {
+                    spaceCount++;
+                }
+                else if (spaceCount > 2)
+                {
+                    throw new NotImplementedException();
+                }
+            }
+            return name;
         }
     }
 }
