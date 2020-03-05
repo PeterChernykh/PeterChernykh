@@ -11,7 +11,7 @@ namespace Homework12_BLL.Interfaces
     {
         IEnumerable<ManufacturerModel> GetAll();
         ManufacturerModel GetById(int id);
-        int CheckManufacturer(int id, string name);
+        int CheckManufacturerId(int id);
         void Add(ManufacturerModel manufacturerModel);
     }
 }

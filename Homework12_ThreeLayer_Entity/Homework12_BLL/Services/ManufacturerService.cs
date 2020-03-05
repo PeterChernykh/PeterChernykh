@@ -55,26 +55,25 @@ namespace Homework12_BLL.Services
             return manuf;
         }
 
-        public int CheckManufacturer(int id, string name)
+        public int CheckManufacturerId(int id)
         {
-            var deniedManufacturer = _dbManufacturer.DeniedManufacturer();
+            var restrictedManufacturer = _dbManufacturer.DeniedManufacturer();
 
-            if (deniedManufacturer.Id == id)
+            if (restrictedManufacturer.Id == id)
             {
-                throw new NotImplementedException();
+                throw new ArgumentException("The restricted manufacturer was selected");
             }
             else
             {
                 try
                 {
-                    var newManufacturer = GetById(id);
+                    var manufacturer = _dbManufacturer.GetById(id);
 
                     return id;
                 }
                 catch
                 {
-                    var newManufacturer = CheckName(name);
-                    return newManufacturer.Id;
+                    throw new ArgumentException("The manufacturer with the selected id doesn't exist");
                 }
             }
         }

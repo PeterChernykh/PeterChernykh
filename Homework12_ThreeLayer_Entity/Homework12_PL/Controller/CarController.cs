@@ -139,7 +139,7 @@ namespace Homework12_PL.Controller
                 }
                 else if (spaceCount > 2)
                 {
-                    throw new NotImplementedException();
+                    throw new ArgumentException("The chosen car name contains too many spaces");
                 }
             }
             return name;

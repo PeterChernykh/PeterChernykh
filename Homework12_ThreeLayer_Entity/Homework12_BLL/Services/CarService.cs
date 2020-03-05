@@ -34,10 +34,10 @@ namespace Homework12_BLL.Services
                     Cost = x.Cost,
                     CarId = x.CarId,
                     DetailTypeId = (int)x.Type,
-                    ManufacturerId = _dbManufacturer.CheckManufacturer(x.Manufacturer.Id, x.Manufacturer.Name)
+                    ManufacturerId = _dbManufacturer.CheckManufacturerId(x.Manufacturer.Id)
                 }
                 ).ToList(),
-                ManufacturerId = _dbManufacturer.CheckManufacturer(carModel.Manufacturer.Id, carModel.Manufacturer.Name)
+                ManufacturerId = _dbManufacturer.CheckManufacturerId(carModel.Manufacturer.Id)
             };
 
             _dbCar.Insert(car);
