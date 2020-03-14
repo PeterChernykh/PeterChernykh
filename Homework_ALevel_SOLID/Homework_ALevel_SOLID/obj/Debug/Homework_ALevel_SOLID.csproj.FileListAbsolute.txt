@@ -1,0 +1,5 @@
+C:\Users\Peter\source\repos\Homework_ALevel_SOLID\Homework_ALevel_SOLID\bin\Debug\Homework_ALevel_SOLID.dll
+C:\Users\Peter\source\repos\Homework_ALevel_SOLID\Homework_ALevel_SOLID\bin\Debug\Homework_ALevel_SOLID.pdb
+C:\Users\Peter\source\repos\Homework_ALevel_SOLID\Homework_ALevel_SOLID\obj\Debug\Homework_ALevel_SOLID.csprojAssemblyReference.cache
+C:\Users\Peter\source\repos\Homework_ALevel_SOLID\Homework_ALevel_SOLID\obj\Debug\Homework_ALevel_SOLID.dll
+C:\Users\Peter\source\repos\Homework_ALevel_SOLID\Homework_ALevel_SOLID\obj\Debug\Homework_ALevel_SOLID.pdb

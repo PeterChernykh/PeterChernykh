@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace EFPractise.DAL.Models
 {
     public class Gemstone
@@ -8,7 +9,6 @@ namespace EFPractise.DAL.Models
         public int Price { get; set; }
         public string Name { get; set; }
 
-        public int GemstoneTypeId { get; set; }
-        public virtual GemstoneType GemstoneType { get; set; }
+        public virtual ICollection<GemstoneType> GemstoneType { get; set; }
     }
 }

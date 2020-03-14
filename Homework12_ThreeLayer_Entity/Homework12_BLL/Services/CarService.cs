@@ -90,7 +90,7 @@ namespace Homework12_BLL.Services
 
             _dbCar.Update(car);
         }
-
+        
         public CarModel GetById(int id)
         {
             var car = _dbCar.GetById(id);

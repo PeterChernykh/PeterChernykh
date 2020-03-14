@@ -35,7 +35,7 @@ namespace EFPractise.BLL.Repositories
                 {
                     Color = x.Color,
                     Name = x.Name,
-                    GemstoneTypeId = (int)x.Type,
+                    GemstoneType = x.Type,
                     Price = x.Price
                 }).ToList()
 
