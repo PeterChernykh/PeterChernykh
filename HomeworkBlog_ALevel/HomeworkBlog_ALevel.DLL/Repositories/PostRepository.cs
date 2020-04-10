@@ -30,7 +30,7 @@ namespace HomeworkBlog_ALevel.DAL.Repositories
 
         public IEnumerable<Post> GetAll()
         {
-            return _ctx.Posts.AsNoTracking().ToList();
+            return _ctx.Posts.AsNoTracking();
         }
 
         public void Update(Post post)
@@ -39,7 +39,7 @@ namespace HomeworkBlog_ALevel.DAL.Repositories
             _ctx.SaveChanges();
         }
 
-        public int TotalPost()
+        public int TotalModels()
         {
            return GetAll().Count();
         }

@@ -7,7 +7,7 @@ namespace HomeworkBlog_ALevel.DAL.Interfaces
         void Add(T model);
         void Remove(int id);
         void Update(T model);
-        int TotalPost();
+        int TotalModels();
         T GetById(int id);
         IEnumerable<T> GetAll();
     }

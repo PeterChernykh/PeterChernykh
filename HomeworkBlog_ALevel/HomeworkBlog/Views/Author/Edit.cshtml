@@ -1,10 +1,18 @@
 ﻿@model HomeworkBlog.Models.AuthorViewModel
 
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    
     <div class="form-horizontal">
-        <h4>Author @Html.DisplayNameFor(model => model.Name) edit</h4>
+        <h4>AuthorViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)

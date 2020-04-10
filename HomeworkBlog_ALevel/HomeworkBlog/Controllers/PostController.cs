@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using HomeworkBlog.Models;
 using HomeworkBlog_ALevel.BLL.Interfaces;
+using HomeworkBlog_ALevel.BLL.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace HomeworkBlog.Controllers
@@ -9,31 +12,50 @@ namespace HomeworkBlog.Controllers
         private readonly IMapper _mapper;
         private readonly IPostService _postService;
 
-        // GET: Post
+        public PostController()
+        {
+
+        }
+
+        public PostController(IPostService service, IMapper mapper)
+        {
+            _mapper = mapper;
+            _postService = service;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var listBLPosts = _postService.GetAll();
+            var posts = _mapper.Map<IEnumerable<PostViewModel>>(listBLPosts);
+
+            return View(posts);
         }
 
-        // GET: Post/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var postModel = _postService.GetById(id);
+            var postViewModel = _mapper.Map<PostViewModel>(postModel);
+
+            return View(postViewModel);
         }
 
-        // GET: Post/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Post/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PostViewModel postInfo)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                }
+
+                var postModel = _mapper.Map<PostModel>(postInfo);
+                _postService.Add(postModel);
 
                 return RedirectToAction("Index");
             }
@@ -43,19 +65,23 @@ namespace HomeworkBlog.Controllers
             }
         }
 
-        // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Post/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PostViewModel postViewModel)
         {
             try
             {
-                // TODO: Add update logic here
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                }
+
+                var postModel = _mapper.Map<PostModel>(postViewModel);
+                _postService.Update(postModel);
 
                 return RedirectToAction("Index");
             }
@@ -65,19 +91,18 @@ namespace HomeworkBlog.Controllers
             }
         }
 
-        // GET: Post/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
             return View();
         }
 
-        // POST: Post/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
+
             try
             {
-                // TODO: Add delete logic here
+                _postService.Remove(id);
 
                 return RedirectToAction("Index");
             }

@@ -23,14 +23,14 @@
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         PostedOn = c.DateTime(nullable: false),
-                        Published = c.Boolean(nullable: false),
+                        Body = c.String(),
+                        SubTitle = c.String(),
                         CategoryId = c.Int(nullable: false),
-                        AythorId = c.Int(nullable: false),
                         Author_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.Authors", t => t.Author_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: false)
+                .ForeignKey("dbo.Authors", t => t.Author_Id, cascadeDelete: false)
                 .Index(t => t.CategoryId)
                 .Index(t => t.Author_Id);
             
@@ -61,8 +61,8 @@
                         Post_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.Tag_Id, t.Post_Id })
-                .ForeignKey("dbo.Tags", t => t.Tag_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Posts", t => t.Post_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Tags", t => t.Tag_Id, cascadeDelete: false)
+                .ForeignKey("dbo.Posts", t => t.Post_Id, cascadeDelete: false)
                 .Index(t => t.Tag_Id)
                 .Index(t => t.Post_Id);
             

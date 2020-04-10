@@ -12,6 +12,9 @@ namespace HomeworkBlog_ALevel.BLL
         {
             container.Register<MyDBContext> (factory => new MyDBContext());
             container.Register<IBlogRepository<Author>, AuthorRepository>();
+            container.Register<IBlogRepository<Post>, PostRepository>();
+            container.Register<IBlogRepository<Category>, CategoryRepository>();
+            container.Register<IBlogRepository<Tag>, TagRepository>();
 
             return container;
         }

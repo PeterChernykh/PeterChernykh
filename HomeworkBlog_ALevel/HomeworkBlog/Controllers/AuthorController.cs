@@ -29,13 +29,15 @@ namespace HomeworkBlog.Controllers
             var listBLAuthors = _authorService.GetAll();
             var authors = _mapper.Map<IEnumerable<AuthorViewModel>>(listBLAuthors);
 
+            //SelectList authorsName = new SelectList(authors, "Name", "Author");
+            //ViewBag.AuthorName = authorsName;
 
             return View(authors);
         }
 
         public ActionResult Details(int id)
         {
-            var authorModel = _authorService.GetAll().FirstOrDefault(x => x.Id == id);
+            var authorModel = _authorService.GetById(id);
             var authorViewModel = _mapper.Map<AuthorViewModel>(authorModel);
 
             return View(authorViewModel);
@@ -43,6 +45,7 @@ namespace HomeworkBlog.Controllers
 
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -51,7 +54,10 @@ namespace HomeworkBlog.Controllers
         {
             try
             {
-
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                }
                 var authorModel = _mapper.Map<AuthorModel>(authorInfo);
                 _authorService.Add(authorModel);
 
@@ -73,6 +79,11 @@ namespace HomeworkBlog.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                }
+
                 var authorModel = _mapper.Map<AuthorModel>(updatedAuthorInfo);
                 _authorService.Update(authorModel);
 

@@ -31,7 +31,9 @@ namespace HomeworkBlog.App_Start
 
             container.Register<IPostService, PostService>();
             container.Register<IAuthorService, AuthorService>();
-            
+            container.Register<ICategoryService, CategoryService>();
+            container.Register<ITagService, TagService>();
+
             //DependencyResolver.SetResolver(new LightInjectMvcDependencyResolver(container));
 
             container.EnableMvc();

@@ -21,6 +21,16 @@ namespace HomeworkBlog_ALevel.DAL
             modelBuilder.Entity<Author>()
                .HasMany(p => p.Posts)
                .WithRequired(p => p.Author);
+
+            modelBuilder.Entity<Category>()
+                .HasMany(x => x.Posts)
+                .WithRequired(x => x.Category)
+                .HasForeignKey(x => x.CategoryId);
+
+            modelBuilder.Entity<Author>()
+                .HasMany(x => x.Posts)
+                .WithRequired(x => x.Author)
+                .HasForeignKey(x => x.AuthorId);
         }
     }
 }

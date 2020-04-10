@@ -8,12 +8,13 @@ namespace HomeworkBlog_ALevel.DAL.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public DateTime PostedOn { get; set; }
-        public bool Published { get; set; }
+        public string Body { get; set; }
+        public string SubTitle {get;set;}
 
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
-        public int AythorId { get; set; }
+        public int AuthorId { get; set; }
         public virtual Author Author { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; }

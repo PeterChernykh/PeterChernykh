@@ -27,7 +27,7 @@ namespace HomeworkBlog.Controllers
         {
             var listBLCategory = _categoryService.GetAll();
             var categories = _mapper.Map<IEnumerable<CategoryViewModel>>(listBLCategory);
-            return View();
+            return View(categories);
         }
 
         // GET: Category/Details/5

@@ -38,8 +38,9 @@ namespace HomeworkBlog_ALevel.DAL.Repositories
 
         public void Remove(int id)
         {
-            var author = _ctx.Categories.FirstOrDefault(x => x.Id == id);
-            _ctx.Categories.Remove(author);
+            var category = _ctx.Categories.FirstOrDefault(x => x.Id == id);
+            _ctx.Categories.Remove(category);
+            _ctx.SaveChanges();
         }
 
         public int TotalModels()

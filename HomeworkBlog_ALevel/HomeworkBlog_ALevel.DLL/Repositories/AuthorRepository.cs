@@ -34,18 +34,18 @@ namespace HomeworkBlog_ALevel.DAL.Repositories
 
         public void Remove(int id)
         {
-            var author = _ctx.Authors.FirstOrDefault(x => x.Id == id);
-            _ctx.Authors.Remove(author);
+            var category = _ctx.Authors.FirstOrDefault(x => x.Id == id);
+            _ctx.Authors.Remove(category);
 
             //_ctx.Entry(author).State = EntityState.Deleted;
             _ctx.SaveChanges();
         }
 
-        public int TotalPost()
+        public int TotalModels()
         {
-            var totalPost = GetAll().Count();
+            var allAuthors = GetAll().Count();
 
-            return totalPost;
+            return allAuthors;
         }
 
         public void Update(Author updatedAuthor)
