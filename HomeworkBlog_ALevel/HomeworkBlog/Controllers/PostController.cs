@@ -73,8 +73,8 @@ namespace HomeworkBlog.Controllers
         [HttpPost]
         public ActionResult Edit(int id, PostViewModel postViewModel)
         {
-            try
-            {
+            //try
+            //{
                 if (!ModelState.IsValid)
                 {
                     return View();
@@ -84,11 +84,11 @@ namespace HomeworkBlog.Controllers
                 _postService.Update(postModel);
 
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         public ActionResult Delete()
