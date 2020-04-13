@@ -11,7 +11,5 @@ namespace HomeworkBlog.Models
         public int Id { get; set; }
         [Required (ErrorMessage = "please input Name")]
         public string Name { get; set; }
-
-        //public IEnumerable<PostViewModel> PostModels { get; set; }
     }
 }

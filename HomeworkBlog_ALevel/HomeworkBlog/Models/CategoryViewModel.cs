@@ -15,7 +15,5 @@ namespace HomeworkBlog.Models
 
         [StringLength(200, MinimumLength = 5, ErrorMessage = "Please input from 5 to 200 characters")]
         public string Description { get; set; }
-
-        //public virtual ICollection<PostViewModel> Post { get; set; }
     }
 }

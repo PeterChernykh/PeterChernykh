@@ -11,10 +11,15 @@ namespace HomeworkBlog_ALevel.BLL
         public static ServiceContainer Configuration(ServiceContainer container)
         {
             container.Register<MyDBContext> (factory => new MyDBContext());
-            container.Register<IBlogRepository<Author>, AuthorRepository>();
+
             container.Register<IBlogRepository<Post>, PostRepository>();
-            container.Register<IBlogRepository<Category>, CategoryRepository>();
             container.Register<IBlogRepository<Tag>, TagRepository>();
+            container.Register<IBlogRepository<Author>, AuthorRepository>();
+            container.Register<IBlogRepository<Category>, CategoryRepository>();
+
+
+
+            //container.Register(typeof(IBlogRepository<>), typeof(GenericRepository<>));
 
             return container;
         }

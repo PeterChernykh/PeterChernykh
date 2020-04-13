@@ -25,9 +25,8 @@ namespace HomeworkBlog.Controllers
 
         public ActionResult Index()
         {
-            var listBLPosts = _postService.GetAll();
-            var posts = _mapper.Map<IEnumerable<PostViewModel>>(listBLPosts);
-
+            var listBLPost = _postService.GetAll();
+            var posts = _mapper.Map<IEnumerable<PostViewModel>>(listBLPost);
             return View(posts);
         }
 
@@ -73,8 +72,8 @@ namespace HomeworkBlog.Controllers
         [HttpPost]
         public ActionResult Edit(int id, PostViewModel postViewModel)
         {
-            //try
-            //{
+            try
+            {
                 if (!ModelState.IsValid)
                 {
                     return View();
@@ -84,11 +83,11 @@ namespace HomeworkBlog.Controllers
                 _postService.Update(postModel);
 
                 return RedirectToAction("Index");
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult Delete()
@@ -110,6 +109,35 @@ namespace HomeworkBlog.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult PostPage(int page = 1)
+        {
+
+            int pageSize = 5;
+
+            var posts = _postService.Posts(page - 1, pageSize);
+
+            var postsModel = _mapper.Map<IEnumerable<PostViewModel>>(posts);
+
+            
+
+            var totalPosts = _postService.TotalPosts();
+
+            PaheInformation pageInfo = new PaheInformation
+            {
+                PageNo = page,
+                PageSize = pageSize,
+                TotalItems = totalPosts
+            };
+
+            var listViewModel = new PostsPaginationModel()
+            {
+                Posts = postsModel,
+                PageInfo = pageInfo
+            };
+
+            return View(listViewModel);
         }
     }
 }

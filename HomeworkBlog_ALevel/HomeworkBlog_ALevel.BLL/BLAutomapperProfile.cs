@@ -11,7 +11,6 @@ namespace HomeworkBlog_ALevel.BLL
             CreateMap<PostModel, Post>().ReverseMap();
 
             CreateMap<AuthorModel, Author>()
-                //.ForMember(dest => dest.Posts, opt => opt.AllowNull())
                 .ReverseMap();
 
             CreateMap<CategoryModel, Category>().ReverseMap();

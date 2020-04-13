@@ -23,6 +23,27 @@ namespace HomeworkBlog_ALevel.BLL.Services
             return postModel;
         }
 
+        public IEnumerable<PostModel> Posts(int pageNo, int pageSize)
+        {
+            var posts = _repository.GetAll()
+                .OrderByDescending(x => x.PostedOn)
+                .Skip(pageNo * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var postsModel = Map(posts);
+
+            return postsModel;
+
+        }
+
+        public int TotalPosts()
+        {
+            var postsCount = GetAll().ToList().Count();
+
+            return postsCount;
+        }
+
         public override PostModel Map(Post modelDL)
         {
             return _mapper.Map<PostModel>(modelDL);
@@ -40,13 +61,6 @@ namespace HomeworkBlog_ALevel.BLL.Services
         public override IEnumerable<Post> Map(IList<PostModel> postsModel)
         {
             return _mapper.Map<IEnumerable<Post>>(postsModel);
-        }
-
-        public int TotalPost()
-        {
-            var postsCount = GetAll().ToList().Count();
-
-            return postsCount;
         }
     }
 }

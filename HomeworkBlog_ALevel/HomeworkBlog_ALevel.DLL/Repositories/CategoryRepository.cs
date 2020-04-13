@@ -10,50 +10,11 @@ using System.Threading.Tasks;
 
 namespace HomeworkBlog_ALevel.DAL.Repositories
 {
-    public class CategoryRepository: IBlogRepository<Category>
+    public class CategoryRepository: GenericRepository<Category>, IBlogRepository<Category>
     {
-        private readonly MyDBContext _ctx;
 
-        public CategoryRepository (MyDBContext ctx)
+        public CategoryRepository(MyDBContext ctx) : base(ctx)
         {
-            _ctx = ctx;
-        }
-
-        public void Add(Category category)
-        {
-            _ctx.Categories.Add(category);
-            _ctx.SaveChanges();
-        }
-
-        public IEnumerable<Category> GetAll()
-        {
-            return _ctx.Categories.AsNoTracking();
-        }
-
-        public Category GetById(int id)
-        {
-            var category = GetAll().FirstOrDefault(x => x.Id == id);
-            return category;
-        }
-
-        public void Remove(int id)
-        {
-            var category = _ctx.Categories.FirstOrDefault(x => x.Id == id);
-            _ctx.Categories.Remove(category);
-            _ctx.SaveChanges();
-        }
-
-        public int TotalModels()
-        {
-            var allCategories = GetAll().Count();
-
-            return allCategories;
-        }
-
-        public void Update(Category category)
-        {
-            _ctx.Entry(category).State = EntityState.Modified;
-            _ctx.SaveChanges();
         }
     }
 }

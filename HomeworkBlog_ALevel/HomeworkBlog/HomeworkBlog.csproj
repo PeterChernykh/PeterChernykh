@@ -171,8 +171,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PaginationHelper.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\ListViewModels.cs" />
+    <Compile Include="Models\PostsPaginationModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,6 +237,7 @@
     <Content Include="Views\Tag\Create.cshtml" />
     <Content Include="Views\Tag\Edit.cshtml" />
     <Content Include="Views\Tag\Delete.cshtml" />
+    <Content Include="Views\Post\PostPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -256,6 +260,10 @@
     <ProjectReference Include="..\HomeworkBlog_ALevel.BLL\HomeworkBlog_ALevel.BLL.csproj">
       <Project>{3CCF9C9A-860D-4B94-81EF-60C675A0403A}</Project>
       <Name>HomeworkBlog_ALevel.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeworkBlog_ALevel.DLL\HomeworkBlog_ALevel.DAL.csproj">
+      <Project>{B019DA5C-65F3-4D5E-9C74-EDED312840D5}</Project>
+      <Name>HomeworkBlog_ALevel.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

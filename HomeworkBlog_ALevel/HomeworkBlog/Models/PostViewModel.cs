@@ -20,11 +20,11 @@ namespace HomeworkBlog.Models
         public string SubTitle { get; set; }
 
         public int CategoryId { get; set; }
-        public virtual CategoryViewModel Category { get; set; }
+        public CategoryViewModel Category { get; set; }
 
         [Required (ErrorMessage ="Please indicate the author id")]
         public int AuthorId { get; set; }
-        public virtual AuthorViewModel Author { get; set; }
+        public AuthorViewModel Author { get; set; }
 
         //public virtual ICollection<TagViewModel> Tags { get; set; }
     }

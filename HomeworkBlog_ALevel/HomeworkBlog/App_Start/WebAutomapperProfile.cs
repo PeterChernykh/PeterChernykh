@@ -13,10 +13,9 @@ namespace HomeworkBlog.App_Start
         public WebAutomapperProfile()
         {
             CreateMap<PostViewModel, PostModel>()
-            .ReverseMap();
-            CreateMap<AuthorViewModel, AuthorModel>()
-                //.ForMember(dest => dest.PostModels, opt => opt.AllowNull())
+                .ForMember(x =>x.AuthorModel, s => s.MapFrom(x => x.Author)) 
                 .ReverseMap();
+            CreateMap<AuthorViewModel, AuthorModel>().ReverseMap();
             CreateMap<CategoryViewModel, CategoryModel>().ReverseMap();
             CreateMap<TagViewModel, TagModel>().ReverseMap();
         }

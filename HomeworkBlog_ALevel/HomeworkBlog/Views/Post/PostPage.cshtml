@@ -1,0 +1,37 @@
+﻿@model HomeworkBlog.Models.PostsPaginationModel
+@using HomeworkBlog.Helpers
+
+@{
+    ViewBag.Title = "PagePagination";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var post in Model.Posts)
+{
+
+}
+
+
+<table class="table">
+    <tr>
+        <td>Posted on:</td>
+        <td>Title: </td>
+        <td>SubTitle: </td>
+        <td>Category: </td>
+        <td>Author: </td>
+    </tr>
+    @foreach (var post in Model.Posts)
+    {
+<tr>
+    <td>@post.Id</td>
+    <td>@post.PostedOn</td>
+    <td>@post.Title</td>
+    <td>@post.SubTitle</td>
+    <td>@post.Author</td>
+    <td>@post.Category</td>
+    <td> @Html.ActionLink("Continue reading", "Details", new { id = post.Id })</td>
+</tr>}
+</table>
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+</div>
