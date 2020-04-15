@@ -1,3 +1,4 @@
+using HomeworkBlog_WebAPI.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace HomeworkBlog_WebAPI
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            LightInjectConfig.Configurate();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -7,13 +7,13 @@ namespace HomeworkBlog_ALevel.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class initial_migration : IMigrationMetadata
+    public sealed partial class initialmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initial_migration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004062212496_initial_migration"; }
+            get { return "202004131521010_initial-migration"; }
         }
         
         string IMigrationMetadata.Source

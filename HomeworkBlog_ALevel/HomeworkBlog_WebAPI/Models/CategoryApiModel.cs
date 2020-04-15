@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace HomeworkBlog.Models
+namespace HomeworkBlog_WebAPI.Models
 {
-    public class CategoryViewModel
+    public class CategoryApiModel
     {
         public int Id { get; set; }
 

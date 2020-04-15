@@ -8,13 +8,14 @@ namespace HomeworkBlog_ALevel.BLL
     {
         public BLAutomapperProfile()
         {
-            CreateMap<PostModel, Post>().ReverseMap();
-
-            CreateMap<AuthorModel, Author>()
+            CreateMap<PostModel, Post>()
+                .ForMember(x =>x.Author, y => y.MapFrom(x => x.AuthorModel))
+                .ForMember(x => x.Category, y => y.MapFrom(x => x.CategoryModel))
                 .ReverseMap();
+
+            CreateMap<AuthorModel, Author>().ReverseMap();
 
             CreateMap<CategoryModel, Category>().ReverseMap();
             CreateMap<TagModel, Tag>().ReverseMap();
-        }
-    }
+        }    }
 }

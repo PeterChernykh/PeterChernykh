@@ -4,34 +4,47 @@
 @{
     ViewBag.Title = "PagePagination";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@foreach (var post in Model.Posts)
-{
+
 
 }
-
 
 <table class="table">
     <tr>
-        <td>Posted on:</td>
-        <td>Title: </td>
-        <td>SubTitle: </td>
-        <td>Category: </td>
-        <td>Author: </td>
+        <th>
+
+        </th>
+        <th>
+            SubTitle:
+        </th>
+        <th>
+            Category:
+        </th>
+        <th>
+            Author:
+        </th>
+        <th></th>
     </tr>
+
     @foreach (var post in Model.Posts)
     {
 <tr>
-    <td>@post.Id</td>
-    <td>@post.PostedOn</td>
-    <td>@post.Title</td>
-    <td>@post.SubTitle</td>
-    <td>@post.Author</td>
-    <td>@post.Category</td>
-    <td> @Html.ActionLink("Continue reading", "Details", new { id = post.Id })</td>
-</tr>}
+    <td>
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/BlackDie320x180.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(x => post.Title)</h5>
+                <p class="card-text">Posted on: @Html.DisplayFor(x => post.PostedOn)</p>
+            </div>
+        </div>
+    </td>
+    <td>@Html.DisplayFor(x => post.SubTitle)</td>
+    <td>@Html.DisplayFor(x => post.Category.Name)</td>
+    <td>@Html.DisplayFor(x => post.Author.Name)</td>
+    <td>@Html.ActionLink("Continue reading", "Details", new { id = post.Id })</td>
+</tr>
+    }
 </table>
 <br />
 <div class="btn-group">
-    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("PostPage", new { page = x }))
 </div>

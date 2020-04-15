@@ -20,9 +20,9 @@ G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\bin\Debug\EntityFra
 G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\bin\Debug\EntityFramework.xml
 G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\bin\Debug\EntityFramework.SqlServer.xml
 G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DAL.csprojAssemblyReference.cache
-G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DAL.Migrations.initial_migration.resources
-G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DAL.csproj.GenerateResource.cache
 G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DAL.csproj.CoreCompileInputs.cache
 G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DAL.csproj.CopyComplete
 G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DLL.dll
 G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DLL.pdb
+G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DAL.Migrations.initialmigration.resources
+G:\PeterChernykh\HomeworkBlog_ALevel\HomeworkBlog_ALevel.DLL\obj\Debug\HomeworkBlog_ALevel.DAL.csproj.GenerateResource.cache

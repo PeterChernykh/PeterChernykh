@@ -1,6 +1,6 @@
 ﻿using HomeworkBlog_ALevel.DAL.Models;
 using System.Data.Entity;
-
+using static HomeworkBlog_ALevel.DAL.Migrations.Configuration;
 
 namespace HomeworkBlog_ALevel.DAL
 {
@@ -8,7 +8,7 @@ namespace HomeworkBlog_ALevel.DAL
     {
         public MyDBContext() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=HomeworkBlog;Integrated Security=True")
         {
-            Database.SetInitializer<MyDBContext>(new MigrateDatabaseToLatestVersion<MyDBContext, HomeworkBlog_ALevel.DAL.Migrations.Configuration>());
+            Database.SetInitializer<MyDBContext>(new MyContextInitializer());
         }
 
         public DbSet<Post> Posts { get; set; }

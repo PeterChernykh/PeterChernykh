@@ -174,7 +174,6 @@
     <Compile Include="Helpers\PaginationHelper.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
-    <Compile Include="Models\ListViewModels.cs" />
     <Compile Include="Models\PostsPaginationModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
@@ -185,6 +184,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\BlackDie320x180.jpg" />
+    <Content Include="Content\Images\Image1.jpg" />
+    <Content Include="Content\Images\Image1.png" />
+    <Content Include="Content\Images\Jesus320x180.jpg" />
+    <Content Include="Content\Images\LittleRock 320x180.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

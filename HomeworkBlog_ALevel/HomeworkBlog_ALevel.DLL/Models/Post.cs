@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeworkBlog_ALevel.DAL.Models
 {
@@ -7,7 +8,10 @@ namespace HomeworkBlog_ALevel.DAL.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime PostedOn { get; set; }
+
         public string Body { get; set; }
         public string SubTitle {get;set;}
 
