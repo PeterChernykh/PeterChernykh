@@ -50,14 +50,14 @@
   <ItemGroup>
     <Compile Include="ApiResponse\ApiResponseInterface\ICategoryApiService.cs" />
     <Compile Include="ApiResponse\ApiResponseInterface\IProductApiService.cs" />
-    <Compile Include="ApiResponse\ApiResponseRepository\CategoryApiService.cs" />
+    <Compile Include="ApiResponse\ApiResponseService\CategoryApiService.cs" />
     <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CategoryService.cs" />
-    <Compile Include="ApiResponse\ApiResponseRepository\ProductApiService.cs" />
+    <Compile Include="ApiResponse\ApiResponseService\ProductApiService.cs" />
     <Compile Include="Services\ProductService.cs" />
   </ItemGroup>
   <ItemGroup>

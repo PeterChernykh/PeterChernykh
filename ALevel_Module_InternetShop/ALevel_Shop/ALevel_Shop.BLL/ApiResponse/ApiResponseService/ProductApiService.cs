@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ALevel_Shop.BLL.Services
+namespace ALevel_Shop.BLL.Services.ApiResponseService
 {
 
     public class ProductApiService : IProductApiService

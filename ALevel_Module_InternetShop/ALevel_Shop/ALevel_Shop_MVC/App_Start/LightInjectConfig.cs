@@ -1,16 +1,13 @@
 ﻿using ALevel_Shop.BLL.ApiResponse;
 using ALevel_Shop.BLL.ApiResponse.ApiResponseInterface;
-using ALevel_Shop.BLL.ApiResponse.ApiResponseRepository;
+using ALevel_Shop.BLL.ApiResponse.ApiResponseService;
 using ALevel_Shop.BLL.Interfaces;
-using ALevel_Shop.BLL.Models;
 using ALevel_Shop.BLL.Services;
+using ALevel_Shop.BLL.Services.ApiResponseService;
 using AutoMapper;
 using LightInject;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 
 namespace ALevel_Shop_MVC.App_Start
 {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ALevel_Shop.BLL.ApiResponse.ApiResponseRepository
+namespace ALevel_Shop.BLL.ApiResponse.ApiResponseService
 {
     public class CategoryApiService : ICategoryApiService
     {

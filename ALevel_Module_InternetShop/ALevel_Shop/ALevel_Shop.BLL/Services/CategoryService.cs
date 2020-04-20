@@ -1,6 +1,6 @@
 ﻿using ALevel_Shop.BLL.ApiResponse;
 using ALevel_Shop.BLL.ApiResponse.ApiResponseInterface;
-using ALevel_Shop.BLL.ApiResponse.ApiResponseRepository;
+using ALevel_Shop.BLL.ApiResponse.ApiResponseService;
 using ALevel_Shop.BLL.Interfaces;
 using ALevel_Shop.BLL.Models;
 using System;

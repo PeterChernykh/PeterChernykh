@@ -4,6 +4,9 @@
     ViewBag.Title = "ProductByCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var product = Model.Products.FirstOrDefault();
+}
 
 <h2>ProductByCategory</h2>
 
@@ -16,13 +19,19 @@
         <input type="submit" value="submit" class="btn btn-default" />
     </div>
 </form>
-<table>
+<table class="table">
     <tr>
-        <th>Product name</th>
-        <th>Item number</th>
-        <th>Price</th>
+        <th>
+            @Html.DisplayNameFor(item => product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => product.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(item => product.Price)
+        </th>
+        <th></th>
     </tr>
-
     @foreach (var item in Model.Products)
     {
         <tr>

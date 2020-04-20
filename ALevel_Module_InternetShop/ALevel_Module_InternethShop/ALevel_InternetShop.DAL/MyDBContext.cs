@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ALevel_InternetShop.DAL.Migrations.Configuration;
 
 namespace ALevel_InternetShop.DAL
 {
@@ -12,7 +13,7 @@ namespace ALevel_InternetShop.DAL
     {
         public MyDBContext() : base(@"Data Source=.\SQLEXPRESS;Initial Catalog=ALevel_Shop;Integrated Security=True")
         {
-            //Database.SetInitializer<MyDBContext>(new MyContextInitializer());
+            Database.SetInitializer<MyDBContext>(new MyContextInitializer());
         }
 
         public DbSet<Product> Products { get; set; }
