@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ALvl_ExamProject.MVC.Models.PagePL>
+
+@{
+    ViewBag.Title = "Pages";
+}
+
+<h2>Pages</h2>
+
+@if (TempData["CreatedSucces"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["CreatedSucces"]
+    </div>
+}
+@if (TempData["DeletedSucces"]!= null)
+{
+    <div class ="alert alert-warning ">
+        @TempData["DeletedSucces"]
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Create New Page", "AddPage", "", new { @class = "btn btn-success" })
+</p>
+<table class="table sorting" id ="pages">
+    <tr class="home">
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slug)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sidebar)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="id _@item.Id" class ="@item.Slug">
+            <td>
+                @if (item.Slug != "home")
+                {
+                    <span class="ui-icon ui-icon-arrow-2-n-s"></span>
+                }
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sidebar)
+            </td>
+            <td class="">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+                @if (item.Slug != "home")
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "delete btn btn-danger" })
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+@section Scripts 
+{
+    <script style="">
+        $(function () {
+            $("a.delete").click(function () {
+                if (!confirm("You are going to delete this page. Do you want to proceed?")) return false;
+            });
+
+            $("table#pages tbody").sortable({
+                items: "tr:not(.home)",
+                placeholder: "ui-state-highlight",
+                update: function () {
+                    var ids = $("table#pages tbody").sortable("serialize");
+                    var url = "/Admin/Pages/ReorderPages";
+
+                    $.post(url, ids, function (data) {
+                    });
+                }
+            });
+        });
+    </script>
+}
+

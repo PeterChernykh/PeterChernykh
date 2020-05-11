@@ -1,0 +1,40 @@
+﻿@model ALvl_ExamProject.MVC.Models.PagePL
+
+@{
+    ViewBag.Title = "Page Details";
+}
+
+<h2>Page @Model.Title details</h2>
+
+<hr />
+<dl class="dl-horizontal" style="word-wrap:break-word">
+    <dt>
+        @Html.DisplayNameFor(model => model.Title)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Title)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Slug)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Slug)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Body)
+    </dt>
+
+    <dd>
+        @Html.Raw(Model.Body)
+    </dd>
+
+</dl>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id}, htmlAttributes: new { @class = "btn btn-danger" })
+    @Html.ActionLink("Back to List", "Index", " ", htmlAttributes: new { @class = "btn btn-primary" })
+</p>

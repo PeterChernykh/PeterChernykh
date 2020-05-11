@@ -1,0 +1,146 @@
+﻿@model IEnumerable<ALvl_ExamProject.MVC.Models.CategoryPL>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+<div class="new-cat">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Category Name</span>
+        </div>
+        <input type="text" id="newcatname" class="form-control" />
+    </div>
+    <p>
+        <a href="#" id="newcata" class="btn btn-success">Add a new category</a>
+        <span class="ajax-text">
+            <img src="~/Content/CustomImages/preloader.gif" height="30" />
+        </span>
+    </p>
+</div>
+
+@if (!Model.Any())
+{
+    <h1 class="text-canter">There are no categories</h1>
+}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr id="id_@item.Id">
+                <td>
+                    @Html.EditorFor(modelItem => item.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "@readonly" } })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => item.Slug, new { htmlAttributes = new { @class = "form-control", @readonly = "@readonly" } })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "delete btn btn-danger" })
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+@section Scripts
+{
+    <script>
+        $(function () {
+            var newCatA = $("a#newcata"); 
+            var newCatTextInput = $("#newcatname"); 
+            var ajaxText = $("span.ajax-text"); 
+            var table = $("table#pages tbody");
+
+            /* отлов нажатия Enter */
+            newCatTextInput.keyup(function (e) {
+                if (e.keyCode == 13) {
+                    newCatA.click();
+                }
+            });
+
+            /* функцию Click */
+            newCatA.click(function (e) {
+                e.preventDefault();
+
+                var catName = newCatTextInput.val();
+
+                if (catName.length < 3) {
+                    alert("Category name must be at least 3 characters long.");
+                    return false;
+                }
+
+                ajaxText.show();
+
+                var url = "~/Admin/Shop/Categories"; 
+
+                $.post(url, { catName: catName }, function (data) {
+                    var response = data.trim();
+
+                    if (response == "titletaken") {
+                        ajaxText.html("<span class='alert alert-danger'>That title is taken!</span>");
+                        setTimeout(function () {
+                            ajaxText.fadeOut("fast", function () {
+                                ajaxText.html("<img src='/Content/CustomImages/preloader.gif' height='40' />");
+                            });
+                        });
+                        return false;
+                    }
+                    else {
+                        if (!$("table#pages").length) {
+                            location.reload();
+                        }
+                        else {
+                            ajaxText.html("<span class='alert alert-success'>The category has been added!</span>");
+                            setTimeout(function () {
+                                ajaxText.fadeOut("fast", function () {
+                                    ajaxText.html("<img src='/Content/CustomImages/preloader.gif' height='50' />");
+                                });
+                            });
+
+                            newCatTextInput.val("");
+
+                            var toAppend = $("table#pages tbody tr:last").clone();
+                            toAppend.attr("id", "id_" + data);
+                            toAppend.find("#item_Name").val(catName);
+                            toAppend.find("a.delete").attr("href", "/admin/shop/DeleteCategory/" + data); //DeleteCategory
+                            table.append(toAppend);
+                            table.sortable("refresh");
+                        }
+                    }
+                });
+            });
+
+            //Delete page confirmation
+            $("a.delete").click(function () {
+                if (!confirm("You are going to delete this page. Do you want to proceed?")) return false;
+            });
+
+            //Sorting
+            $("table#pages tbody").sortable({
+                items: "tr:not(.home)",
+                placeholder: "ui-state-highlight",
+                update: function () {
+                    var ids = $("table#pages tbody").sortable("serialize");
+                    var url = "/Admin/Pages/ReorderCategories";
+
+                    $.post(url, ids, function (data) {
+                    });
+                }
+            });
+        });
+    </script>
+}
