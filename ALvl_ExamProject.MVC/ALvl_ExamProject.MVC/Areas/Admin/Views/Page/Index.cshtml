@@ -22,7 +22,7 @@
 <p>
     @Html.ActionLink("Create New Page", "AddPage", "", new { @class = "btn btn-success" })
 </p>
-<table class="table sorting" id ="pages">
+<table class="table sorting" id="pages">
     <tr class="home">
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -38,7 +38,7 @@
 
     @foreach (var item in Model)
     {
-        <tr id="id _@item.Id" class ="@item.Slug">
+        <tr id="id_@item.Id" class="@item.Slug">
             <td>
                 @if (item.Slug != "home")
                 {
@@ -77,11 +77,11 @@
                 placeholder: "ui-state-highlight",
                 update: function () {
                     var ids = $("table#pages tbody").sortable("serialize");
-                    var url = "/Admin/Pages/ReorderPages";
+                    var url = "/Admin/Page/ReorderPages";
 
                     $.post(url, ids, function (data) {
                     });
-                }
+                },
             });
         });
     </script>

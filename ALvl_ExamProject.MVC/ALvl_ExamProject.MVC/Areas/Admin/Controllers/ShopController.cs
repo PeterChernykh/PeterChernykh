@@ -34,7 +34,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
         }
 
         // GET: Admin/Shop
-        public ActionResult Categories()
+        public ActionResult GetAllCategories()
         {
             var categoriesBL = _categoryService.GetAll();
 
@@ -46,7 +46,6 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
         [HttpPost]
         public string AddNewCategory(string catName)
         {
-            string id;
 
             if (_categoryService.GetAll().Any(x => x.Name == catName))
             {
@@ -64,21 +63,20 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
             _categoryService.Add(categoryBL);
 
-            id = categoryBL.Id.ToString();
+            var addedcategory = _categoryService.GetAll().FirstOrDefault(x => x.Name == categoryBL.Name);
 
-            return id;
+            return addedcategory.Id.ToString();
         }
 
-        public void ReorderPages(int[] id)
+        public void ReorderCategories(int[] id)
         {
             int count = 1;
-            //Реализовать дефолтный список 
-            //сортировка для кажд стр
+
             CategoryBL neededCategory;
 
             foreach (var neededId in id)
             {
-               neededCategory = _categoryService.GetById(neededId);
+               neededCategory = _categoryService.GetAll().FirstOrDefault(x => x.Id == neededId);
                neededCategory.Sorting = count;
 
                 _categoryService.Update(neededCategory);

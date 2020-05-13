@@ -45,3 +45,8 @@ ul.nav.nav-tabs li:not(.active) a {
 ul.nav.nav-tabs li:active a {
     border-top: 3px solid forestgreen;
 }
+
+.sorting tr:hover{
+    background-color: #0094ff;
+    color:aliceblue;
+}

@@ -183,16 +183,15 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
         public void ReorderPages(int[] id)
         {
             int count = 1;
-            
 
-            PageBL neededPage;
+            PageBL neededPages;
 
             foreach (var neededId in id)
             {
-                neededPage = _pageService.GetById(neededId);
-                neededPage.Sorting = count;
+                neededPages = _pageService.GetAll().FirstOrDefault(x => x.Id == neededId);
+                neededPages.Sorting = count;
 
-                _pageService.Update(neededPage);
+                _pageService.Update(neededPages);
 
                 count++;
             }

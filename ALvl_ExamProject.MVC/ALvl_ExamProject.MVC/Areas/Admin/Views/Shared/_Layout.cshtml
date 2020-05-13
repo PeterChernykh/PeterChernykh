@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Admin</title>
-    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -38,10 +38,10 @@
             <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
         </footer>
     </div>
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/ckeditor") 
     @Scripts.Render("~/bundles/bootstrap")
-    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/ckeditor")
     @RenderSection("scripts", required: false)
 </body>
 </html>
