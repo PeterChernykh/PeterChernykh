@@ -43,6 +43,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             return View(categoriesPL);
         }
 
+        //POST: Admin/Shop
         [HttpPost]
         public string AddNewCategory(string catName)
         {
@@ -76,13 +77,60 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
             foreach (var neededId in id)
             {
-               neededCategory = _categoryService.GetAll().FirstOrDefault(x => x.Id == neededId);
-               neededCategory.Sorting = count;
+                neededCategory = _categoryService.GetAll().FirstOrDefault(x => x.Id == neededId);
+                neededCategory.Sorting = count;
 
                 _categoryService.Update(neededCategory);
 
                 count++;
             }
+        }
+
+        public ActionResult DeleteCategory(int id)
+        {
+            var category = _categoryService.GetById(id);
+
+            _categoryService.Remove(category.Id);
+
+            TempData["DeletedCatSucces"] = "The category has been deleted.";
+
+            return RedirectToAction("GetAllCategories");
+        }
+
+        //POST: Admin/Shop/RenameCategory/Id
+        [HttpPost]
+        public string RenameCategory(string newCatName, int id)
+        {
+            if (_categoryService.GetAll().Any(x => x.Name == newCatName))
+            {
+                return "titletaken";
+            }
+
+            var category = _categoryService.GetAll().FirstOrDefault(x => x.Id == id);
+
+            category = new CategoryBL
+            {
+                Id = category.Id,
+                Name = newCatName,
+                Slug = category.Slug,
+                Sorting = category.Sorting
+            };
+
+            _categoryService.Update(category);
+
+
+            return "Updated";
+        }
+
+        [HttpGet]
+        public ActionResult CreateProduct()
+        {
+
+            ProductPL product = new ProductPL();
+
+            product.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
+
+            return View(product);
         }
     }
 }

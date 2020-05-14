@@ -6,6 +6,13 @@
 
 <h2>Categories</h2>
 
+@if (TempData["DeletedCatSucces"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["DeletedCatSucces"]
+    </div>
+}
+
 <div class="new-cat">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -23,22 +30,22 @@
 
 @if (!Model.Any())
 {
-    <h1 class="text-canter">There are no categories</h1>
+    <h1 class="text-md-center" >There are no categories</h1>
 }
 
 <table class="table sorting" id="pages">
     <thead class="thead-dark">
-    <tr class="home">
-        <th>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        @Html.DisplayNameFor(model => model.Name)
+        <tr class="home">
+            <th>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </div>
                     </div>
                 </div>
-            </div>
-        </th>
-    </tr>
+            </th>
+        </tr>
     </thead>
     @foreach (var item in Model)
     {
@@ -47,10 +54,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
+                            <div class="ajaxdivtd"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
                             @Html.EditorFor(modelItem => item.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "@readonly" } })
                         </div>
                         <div class="align-content-lg-end">
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "delete btn btn-danger" })
+                            @Html.ActionLink("Delete", "DeleteCategory", new { id = item.Id }, new { @class = "delete btn btn-danger" })
                         </div>
 
                     </div>
@@ -62,88 +75,5 @@
 
 @section Scripts
 {
-    <script>
-        $(function () {
-            var newCatA = $("a#newcata");
-            var newCatTextInput = $("#newcatname");
-            var ajaxText = $("span.ajax-text");
-            var table = $("table#pages tbody");
-
-            newCatTextInput.keyup(function (e) {
-                if (e.keyCode == 13) {
-                    newCatA.click();
-                }
-            });
-
-            newCatA.click(function (e) {
-                e.preventDefault();
-
-                var catName = newCatTextInput.val();
-
-                if (catName.length < 3) {
-                    alert("Category name must be at least 3 characters long.");
-                    return false;
-                }
-
-                ajaxText.show();
-
-                var url = "AddNewCategory";
-
-                $.post(url, { catName: catName }, function (data) {
-                    var response = data.trim();
-
-                    if (response == "titletaken") {
-                        ajaxText.html("<span class='alert alert-danger'>That title is taken!</span>");
-                        setTimeout(function () {
-                            ajaxText.fadeOut("fast", function () {
-                                ajaxText.html("<img src='/Content/CustomImages/preloader.gif height='40'/>");
-                            }), 100;
-                        });
-                        return false;
-                    }
-                    else {
-                        if (!$("table#pages").length) {
-                            location.reload();
-                        }
-                        else {
-                            ajaxText.html("<span class='alert alert-success'>The category has been added!</span>");
-                            setTimeout(function () {
-                                ajaxText.fadeOut("fast", function () {
-                                    ajaxText.html("<img src='/Content/CustomImages/preloader.gif' height='50' />");
-                                }, 100);
-                            });
-
-                            newCatTextInput.val("");
-
-                            var toAppend = $("table#pages tbody tr:last").clone();
-                            toAppend.attr("id", "id_" + data);
-                            toAppend.find("#item_Name").val(catName);
-                            toAppend.find("a.delete").attr("href", "/admin/shop/DeleteCategory/" + data);
-                            table.append(toAppend);
-                            table.sortable("refresh");
-                        }
-                    }
-                });
-            });
-
-            //Delete page confirmation
-            $("a.delete").click(function () {
-                if (!confirm("You are going to delete this page. Do you want to proceed?")) return false;
-            });
-
-
-            $("table#pages tbody").sortable({
-                items: "tr:not(.home)",
-                placeholder: "ui-state-highlight",
-                update: function () {
-                    var ids = $("table#pages tbody").sortable("serialize");
-                    var url = "/Admin/Shop/ReorderCategories";
-
-                    $.post(url, ids, function (data) {
-                    });
-                },
-            });
-        });
-
-    </script>
+        <script src="~/Scripts/CustomJS/ShopCategory-JS.js"></script>
 }

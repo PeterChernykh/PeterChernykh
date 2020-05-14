@@ -59,6 +59,10 @@
     <Compile Include="Migrations\202005101058057_initial-migration.designer.cs">
       <DependentUpon>202005101058057_initial-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005141023152_Products_table updated with ImagePath.cs" />
+    <Compile Include="Migrations\202005141023152_Products_table updated with ImagePath.designer.cs">
+      <DependentUpon>202005141023152_Products_table updated with ImagePath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Page.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005101058057_initial-migration.resx">
       <DependentUpon>202005101058057_initial-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005141023152_Products_table updated with ImagePath.resx">
+      <DependentUpon>202005141023152_Products_table updated with ImagePath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
