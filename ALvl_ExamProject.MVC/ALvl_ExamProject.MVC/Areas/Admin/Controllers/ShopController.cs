@@ -4,8 +4,10 @@ using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
@@ -13,6 +15,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
     public class ShopController : Controller
     {
         private readonly ICategoryService _categoryService;
+        private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
         public ShopController()
@@ -22,14 +25,16 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
 
 
-        public ShopController(ICategoryService categoryService, IMapper mapper)
+        public ShopController(ICategoryService categoryService, IProductService productService, IMapper mapper)
         {
+            _productService = productService;
             _categoryService = categoryService;
             _mapper = mapper;
         }
 
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -131,6 +136,73 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             product.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
 
             return View(product);
+        }
+
+        public ActionResult CreateProduct(ProductPL productPL, HttpPostedFileBase uploadImage)
+        {
+            if (!ModelState.IsValid)
+            {
+                productPL.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
+
+                return View(productPL);
+            }
+
+            if (_productService.GetAll().Any(x => x.Name == productPL.Name))
+            {
+                productPL.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
+
+                ModelState.AddModelError("", "Such name is already existing in the system");
+                return View(productPL);
+            };
+
+            var productBL = _mapper.Map<ProductBL>(productPL); // это и ниже
+
+            _productService.Add(productBL);
+
+            TempData["CreateProductSuccess"] = "The product has been added.";
+
+            productBL = _productService.GetAll().FirstOrDefault(x => x.Name == productPL.Name); // получаем модель из бл + есть нужный айди
+
+            var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
+
+            var pathToImg = Path.Combine(imageDirectory.ToString(), "Products\\"+ productBL.Id.ToString());
+            var pathToThumb = Path.Combine(imageDirectory.ToString(), "StandartSizeImage\\" + productBL.Id.ToString() + "\\Thumbs");
+
+
+            if (uploadImage != null && uploadImage.ContentLength > 0)
+            {
+                string extention = uploadImage.ContentType.ToLower();
+
+                if (extention != "image/jpg" &&
+                    extention != "image/jpeg" &&
+                    extention != "image/pjpeg" &&
+                    extention != "image/gif" &&
+                    extention != "image/x-png" &&
+                    extention != "image/png")
+                {
+                    productPL.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
+                    ModelState.AddModelError("", "The image has incorrect extention");
+                    return View(productPL);
+                }
+
+                string imageName = uploadImage.FileName;
+
+                productBL.ImagePath = imageName;
+
+                _productService.Update(productBL);
+
+                var originalImgPath = string.Format($"{pathToImg}\\{imageName}");
+                var thumbImgPath = string.Format($"{pathToThumb}\\{imageName}");
+
+                uploadImage.SaveAs(originalImgPath); //TODO: replace to Business Logic
+
+                WebImage img = new WebImage(uploadImage.InputStream);
+                img.Resize(150, 150);
+                img.Save(thumbImgPath);
+
+            }
+
+            return View();
         }
     }
 }
