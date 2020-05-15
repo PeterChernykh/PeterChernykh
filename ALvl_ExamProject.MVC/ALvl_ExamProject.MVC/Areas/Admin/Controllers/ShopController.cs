@@ -138,7 +138,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             return View(product);
         }
 
-        public ActionResult CreateProduct(ProductPL productPL, HttpPostedFileBase uploadImage)
+        public ActionResult CreateProduct(ProductPL productPL, HttpPostedFileBase imageUpload)
         {
             if (!ModelState.IsValid)
             {
@@ -155,23 +155,23 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
                 return View(productPL);
             };
 
-            var productBL = _mapper.Map<ProductBL>(productPL); // это и ниже
+            var productBL = _mapper.Map<ProductBL>(productPL);
 
             _productService.Add(productBL);
 
             TempData["CreateProductSuccess"] = "The product has been added.";
 
-            productBL = _productService.GetAll().FirstOrDefault(x => x.Name == productPL.Name); // получаем модель из бл + есть нужный айди
+            productBL = _productService.GetAll().FirstOrDefault(x => x.Name == productPL.Name); 
 
             var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
 
-            var pathToImg = Path.Combine(imageDirectory.ToString(), "Products\\"+ productBL.Id.ToString());
-            var pathToThumb = Path.Combine(imageDirectory.ToString(), "StandartSizeImage\\" + productBL.Id.ToString() + "\\Thumbs");
+            var pathToImg = Path.Combine(imageDirectory.ToString(), "Products\\");
+            var pathToThumb = Path.Combine(imageDirectory.ToString(), "Products\\Thumbs");
 
 
-            if (uploadImage != null && uploadImage.ContentLength > 0)
+            if (imageUpload != null && imageUpload.ContentLength > 0)
             {
-                string extention = uploadImage.ContentType.ToLower();
+                string extention = imageUpload.ContentType.ToLower();
 
                 if (extention != "image/jpg" &&
                     extention != "image/jpeg" &&
@@ -185,7 +185,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
                     return View(productPL);
                 }
 
-                string imageName = uploadImage.FileName;
+                string imageName = imageUpload.FileName;
 
                 productBL.ImagePath = imageName;
 
@@ -194,15 +194,15 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
                 var originalImgPath = string.Format($"{pathToImg}\\{imageName}");
                 var thumbImgPath = string.Format($"{pathToThumb}\\{imageName}");
 
-                uploadImage.SaveAs(originalImgPath); //TODO: replace to Business Logic
+                imageUpload.SaveAs(originalImgPath); //TODO: replace to Business Logic
 
-                WebImage img = new WebImage(uploadImage.InputStream);
+                WebImage img = new WebImage(imageUpload.InputStream);
                 img.Resize(150, 150);
                 img.Save(thumbImgPath);
 
             }
 
-            return View();
+            return RedirectToAction("CreateProduct");
         }
     }
 }

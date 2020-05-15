@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace ALvl_ExamProject.DAL.Repositories
 
         public void Update(T model)
         {
-            _ctx.Entry(model).State = EntityState.Modified;
+            _ctx.Set<T>().AddOrUpdate(model);
             _ctx.SaveChanges();
         }
 

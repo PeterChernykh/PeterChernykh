@@ -25,8 +25,7 @@ namespace ALvl_ExamProject.MVC.Models
         [DisplayName("Select an image")]
         public string ImagePath { get; set; }
 
-        [Required]
-        public CategoryPL CategoryPL { get; set; }
+        public CategoryPL CategoryPL { get; set; } // TODO: remove property
 
         [Required]
         [DisplayName("Category")]
@@ -36,11 +35,9 @@ namespace ALvl_ExamProject.MVC.Models
 
         public IEnumerable<string> GalleryImage { get; set; }
 
-
         public ProductPL()
         {
             ImagePath = "~/App_Files/Images/noimage.png";
         }
-
     }
 }

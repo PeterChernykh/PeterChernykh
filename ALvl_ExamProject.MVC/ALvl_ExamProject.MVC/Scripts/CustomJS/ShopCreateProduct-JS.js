@@ -1,15 +1,23 @@
-﻿function ShowImagePreview(imageUploader, previewImage) {
-    if (imageUploader.files && imageUploader.files[0]) {
-        var reader = new FileReader();
+﻿$(function () {
 
-        reader.onload = function (e) {
-            $(previewImage)
-                .attr('src', e.target.result);
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("img#imgpreview")
+                    .attr("src", e.target.result)
+                    .width(200)
+                    .height(200);
+            }
+
+            reader.readAsDataURL(input.files[0]);
         }
-        reader.readAsDataURL(imageUploader.files[0]);
     }
 
-    $("#img").change(function () {
-        ShowImagePreview(this);
+    $("#imageUpload").change(function () {
+        readURL(this);
     });
-};
+
+
+});
