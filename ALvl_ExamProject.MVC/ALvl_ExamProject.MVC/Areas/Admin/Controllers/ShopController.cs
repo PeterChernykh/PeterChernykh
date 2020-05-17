@@ -2,6 +2,7 @@
 using ALvl_ExamProject.BL.Models;
 using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 {
@@ -134,7 +136,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             ProductPL product = new ProductPL();
 
             product.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
-
+            product.ImagePath = "~/App_Files/Images/noimage.png";
             return View(product);
         }
 
@@ -203,6 +205,39 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             }
 
             return RedirectToAction("CreateProduct");
+        }
+
+        [HttpGet]
+        public ActionResult GetAllProducts( int? page, int? categoryId)
+        {
+            var pageNo = page ?? 1;
+
+            var ProductsBL = _productService.GetAll();
+
+            var ProductPL = _mapper.Map<IEnumerable<ProductPL>>(ProductsBL);
+
+            var listProducts = ProductPL
+                .Where(x => categoryId == null || categoryId == 0 || x.CategoryId == categoryId)
+                .ToList();
+
+            ViewBag.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
+
+            ViewBag.ChosenCategory = categoryId.ToString();
+
+            var singlePage = listProducts.ToPagedList(pageNo, 3);
+
+            ViewBag.SinglePage = singlePage;
+
+            return View(listProducts);
+        }
+
+        public ActionResult GeneratePath()
+        {
+            var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
+
+
+
+            return ViewBag;
         }
     }
 }
