@@ -1,0 +1,61 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<ALvl_ExamProject.MVC.Models.ProductPL>
+
+@{
+    var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
+}
+<p>
+    @Html.ActionLink("Create product", "CreateProduct", "", new { @class = "btn btn-primary", @style = "margin:10px"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Image
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @{
+
+                    if (@item.ImagePath != null)
+                    {
+                        <img src="/Images/Uploads/Products/Thumbs/@item.ImagePath" />
+                    }
+                    else
+                    {
+                        <img src="~/App_Files/Images/noimage.png" width="150"/>
+                    }
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" } )
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("GetAllProducts", new { page, categoryId = ViewBag.ChosenCategory }))

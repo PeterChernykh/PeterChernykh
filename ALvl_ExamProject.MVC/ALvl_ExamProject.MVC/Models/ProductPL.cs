@@ -34,5 +34,10 @@ namespace ALvl_ExamProject.MVC.Models
         public IEnumerable<SelectListItem> Categories { get; set; }
 
         public IEnumerable<string> GalleryImage { get; set; }
+
+        public ProductPL()
+        {
+            ImagePath = "~/App_Files/Images/noimage.png";
+        }
     }
 }

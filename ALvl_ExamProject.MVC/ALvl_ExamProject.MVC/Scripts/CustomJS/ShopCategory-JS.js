@@ -31,7 +31,7 @@
                 ajaxText.html("<span class='alert alert-danger'>That title is taken!</span>");
                 setTimeout(function () {
                     ajaxText.fadeOut("fast", function () {
-                        ajaxText.html(" ");
+                        ajaxText.html("<img src='/Content/CustomImages/preloader.gif' height='40'/>");
                     });
                 });
                 return false;
@@ -44,7 +44,7 @@
                     ajaxText.html("<span class='alert alert-success'>The category has been added!</span>");
                     setTimeout(function () {
                         ajaxText.fadeOut("fast", function () {
-                            ajaxText.html("");
+                            ajaxText.html("< img src = '/Content/CustomImages/preloader.gif' height = '40' />");
                         });
                     });
 

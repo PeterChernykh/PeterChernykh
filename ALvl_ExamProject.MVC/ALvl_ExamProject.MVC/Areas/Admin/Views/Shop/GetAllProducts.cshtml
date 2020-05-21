@@ -1,20 +1,13 @@
-﻿@using PagedList.Mvc;
-@using PagedList;
-
-@model IEnumerable<ALvl_ExamProject.MVC.Models.ProductPL>
+﻿@model IEnumerable<ALvl_ExamProject.MVC.Models.ProductPL>
 
 @{
     ViewBag.Title = "GetAllProducts";
 }
-@{
-    var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
-}
-
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 <h2>Products</h2>
-<select id="SelectCategory" name="SelectCategory">
+<select id="SelectCategory" name="SelectCategory" style="margin:10px">
     <option value="0">All</option>
     @foreach (var item in ViewBag.Categories)
     {
@@ -27,55 +20,25 @@
             <option value="@item.Value">@item.Text</option>
         }
     }
-
 </select>
+
+@*<div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Action
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+</div>*@
 <br />
 
-<p>
-    @Html.ActionLink("Create product", "CreateProduct")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Image
-        </th>
-        <th></th>
-    </tr>
+@Html.Action("PaginatedPage", new { listProducts = Model.ToList() })
 
-    @foreach (var item in ViewBag.SinglePage)
+@section Scripts
     {
-        <tr>
-            <td>
-                @item.Name
-            </td>
-            <td>
-                @item.Description
-            </td>
-            <td>
-                @item.Price
-            </td>
-            <td>
-                @{ 
-                    var pathToThumb = Path.Combine(imageDirectory.ToString(), "Products\\Thumbs");
-                }
-         
-                    <img src="@imageDirectory\Products\Thumbs\@item.ImagePath" />
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }) | 
-                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
-
-@Html.PagedListPager((IPagedList) ViewBag.SinglePage, page => Url.Action("GetAllProducts", new { page, categoryId = ViewBag.ChosenCategory}))
+    <script src="~/Scripts/CustomJS/ShopGetAllProductsScript.js"></script>
+}

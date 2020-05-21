@@ -136,7 +136,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             ProductPL product = new ProductPL();
 
             product.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
-            product.ImagePath = "~/App_Files/Images/noimage.png";
+            
             return View(product);
         }
 
@@ -163,28 +163,22 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
             TempData["CreateProductSuccess"] = "The product has been added.";
 
-            productBL = _productService.GetAll().FirstOrDefault(x => x.Name == productPL.Name); 
+            productBL = _productService.GetAll().FirstOrDefault(x => x.Name == productPL.Name);
 
-            var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
-
-            var pathToImg = Path.Combine(imageDirectory.ToString(), "Products\\");
-            var pathToThumb = Path.Combine(imageDirectory.ToString(), "Products\\Thumbs");
-
-
-            if (imageUpload != null && imageUpload.ContentLength > 0)
+            if (!ImageValidation(imageUpload, productPL))
             {
-                string extention = imageUpload.ContentType.ToLower();
+                var imageDirectory = new DirectoryInfo(string.Format($"{Server.MapPath(@"\")}Images\\Uploads"));
 
-                if (extention != "image/jpg" &&
-                    extention != "image/jpeg" &&
-                    extention != "image/pjpeg" &&
-                    extention != "image/gif" &&
-                    extention != "image/x-png" &&
-                    extention != "image/png")
+                var pathToImg = Path.Combine(imageDirectory.ToString(), "Products\\");
+                var pathToThumb = Path.Combine(imageDirectory.ToString(), "Products\\Thumbs");
+
+                if (!Directory.Exists(pathToImg))
                 {
-                    productPL.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
-                    ModelState.AddModelError("", "The image has incorrect extention");
-                    return View(productPL);
+                    Directory.CreateDirectory(pathToImg);
+                }
+                if (!Directory.Exists(pathToThumb))
+                {
+                    Directory.CreateDirectory(pathToThumb);
                 }
 
                 string imageName = imageUpload.FileName;
@@ -196,21 +190,23 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
                 var originalImgPath = string.Format($"{pathToImg}\\{imageName}");
                 var thumbImgPath = string.Format($"{pathToThumb}\\{imageName}");
 
-                imageUpload.SaveAs(originalImgPath); //TODO: replace to Business Logic
+                imageUpload.SaveAs(originalImgPath);
 
                 WebImage img = new WebImage(imageUpload.InputStream);
                 img.Resize(150, 150);
                 img.Save(thumbImgPath);
-
+            }
+            else
+            {
+                ModelState.AddModelError("", "The image has incorrect extention");
             }
 
             return RedirectToAction("CreateProduct");
         }
 
         [HttpGet]
-        public ActionResult GetAllProducts( int? page, int? categoryId)
+        public ActionResult GetAllProducts( int? categoryId)
         {
-            var pageNo = page ?? 1;
 
             var ProductsBL = _productService.GetAll();
 
@@ -224,20 +220,134 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
             ViewBag.ChosenCategory = categoryId.ToString();
 
-            var singlePage = listProducts.ToPagedList(pageNo, 3);
-
-            ViewBag.SinglePage = singlePage;
-
             return View(listProducts);
         }
 
-        public ActionResult GeneratePath()
+        [ChildActionOnly]
+        public ActionResult PaginatedPage(int? page, List<ProductPL> listProducts)
         {
-            var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
+            var pageNo = page ?? 1;
 
+            var singlePage = listProducts.ToPagedList(pageNo, 3);
 
+            return PartialView(singlePage);
 
-            return ViewBag;
+        }
+
+        [HttpGet]
+        public ActionResult EditProduct(int id)
+        {
+            var productBL = _productService.GetById(id);
+
+            if (productBL == null)
+            {
+                return Content("Such product doesn't exist");
+            }
+
+            var productPL = _mapper.Map<ProductPL>(productBL);
+
+            productPL.Categories = new SelectList(_categoryService.GetAll(), "Id", "Name");
+
+            productPL.GalleryImage = Directory
+                .EnumerateFiles(Server.MapPath("~/Images/Uploads/Products/Thumbs"))
+                .Select(fileName => Path.GetFileName(fileName));
+
+            return View(productPL);
+        }
+
+        [HttpPost]
+        public ActionResult EditProduct(ProductPL productPL, HttpPostedFileBase imageUpload)
+        {
+
+            productPL.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
+
+            productPL.GalleryImage = Directory
+                .EnumerateFiles(Server.MapPath("~/Images/Uploads/Products/Thumbs/"))
+                .Select(x => Path.GetFileName(x));
+
+            if (!ModelState.IsValid)
+            {
+                return View(productPL);
+            }
+
+            if(_productService.GetAll().Where(x => x.Id != productPL.Id).Any(x => x.Name == productPL.Name))
+            {
+                ModelState.AddModelError("", "Product with such name is already existing in the system");
+
+                return View(productPL);
+            }
+
+            var productBL = _mapper.Map<ProductBL>(productPL);
+
+            _productService.Update(productBL);
+
+            TempData["ProductEditedSuccess"] = "The product has been edited";
+
+            if (ImageValidation(imageUpload, productPL))
+            {
+
+                var imageDirectory = new DirectoryInfo(string.Format($"{Server.MapPath(@"\")}Images\\Uploads"));
+
+                var pathToImg = Path.Combine(imageDirectory.ToString(), "Products\\");
+                var pathToThumb = Path.Combine(imageDirectory.ToString(), "Products\\Thumbs");
+
+                DirectoryInfo ptImg = new DirectoryInfo(pathToImg);
+                DirectoryInfo ptThumb = new DirectoryInfo(pathToThumb);
+
+                foreach (var fileImg in ptImg.GetFiles())
+                {
+                    fileImg.Delete();
+                }
+
+                foreach (var fileTmb in ptThumb.GetFiles())
+                {
+                    fileTmb.Delete();
+                }
+
+                string imageName = imageUpload.FileName;
+
+                productBL.ImagePath = imageName;
+
+                _productService.Update(productBL);
+
+                var originalImgPath = string.Format($"{pathToImg}\\{imageName}");
+                var thumbImgPath = string.Format($"{pathToThumb}\\{imageName}");
+
+                imageUpload.SaveAs(originalImgPath);
+
+                WebImage img = new WebImage(imageUpload.InputStream);
+                img.Resize(150, 150);
+                img.Save(thumbImgPath);
+            }
+            else
+            {
+                TempData["ProductEditedFail"] = "Please add images with the next extentions: jpg, jpeg, gif, gif.";
+            }
+
+            return RedirectToAction("EditProduct");
+        }
+
+        public bool ImageValidation(HttpPostedFileBase imageUpload, ProductPL productPL)
+        {
+            bool result = false;
+            if (imageUpload != null && imageUpload.ContentLength > 0)
+            {
+                string extention = imageUpload.ContentType.ToLower();
+
+                if (extention != "image/jpg" &&
+                    extention != "image/jpeg" &&
+                    extention != "image/gif" &&
+                    extention != "image/gif")
+                {
+                    productPL.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
+                }
+
+                result = true;
+
+                return result;
+            }
+
+            return result;
         }
     }
 }
