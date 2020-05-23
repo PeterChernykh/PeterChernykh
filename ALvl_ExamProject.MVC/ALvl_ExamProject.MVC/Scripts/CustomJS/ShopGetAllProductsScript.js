@@ -8,8 +8,4 @@
         }
         return false;
     });
-
-    $("a.delete").click(function () {
-        if (!confirm("Confirm page deletion")) return false;
-    });
 });

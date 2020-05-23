@@ -14,10 +14,34 @@ namespace ALvl_ExamProject.MVC
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+              name: "SidebarPartial",
+              url: "Pages/SidebarPartial",
+              defaults: new { controller = "Pages", action = "SidebarPartial" },
+              namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
+
+            routes.MapRoute(
+               name: "Shop",
+               url: "Shop/{action}/{name}",
+               defaults: new { controller = "Shop", action = "Index", name=UrlParameter.Optional },
+               namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
+
+            routes.MapRoute(
+               name: "PartialPageMenu",
+               url: "Pages/PartialPageMenu",
+               defaults: new { controller = "Pages", action = "PartialPageMenu" },
+               namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
+
+            routes.MapRoute(
+                name: "Pages",
+                url: "{page}",
+                defaults: new { controller = "Pages", action = "Index" },
+                namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
+
+            routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                url: "",
+                defaults: new { controller = "Pages", action = "Index" },
+                namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
         }
     }
 }

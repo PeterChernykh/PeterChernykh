@@ -165,7 +165,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
             productBL = _productService.GetAll().FirstOrDefault(x => x.Name == productPL.Name);
 
-            if (!ImageValidation(imageUpload, productPL))
+            if (ImageValidation(imageUpload, productPL))
             {
                 var imageDirectory = new DirectoryInfo(string.Format($"{Server.MapPath(@"\")}Images\\Uploads"));
 
@@ -198,7 +198,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "The image has incorrect extention");
+                TempData["ImageWasNotAdded"] = "Please add images with the next extentions: jpg, jpeg, gif, png.";
             }
 
             return RedirectToAction("CreateProduct");
@@ -321,7 +321,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             }
             else
             {
-                TempData["ProductEditedFail"] = "Please add images with the next extentions: jpg, jpeg, gif, gif.";
+                TempData["ProductEditedFail"] = "Please add images with the next extentions: jpg, jpeg, gif, png.";
             }
 
             return RedirectToAction("EditProduct");
@@ -340,14 +340,43 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
                     extention != "image/gif")
                 {
                     productPL.Categories = new SelectList(_categoryService.GetAll().ToList(), "Id", "Name");
-                }
 
+                    return result;
+                }
                 result = true;
 
                 return result;
             }
 
             return result;
+        }
+
+
+        public ActionResult DeleteProduct(int id)
+        {
+            var productBL = _productService.GetById(id);
+
+            if (productBL.ImagePath != null)
+            {
+                var imageDirectory = new DirectoryInfo(string.Format($"{Server.MapPath(@"\")}Images\\Uploads"));
+
+                var pathToImg = Path.Combine(imageDirectory.ToString(), "Products\\" + productBL.ImagePath);
+                var pathToThumb = Path.Combine(imageDirectory.ToString(), "Products\\Thumbs" + productBL.ImagePath);
+
+                if (Directory.Exists(pathToThumb))
+                {
+                    Directory.Delete(pathToThumb);
+                }
+
+                if (Directory.Exists(pathToImg))
+                {
+                    Directory.Delete(pathToImg);
+                }
+            }
+
+            _productService.Remove(id);
+
+            return RedirectToAction("GetAllProducts");
         }
     }
 }

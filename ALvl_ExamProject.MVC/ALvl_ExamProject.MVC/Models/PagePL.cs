@@ -12,7 +12,7 @@ namespace ALvl_ExamProject.MVC.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 5)]
+        [StringLength(50, MinimumLength = 3)]
         public string Title { get; set; }
 
         public string Slug { get; set; }

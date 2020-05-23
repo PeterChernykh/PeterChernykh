@@ -39,8 +39,8 @@
             </td>
             <td>
                 @{
-
-                    if (@item.ImagePath != null)
+                    string noImage = "~/App_Files/Images/noimage.png";
+                    if (@item.ImagePath != null&&@item.ImagePath!= noImage)
                     {
                         <img src="/Images/Uploads/Products/Thumbs/@item.ImagePath" />
                     }
@@ -52,7 +52,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditProduct", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" } )
-                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger" })
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger delete" })
             </td>
         </tr>
     }

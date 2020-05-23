@@ -12,8 +12,6 @@ namespace ALvl_ExamProject.MVC.Models
         public int Id { get; set; }
 
         [Required]
-        //[StringLength(int.MaxValue, MinimumLength = 10)]
-        //[AllowHtml]
         public string Body { get; set; }
     }
 }

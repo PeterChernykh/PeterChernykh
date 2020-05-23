@@ -29,7 +29,8 @@
                     " one another on a rectangular court, compete with the primary objective of shooting a basketball " +
                     "(approximately 9.4 inches (24 cm) in diameter) through the defender's hoop (a basket 18 inches (46 cm) in" +
                     " diameter mounted 10 feet (3.048 m) high to a backboard at each end of the court) while preventing the opposing " +
-                    "team from shooting through their own hoop."
+                    "team from shooting through their own hoop.",
+ 
                 });
                 context.Categories.Add(new Category() { 
                     Name = "Powerlifting",
@@ -129,7 +130,7 @@
                     Body = "TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1" +
                     "TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1" +
                     "TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1",
-                    Slug = "TestPage1",
+                    Slug = "home",
                     Sorting = 100,
                     Sidebar = true
                 }
