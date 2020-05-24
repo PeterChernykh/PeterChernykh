@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ALvl_ExamProject.MVC.Models.ShopCartPL>
+
+@{
+    ViewBag.Title = "Shopping cart";
+}
+
+    <h2>Shopping cart</h2>
+
+@if (ViewBag.Message != null)
+{
+    <h4>@ViewBag.Message</h4>
+}
+else
+{
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProdactPL.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @if (item.ProdactPL.ImagePath != null)
+        {
+            <img scr="/Images/Uploads/Products/Thumbs/@item.ProdactPL.ImagePath">
+        }
+        else
+        {
+            <img src="~/App_Files/Images/noimage.png" />
+        }
+    </td>
+    <td>
+        <a href="#" class="plusproduct"> data-id = "@item.ProdactPL.Id">+</a>
+        <a href="#" class="minusproduct"> data-id = "@item.ProdactPL.Id">-</a>
+        <a href="#" class="removeproduct"> data-id = "@item.ProdactPL.Id">Remove</a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Total)
+    </td>
+</tr>
+}
+
+</table>
+}

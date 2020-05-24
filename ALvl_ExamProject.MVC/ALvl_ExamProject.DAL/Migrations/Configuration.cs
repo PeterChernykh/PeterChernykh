@@ -25,35 +25,24 @@
                 });        
                 context.Categories.Add(new Category() { 
                     Name = "Basketball",
-                    Slug = "Basketball is a team sport in which two teams, most commonly of five players each, opposing" +
-                    " one another on a rectangular court, compete with the primary objective of shooting a basketball " +
-                    "(approximately 9.4 inches (24 cm) in diameter) through the defender's hoop (a basket 18 inches (46 cm) in" +
-                    " diameter mounted 10 feet (3.048 m) high to a backboard at each end of the court) while preventing the opposing " +
-                    "team from shooting through their own hoop.",
+                    Slug = "basketball",
  
                 });
                 context.Categories.Add(new Category() { 
                     Name = "Powerlifting",
-                    Slug = "Powerlifting is a strength sport that consists of three attempts at maximal weight" +
-                    " on three lifts: squat, bench press, and deadlift. As in the sport of Olympic weightlifting," +
-                    " it involves the athlete attempting a maximal weight single lift of a barbell loaded with weight plates."
+                    Slug = "powerlifting"
                 });
                 context.Categories.Add(new Category() { 
                     Name = "Football",
-                    Slug = "Football is a family of team sports that involve, to varying degrees, kicking a ball" +
-                    " to score a goal. Unqualified, the word football normally means the form of football that is the" +
-                    " most popular where the word is used."
+                    Slug = "football"
                 });
                 context.Categories.Add(new Category() {
                     Name = "Boxing",
-                    Slug = "Boxing is a combat sport in which two people, usually wearing protective gloves," +
-                    " throw punches at each other for a predetermined amount of time in a boxing ring."
+                    Slug = "boxing"
                 });
                 context.Categories.Add(new Category() { 
                     Name = "Swimming",
-                    Slug = "Swimming is an individual or team racing sport that requires the use of one's entire body to move" +
-                    " through water. The sport takes place in pools or open water (e.g., in a sea or lake). Competitive swimming" +
-                    " is one of the most popular Olympic sports"
+                    Slug = "swimming"
                 });
 
                 context.SaveChanges();
@@ -63,9 +52,10 @@
                     Name = "Air Jordan 2 Retro",
                     Price = 22.30,        
                     CategoryId = context.Categories.Single(x => x.Name == "Basketball").Id,
-                    Slug = "Featuring bold color-blocking inspired by MJ's most formidable rivals, the" +
-                    " Air Jordan 2 Retro for women re-energizes the '86 original. Its luxurious upper uses a clashing" +
-                    " mix of textiles and leathers for a unique look and feel."
+                    Slug = "AirJordan2R",
+                    Description = "The Air Jordan 1 Mid SE maintains the timeless appeal of the OG AJ1, revamped with fresh colors and" +
+                    " premium materials. Built with a lightweight Air-Sole unit and classic design lines, it captures the essence" +
+                    " of the original through a modern lens."
 
                 });
                 context.Products.Add(new Product()
@@ -82,15 +72,18 @@
                     Name = "Standard Metal Plates",
                     Price = 110.30,
                     CategoryId = context.Categories.Single(x => x.Name == "Powerlifting").Id,
-                    Slug = "Looking for quality and affordability? Experience high quality Olympic 2 plates" +
-                    " with rims and radius edges precision - milled for a perfect circular shape and truer dimensions. "
+                    Slug = "StandardMP",
+                    Description = "Looking for quality and affordability? Experience high quality Olympic 2 plates" +
+                    " with rims and radius edges precision - milled for a perfect circular shape and truer dimensions. ",
+
                 });
                 context.Products.Add(new Product()
                 {
                     Name = "Nike Phantom Vision Academy Dynamic Fit MG",
                     Price = 19.90,
                     CategoryId = context.Categories.Single(x => x.Name == "Football").Id,
-                    Slug = "Show your creative vision on the pitch and lead your team to victory with the Nike Phantom Vision Academy" +
+                    Slug = "NikePVADFMG",
+                    Description = "Show your creative vision on the pitch and lead your team to victory with the Nike Phantom Vision Academy" +
                     " DF FG/MG football boots. Lightweight, durable, and with an outstanding performance, these boots are ideal for amateur" +
                     " and semi-professional players looking for a model that unlocks their full potential."
                 });
@@ -99,7 +92,8 @@
                     Name = "Adidas Predator Malice Control FG",
                     Price = 139.90,
                     CategoryId = context.Categories.Single(x => x.Name == "Football").Id,
-                    Slug = "Engineered for players who see the bigger picture. These rugby boots offer a stable platform" +
+                    Slug = "AdidasPMCFG",
+                    Description = "Engineered for players who see the bigger picture. These rugby boots offer a stable platform" +
                     " for kickers to boss the game. The foot-hugging knit textile upper keeps you cool, comfortable and locked" +
                     " in. A soft leather vamp, rubber pads on the forefoot and asymmetrical lacing all combine for pinpoint accuracy" +
                     " with the ball. The lightweight outsole delivers maximum traction on firm ground."
@@ -109,7 +103,8 @@
                     Name = "Everlast Elite Pro Style Training Gloves",
                     Price = 2.90,
                     CategoryId = context.Categories.Single(x => x.Name == "Boxing").Id,
-                    Slug = "Premium synthetic leather along with superior construction increases durability. " +
+                    Slug = "EverlastEPSTG",
+                    Description= "Premium synthetic leather along with superior construction increases durability. " +
                     "Evercool full mesh palm ensures breathability and comfort. " +
                     "Ideal for sparring, heavy bag workouts, and mitt work"
                 });
@@ -118,7 +113,8 @@
                     Name = "Speedo Unisex-Adult Swim Cap Silicone",
                     Price = 9.99,
                     CategoryId = context.Categories.Single(x => x.Name == "Swimming").Id,
-                    Slug = "Man made materials. Imported. Amazing stretch for comfort. Resistant to snagging and tearing, Extra durable. " +
+                    Slug = "SpeedoUASCS",
+                    Description = "Man made materials. Imported. Amazing stretch for comfort. Resistant to snagging and tearing, Extra durable. " +
                     "Quick and easy to take off without snagging hair"
                 });
 

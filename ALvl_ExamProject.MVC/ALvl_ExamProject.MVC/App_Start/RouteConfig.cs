@@ -14,6 +14,12 @@ namespace ALvl_ExamProject.MVC
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+              name: "ShopCart",
+              url: "ShopCart/{action}/{id}",
+              defaults: new { controller = "ShopCart", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
+
+            routes.MapRoute(
               name: "SidebarPartial",
               url: "Pages/SidebarPartial",
               defaults: new { controller = "Pages", action = "SidebarPartial" },

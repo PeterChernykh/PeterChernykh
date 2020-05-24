@@ -1,7 +1,7 @@
 ﻿@model ALvl_ExamProject.MVC.Models.PagePL
 
 @{
-    ViewBag.Title = ViewBag.PageTitle;//TODO: check the title
+    ViewBag.Title = ViewBag.PageTitle;
 }
-<h4>@Model.Title</h4>
+<h4>@ViewBag.PageTitle</h4>
         @Html.Raw(Model.Body)

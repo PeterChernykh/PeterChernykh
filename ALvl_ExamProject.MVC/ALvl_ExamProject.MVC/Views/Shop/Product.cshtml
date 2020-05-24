@@ -1,0 +1,36 @@
+﻿@model ALvl_ExamProject.MVC.Models.ProductPL
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+<div class="row">
+    @if (@Model.ImagePath != null)
+    {
+        <div class="col-sm-12 col-md-4">
+            <img src="/Images/Uploads/Products/Thumbs/@Model.ImagePath" width="200"/>
+        </div>
+    }
+    else
+    {
+        <div class="col-sm-12 col-md-4">
+            <img src="/App_Files/Images/noimage.png" width="250"/>
+        </div>
+    }
+        <div class="col-sm-12 col-md-6">
+            @Html.DisplayFor(model => model.Description)
+            <br/>
+            <br/>
+            Price: @Html.DisplayFor(model => model.Price)$
+
+            <div class="addtocart">
+                <a href="#" class="addtocart btn btn-success">Add to cart</a>
+                <span class="loading"><img src="~/Content/CustomImages/preloader.gif" height="50" /></span>
+                <div class="ajaxmsg">
+                    The product was added successfuly.
+                </div>
+            </div>
+        </div>
+</div>

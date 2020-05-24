@@ -42,5 +42,49 @@ namespace ALvl_ExamProject.MVC.Controllers
 
             return PartialView("_PartialCategoryMenu", categoriesPL);
         }
+
+        public ActionResult Category(string name)
+        {
+            var categoryBL = _categoryService.GetAll().FirstOrDefault(x => x.Slug == name);
+
+            int categoryId = categoryBL.Id;
+
+            var productsBL = _productService.GetAll().Where(x => x.CategoryId == categoryId).ToList();
+
+            var productCategory = _productService.GetAll().FirstOrDefault(x => x.CategoryId == categoryId);
+
+            if (productCategory == null)
+            {
+                var categoryName = _categoryService.GetAll().FirstOrDefault(x => x.Slug == name);
+
+                ViewBag.CategoryName = categoryName;
+            }
+            else
+            {
+                ViewBag.CategoryName = productCategory.CategoryBL.Name;
+            }
+
+            var productsPL = _mapper.Map<IEnumerable<ProductPL>>(productsBL);
+            return View(productsPL);
+        }
+
+        [ActionName("product-details")]
+        public ActionResult Product(string name)
+        {
+            var productsBL = _productService.GetAll();
+
+            if(!productsBL.Any(x => x.Slug == name))
+            {
+                return RedirectToAction("Index", "Shop");
+            }
+
+            var productBL = productsBL.FirstOrDefault(x => x.Slug == name);
+
+            int id = productBL.Id;
+
+            var productPL = _mapper.Map<ProductPL>(productBL);
+
+            return View("Product", productPL);
+        }
     }
 }

@@ -50,3 +50,14 @@ ul.nav.nav-tabs li:active a {
     background-color: #0094ff;
     color:aliceblue;
 }
+
+div.ajaxmsg{
+    background:green;
+    color: white;
+    padding: 10px;
+    display:none;
+}
+
+span.loading{
+    display: none;
+}
