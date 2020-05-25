@@ -282,8 +282,11 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             _productService.Update(productBL);
 
             TempData["ProductEditedSuccess"] = "The product has been edited";
-
-            if (ImageValidation(imageUpload, productPL))
+            if (imageUpload == null)
+            {
+                TempData["ProductEditedWOImage"] = "Please pay  attention. The image wasn't modified ";
+            }
+            else if (ImageValidation(imageUpload, productPL))
             {
 
                 var imageDirectory = new DirectoryInfo(string.Format($"{Server.MapPath(@"\")}Images\\Uploads"));
@@ -321,7 +324,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             }
             else
             {
-                TempData["ProductEditedFail"] = "Please add images with the next extentions: jpg, jpeg, gif, png.";
+                TempData["ProductEditedFailIncImg"] = "Please add images with the next extentions: jpg, jpeg, gif, png.";
             }
 
             return RedirectToAction("EditProduct");

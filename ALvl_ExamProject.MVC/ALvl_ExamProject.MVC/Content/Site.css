@@ -61,3 +61,8 @@ div.ajaxmsg{
 span.loading{
     display: none;
 }
+
+.inlineblock{
+    display:inline-block !important;
+    margin-top: 10px;
+}

@@ -829,6 +829,7 @@
     <Content Include="Scripts\ckeditor\skins\v2\skin.js" />
     <Content Include="Scripts\ckeditor\skins\v2\templates.css" />
     <Content Include="Scripts\ckeditor\themes\default\theme.js" />
+    <Content Include="Scripts\CustomJS\AmountModificatorShopCartScript.js" />
     <Content Include="Scripts\CustomJS\DeleteConfirmation.js" />
     <Content Include="Scripts\CustomJS\ShopCategory-JS.js" />
     <Content Include="Scripts\CustomJS\ShopImagePreview.js" />
@@ -1018,6 +1019,7 @@
     <Content Include="Views\Shop\Product.cshtml" />
     <Content Include="Views\ShopCart\_CartPartial.cshtml" />
     <Content Include="Views\ShopCart\Index.cshtml" />
+    <Content Include="Views\ShopCart\_AddToCartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,14 @@
 
 <h2>EditProduct</h2>
 
-@if (TempData["ProductEditedFail"] != null)
+@if (TempData["ProductEditedWOImage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ProductEditedWOImage"]
+    </div>
+}
+
+@if (TempData["ProductEditedFailIncImg"] != null)
 {
     <div class="alert alert-danger">
         @TempData["ProductEditedFail"]
@@ -85,7 +92,7 @@
             </div>
         </div>
 
-        <hr/>
+        <hr />
 
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">

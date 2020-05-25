@@ -4,7 +4,7 @@
     ViewBag.Title = "Shopping cart";
 }
 
-    <h2>Shopping cart</h2>
+<h2>Shopping cart</h2>
 
 @if (ViewBag.Message != null)
 {
@@ -12,61 +12,81 @@
 }
 else
 {
-<table class="table">
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            Quantity
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Image
-        </th>
-        <th>
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
 
-        </th>
-        <th>
-            Total
-        </th>
-        <th></th>
-    </tr>
+            </th>
+            <th>
+                Total
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model)
-{
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ProdactPL.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Quantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @if (item.ProdactPL.ImagePath != null)
+        @foreach (var item in Model)
         {
-            <img scr="/Images/Uploads/Products/Thumbs/@item.ProdactPL.ImagePath">
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPL.Name)
+                </td>
+                <td class="qty@(item.ProductPL.Id)">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)$
+                </td>
+                <td>
+                    @if (item.ProductPL.ImagePath != null)
+                    {
+                    <img src="/Images/Uploads/Products/Thumbs/@item.ProductPL.ImagePath" width="125" />
+                    }
+                    else
+                    {
+                        <img src="~/App_Files/Images/noimage.png" width="200" />
+                    }
+                </td>
+                <td>
+                    <a href="#" class="plusproduct" data-id="@item.ProductPL.Id">+</a>
+                    <a href="#" class="minusproduct" data-id="@item.ProductPL.Id">-</a>
+                    <a href="#" class="removeproduct" data-id="@item.ProductPL.Id">Remove</a>
+                </td>
+                <td class="total@(item.ProductPL.Id)">
+                    @Html.DisplayFor(modelItem => item.Total)$
+                </td>
+            </tr>
         }
-        else
-        {
-            <img src="~/App_Files/Images/noimage.png" />
-        }
-    </td>
-    <td>
-        <a href="#" class="plusproduct"> data-id = "@item.ProdactPL.Id">+</a>
-        <a href="#" class="minusproduct"> data-id = "@item.ProdactPL.Id">-</a>
-        <a href="#" class="removeproduct"> data-id = "@item.ProdactPL.Id">Remove</a>
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Total)
-    </td>
-</tr>
-}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="totalamount">
+                <b>
+                    Total amount:
+                </b>
+                <span>
+                    @ViewBag.TotalAmount $
+                </span>
+            </td>
+        </tr>
 
-</table>
+    </table>
 }
+@section Scripts
+    {
+    <script src="~/Scripts/CustomJS/AmountModificatorShopCartScript.js"></script>
+} 

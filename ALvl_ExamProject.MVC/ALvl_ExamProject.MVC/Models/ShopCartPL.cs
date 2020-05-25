@@ -7,7 +7,7 @@ namespace ALvl_ExamProject.MVC.Models
 {
     public class ShopCartPL
     {
-        public ProductPL ProdactPL { get; set; }
+        public ProductPL ProductPL { get; set; }
 
         public int Quantity { get; set; }
 

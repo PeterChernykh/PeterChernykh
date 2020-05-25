@@ -3,34 +3,60 @@
 @{
     ViewBag.Title = Model.Name;
 }
-
 <h2>@Model.Name</h2>
 
 <div class="row">
     @if (@Model.ImagePath != null)
     {
         <div class="col-sm-12 col-md-4">
-            <img src="/Images/Uploads/Products/Thumbs/@Model.ImagePath" width="200"/>
+            <img src="/Images/Uploads/Products/@Model.ImagePath" width="250" />
         </div>
     }
     else
     {
         <div class="col-sm-12 col-md-4">
-            <img src="/App_Files/Images/noimage.png" width="250"/>
+            <img src="/App_Files/Images/noimage.png" width="250" />
         </div>
     }
-        <div class="col-sm-12 col-md-6">
-            @Html.DisplayFor(model => model.Description)
-            <br/>
-            <br/>
-            Price: @Html.DisplayFor(model => model.Price)$
+    <div class="col-sm-12 col-md-6">
+        @Html.DisplayFor(model => model.Description)
+        <br />
+        <br />
+        Price: @Html.DisplayFor(model => model.Price) $
 
-            <div class="addtocart">
-                <a href="#" class="addtocart btn btn-success">Add to cart</a>
-                <span class="loading"><img src="~/Content/CustomImages/preloader.gif" height="50" /></span>
-                <div class="ajaxmsg">
-                    The product was added successfuly.
-                </div>
+        <div class="addproduct">
+            <a href="#" class="addproduct btn btn-success">Add to cart</a>
+            <span class="loading"><img src="~/Content/CustomImages/preloader.gif" height="50" /></span>
+            <div class="ajaxmsg">
+                The product was added successfuly.
             </div>
         </div>
+    </div>
 </div>
+
+@section Scripts{
+    <script>
+$(function () {
+    $("a.addproduct").click(function (e) {
+        e.preventDefault();
+
+        $("span.loading").addClass("inlineblock");
+
+        var url = "/ShopCart/AddToCartPartial";
+
+        $.get(url, { id: @Model.Id},
+            function myfunction(data) {
+        $(".ajaxcart").html(data);
+        }).done(function () {
+            $("span.loading").removeClass("inlineblock");
+            $("div.ajaxmsg").addClass("inlineblock");
+
+            setTimeout(function () {
+                $("div.ajaxmsg").fadeOut("fast");
+                $("div.ajaxmsg").removeClass("inlineblock");
+            }, 2000);
+        });
+    });
+});
+    </script>
+    }

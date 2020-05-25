@@ -55,7 +55,8 @@
                     Slug = "AirJordan2R",
                     Description = "The Air Jordan 1 Mid SE maintains the timeless appeal of the OG AJ1, revamped with fresh colors and" +
                     " premium materials. Built with a lightweight Air-Sole unit and classic design lines, it captures the essence" +
-                    " of the original through a modern lens."
+                    " of the original through a modern lens.",
+                    ImagePath = "AirJordan2Retro.jpg"
 
                 });
                 context.Products.Add(new Product()
@@ -63,9 +64,11 @@
                     Name = "Air Jordan 1 Mid SE",
                     Price = 11.30,
                     CategoryId = context.Categories.Single(x => x.Name == "Basketball").Id,
-                    Slug = "The Air Jordan 1 Mid SE maintains the timeless appeal of the OG AJ1, revamped with fresh colors and" +
+                    Slug = "AirJordan1MidSE",
+                    Description = "The Air Jordan 1 Mid SE maintains the timeless appeal of the OG AJ1, revamped with fresh colors and" +
                     " premium materials. Built with a lightweight Air-Sole unit and classic design lines, it captures the essence" +
-                    " of the original through a modern lens."
+                    " of the original through a modern lens.",
+                    ImagePath = "AirJordan1MidSE.jpg"
                 });
                 context.Products.Add(new Product()
                 {
@@ -75,6 +78,7 @@
                     Slug = "StandardMP",
                     Description = "Looking for quality and affordability? Experience high quality Olympic 2 plates" +
                     " with rims and radius edges precision - milled for a perfect circular shape and truer dimensions. ",
+                    ImagePath = "StandardMetalPlates.jpg"
 
                 });
                 context.Products.Add(new Product()
@@ -85,7 +89,8 @@
                     Slug = "NikePVADFMG",
                     Description = "Show your creative vision on the pitch and lead your team to victory with the Nike Phantom Vision Academy" +
                     " DF FG/MG football boots. Lightweight, durable, and with an outstanding performance, these boots are ideal for amateur" +
-                    " and semi-professional players looking for a model that unlocks their full potential."
+                    " and semi-professional players looking for a model that unlocks their full potential.",
+                    ImagePath = "NikePhantomVisionAcademyDynamicFitMG.jpg"
                 });
                 context.Products.Add(new Product()
                 {
@@ -96,7 +101,8 @@
                     Description = "Engineered for players who see the bigger picture. These rugby boots offer a stable platform" +
                     " for kickers to boss the game. The foot-hugging knit textile upper keeps you cool, comfortable and locked" +
                     " in. A soft leather vamp, rubber pads on the forefoot and asymmetrical lacing all combine for pinpoint accuracy" +
-                    " with the ball. The lightweight outsole delivers maximum traction on firm ground."
+                    " with the ball. The lightweight outsole delivers maximum traction on firm ground.",
+                    ImagePath = "AdidasPredatorMaliceControlFG.jpg"
                 });
                 context.Products.Add(new Product()
                 {
@@ -106,7 +112,8 @@
                     Slug = "EverlastEPSTG",
                     Description= "Premium synthetic leather along with superior construction increases durability. " +
                     "Evercool full mesh palm ensures breathability and comfort. " +
-                    "Ideal for sparring, heavy bag workouts, and mitt work"
+                    "Ideal for sparring, heavy bag workouts, and mitt work",
+                    ImagePath= "EverlastEliteProStyleTrainingGloves.jpg"
                 });
                 context.Products.Add(new Product()
                 {
@@ -115,7 +122,8 @@
                     CategoryId = context.Categories.Single(x => x.Name == "Swimming").Id,
                     Slug = "SpeedoUASCS",
                     Description = "Man made materials. Imported. Amazing stretch for comfort. Resistant to snagging and tearing, Extra durable. " +
-                    "Quick and easy to take off without snagging hair"
+                    "Quick and easy to take off without snagging hair",
+                    ImagePath = "SpeedoUnisex-AdultSwimCapSilicone.jpg"
                 });
 
                 context.SaveChanges();
