@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sport Shop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light navbar sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="~/App_Files/Images/JordanLogo.png" / width="80">"
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        @Html.Action("PartialPageMenu", "Pages")
+                    </li>
+                </ul>
+                <div style="margin-right:20px">
+                    @Html.Partial("_LoginPartial")
+                </div>
+                <span class="navbar-text">
+                    @Html.Action("CartPartial", "ShopCart")
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content" style="margin-top:30px">
+        <div class="row">
+            <div class="col-sm-12 col-md-2 list-group">
+                @Html.Action("PartialCategoryMenu", "Shop")
+            </div>
+
+            @if (ViewBag.Sidebar == "Y")
+            {
+                <div class="col-sm-12 col-md-7" style="word-wrap:break-word">
+                    @RenderBody()
+                </div>
+
+                <div class="col-sm-12 col-md-2">
+                    @Html.Action("SidebarPartial", "Pages")
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-12 col-md-10" style="word-wrap:break-word">
+                    @RenderBody()
+                </div>
+            }
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

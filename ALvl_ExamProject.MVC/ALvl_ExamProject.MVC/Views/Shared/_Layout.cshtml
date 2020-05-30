@@ -9,24 +9,110 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar fixed-top">
-        <a class="navbar-brand" href="/">Sport Shop</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                @Html.Action("PartialPageMenu", "Pages")
-            </ul>
-            <span class="navbar-text">
-                @Html.Action("CartPartial", "ShopCart") 
-            </span>
+    <nav class="navbar navbar-expand-md navbar-light bg-light navbar sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="~/App_Files/Images/JordanLogo.png" / width="80">"
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        @Html.Action("PartialPageMenu", "Pages")
+                    </li>
+                </ul>
+                <div style="margin-right:20px">
+                    @Html.Partial("_LoginPartial")
+                </div>
+                <span class="navbar-text">
+                    @Html.Action("CartPartial", "ShopCart")
+                </span>
+            </div>
         </div>
     </nav>
 
+    <div class="carousel slide" data-ride="carousel" id="slides">
+        <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1" </li>
+            <li data-target="#slides" data-slide-to="2" </li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/App_Files/Images/MichaelJordanJump.jpg" />
+                <div class="carousel-caption">
+                    <h1 class="display-2">It's time for sport</h1>
+                    <h3>Be like a legend, buy Air Jordan</h3>
+                    @Html.ActionLink("Buy", "Category", "Shop", new { name = "basketball" }, htmlAttributes: new { @class = "btn btn-outline-light btn-lg" })
+                    <button type="button" class="btn btn-warning btn-lg">Read more</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/App_Files/Images/CobeBryantJamesLeBron.jpg" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/App_Files/Images/SteveCurry.jpg" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row jumbotron">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <p class="lead">
+                    Sportshop.com is the online specialist for everybody who loves
+                    to sport, wants to feel fit or enjoys working out. Our large collection, specialist
+                    products and our excellent service are just a few things that are of huge
+                    importance for us.
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+                <a href="#"><button class="btn btn-success btn-lg" type="button">Read more</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="container-fluid">
+            <div class="row text-center alert">
+                <div class="col-12">
+                    <h1 class="display-4">What do I need to play football?</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/App_Files/Images/Football.jpg" />
+                    <div class="carousel-caption">
+                        <h1 class="display-2">Be strong</h1>
+                        <h3>Your limitation—it's only your imagination</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row jumbotron">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <p class="lead">
+                    A basic understanding of soccer equipment and their uses makes the shopping trip a
+                    little easier. At the youth soccer level, the equipment is relatively straightforward and
+                    easy to find. Here are the things your child needs to play the sport:
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+                <a href="#"><button class="btn btn-success btn-lg" type="button">Read more</button></a>
+            </div>
+        </div>
+    </div>
+
     <div class="container body-content" style="margin-top:30px">
         <div class="row">
-            <div class="col-sm-12 col-md-2 list-group">
+            <div class="col-sm-12 col-md-2 list-inline">
                 @Html.Action("PartialCategoryMenu", "Shop")
             </div>
 

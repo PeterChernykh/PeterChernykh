@@ -8,7 +8,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 {
     public class MainPageController : Controller
     {
-        // GET: Admin/MainPage
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             return View();

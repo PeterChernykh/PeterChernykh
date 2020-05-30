@@ -13,14 +13,20 @@ namespace ALvl_ExamProject.MVC
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-         routes.MapRoute(
+            routes.MapRoute(
+             name: "Roles",
+             url: "Roles/{action}",
+             defaults: new { controller = "Roles", action = "GetRoles" },
+             namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
+
+            routes.MapRoute(
               name: "Login",
               url: "Account/{action}/{id}",
               defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
               namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });
 
             routes.MapRoute(
-              name: "Login2",
+              name: "Account",
               url: "Account/{action}",
               defaults: new { controller = "Account", action = "Login" },
               namespaces: new[] { "ALvl_ExamProject.MVC.Controllers" });

@@ -21,8 +21,12 @@
             {
                 context.Sidebars.Add(new Sidebar()
                 {
-                    Body = "Sidebar1"
-                });        
+                    Body = "Get Speedo Unisex-Adult Swim Cap Silicone for only $9.99"
+                });
+                context.Sidebars.Add(new Sidebar()
+                {
+                    Body = "Get Air Jordan 1 Mid SE for only $11.30"
+                });
                 context.Categories.Add(new Category() { 
                     Name = "Basketball",
                     Slug = "basketball",
@@ -130,10 +134,14 @@
 
                 context.Pages.Add(new Page()
                 {
-                    Title = "TestPage1",
-                    Body = "TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1" +
-                    "TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1" +
-                    "TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1TestPage1",
+                    Title = "Sport Shop",
+                    Body = "Sportshop.com is the online specialist for everybody who loves to sport, wants to feel fit or enjoys" +
+                    " working out. Our large collection, specialist products and our excellent service are just a few things that are of huge importance for us." +
+                    "he employees of Sportshop.com work out every day just for you. They are ready to answer all your difficult questions and they are happy to give you advice. " +
+                    "When your order arrives we run as fast as we can to collect the items and ship them to you. Some of our colleagues are continuously looking to find the best products just for you!"+
+                    "We have almost 20 years of experience and our team exists out of more than 60 people with experience in all types of sports. "+
+                    "With our sport specific online shops, we offer products for both beginners and advanced players in every age category. Do you want to experience our products," +
+                    " service, advice and specialism, we can only say..... Ready, Set, GOOOO!",
                     Slug = "home",
                     Sorting = 100,
                     Sidebar = true
@@ -142,7 +150,7 @@
 
                 context.Pages.Add(new Page()
                 {
-                    Title = "TestPage2",
+                    Title = "Delivery",
                     Body = "TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2" +
                     "TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2" +
                     "TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2TestPage2",

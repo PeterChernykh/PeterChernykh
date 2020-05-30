@@ -1,5 +1,11 @@
-﻿@model ALvl_ExamProject.MVC.Models.SidebarPL
+﻿@model IEnumerable<ALvl_ExamProject.MVC.Models.SidebarPL>
 
-<h4>Sidebar</h4>
+<h4>Promos</h4>
 
-@Html.Raw(Model.Body)
+<p>Best products of the week:</p>
+@foreach (var item in Model)
+{
+    @Html.Raw(item.Body)
+    <br />
+    <hr class="col-md-12" />
+}

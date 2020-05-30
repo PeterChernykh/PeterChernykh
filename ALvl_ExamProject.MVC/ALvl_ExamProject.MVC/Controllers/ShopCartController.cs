@@ -142,7 +142,7 @@ namespace ALvl_ExamProject.MVC.Controllers
             List<ShopCartPL> carts = Session["cart"] as List<ShopCartPL>;
 
             ShopCartPL cart = carts.FirstOrDefault(x => x.ProductPL.Id == prodId);
-            if (cart.Quantity > 0)
+            if (cart.Quantity > 1)
             {
                 cart.Quantity--;
             }

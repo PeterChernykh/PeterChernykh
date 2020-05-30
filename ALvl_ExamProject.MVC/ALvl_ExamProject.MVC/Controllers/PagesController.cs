@@ -67,11 +67,11 @@ namespace ALvl_ExamProject.MVC.Controllers
 
         public ActionResult SidebarPartial()
         {
-           var sidebarBL = _sidebarService.GetById(1);
+           var sidebarsBL = _sidebarService.GetAll();
 
-            var sidebarPL = _mapper.Map<SidebarPL>(sidebarBL);
+            var sidebarwPL = _mapper.Map<IEnumerable<SidebarPL>>(sidebarsBL);
 
-            return PartialView("_SidebarPartial", sidebarPL);
+            return PartialView("_SidebarPartial", sidebarwPL);
         }
     }
 }

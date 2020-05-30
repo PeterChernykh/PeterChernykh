@@ -14,18 +14,12 @@ using System.Web.UI.WebControls;
 
 namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ShopController : Controller
     {
         private readonly ICategoryService _categoryService;
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
-
-        public ShopController()
-        {
-
-        }
-
-
 
         public ShopController(ICategoryService categoryService, IProductService productService, IMapper mapper)
         {
