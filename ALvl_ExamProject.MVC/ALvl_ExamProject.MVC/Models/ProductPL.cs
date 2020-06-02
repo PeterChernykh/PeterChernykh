@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ALvl_ExamProject.MVC.Models
@@ -25,7 +22,7 @@ namespace ALvl_ExamProject.MVC.Models
         [DisplayName("Select an image")]
         public string ImagePath { get; set; }
 
-        public CategoryPL CategoryPL { get; set; } // TODO: remove property
+        public CategoryPL CategoryPL { get; set; }
 
         [Required]
         [DisplayName("Category")]

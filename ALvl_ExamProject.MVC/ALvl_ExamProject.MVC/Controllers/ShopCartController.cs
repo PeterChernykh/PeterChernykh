@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ALvl_ExamProject.MVC.Controllers
@@ -28,6 +27,7 @@ namespace ALvl_ExamProject.MVC.Controllers
             _orderService = orderService;
         }
 
+        [AllowAnonymous]
         // GET: ShopCart
         public ActionResult Index()
         {
@@ -180,6 +180,7 @@ namespace ALvl_ExamProject.MVC.Controllers
         }
 
         //POST: /shopcart/CreateOrder
+        [Authorize]
         [HttpPost]
         public void CreateOrder()
         {
@@ -224,6 +225,44 @@ namespace ALvl_ExamProject.MVC.Controllers
             client.Send("shop@example.com", "admin@example.com", "New order received", $"You have a new order.Order number: {orderId}");
 
             Session["cart"] = null;
+        }
+
+        //GET: /ShopCart/OrdersHistory
+        [Authorize(Roles="User")]
+        public ActionResult OrdersHistory()
+        {
+            List<OrdersPLUser> ordersHistory = new List<OrdersPLUser>();
+
+            var ordersBL = _orderService.GetAll();
+
+            var userId = User.Identity.GetUserId();
+
+            foreach (var order in ordersBL)
+            {
+                Dictionary<string, int> userOrderHistory = new Dictionary<string, int>();
+
+                var orderDetails = _orderDetailService.GetAll();
+
+                decimal total = 0m;
+
+                foreach (var orderDet in orderDetails)
+                {
+                    var productBL = _productService.GetById(orderDet.ProductId);
+
+                    userOrderHistory.Add(productBL.Name, orderDet.Amount);
+
+                    total += orderDet.Amount * productBL.Price;
+                }
+
+                ordersHistory.Add(new OrdersPLUser
+                {
+                    OrderNumber = order.Id,
+                    OrderDate = order.OrderDate,
+                    Total = total,
+                    UserOrderHistory = userOrderHistory
+                });
+            }
+            return View(ordersHistory);
         }
     }
 }

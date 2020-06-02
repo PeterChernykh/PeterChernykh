@@ -110,5 +110,4 @@ namespace ALvl_ExamProject.MVC.Models
         public string Email { get; set; }
     }
 
-
 }

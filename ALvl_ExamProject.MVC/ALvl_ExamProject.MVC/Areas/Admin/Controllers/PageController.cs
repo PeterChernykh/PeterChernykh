@@ -2,10 +2,8 @@
 using ALvl_ExamProject.BL.Models;
 using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
@@ -29,7 +27,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             _sidebarService = sidebarService;
         }
 
-        // GET: Admin/Page
+        // GET: Admin/Page/Index
         public ActionResult Index()
         {
             var pages = _pageService.GetAll();
@@ -38,11 +36,13 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             return View(pagesPL);
         }
 
+        // GET: Admin/Page/AddPage
         public ActionResult AddPage()
         {
             return View();
         }
 
+        // Post: Admin/Page/AddPage
         [HttpPost]
         public ActionResult AddPage(PagePL pagePL)
         {
@@ -58,12 +58,11 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
             //TODO: Возможно стоит заменить на часть Body. Найти как 
 
-            if (IsTitleOrSlugUnique(pagePL).Equals(false))
+            if (!IsTitleOrSlugUnique(pagePL))
             {
                 return View(pagePL);
             }
             IsTitleOrSlugUnique(pagePL);
-
 
             var pageBL = _mapper.Map<PageBL>(pagePL);
 
@@ -99,7 +98,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
                 SlugNullOrWhiteSpaceChecker(pagePL);
             }
 
-            if (IsTitleOrSlugUnique(pagePL).Equals(false))
+            if (!IsTitleOrSlugUnique(pagePL))
             {
                 return View(pagePL);
             }

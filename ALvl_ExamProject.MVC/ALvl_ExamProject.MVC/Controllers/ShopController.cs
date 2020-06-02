@@ -1,14 +1,13 @@
 ﻿using ALvl_ExamProject.BL.Interfaces;
 using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ALvl_ExamProject.MVC.Controllers
 {
+    [AllowAnonymous]
     public class ShopController : Controller
     {
         private readonly ICategoryService _categoryService;

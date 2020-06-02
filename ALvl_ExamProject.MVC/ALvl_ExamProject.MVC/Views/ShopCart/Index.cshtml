@@ -6,7 +6,12 @@
     int count = 1;
 }
 
-<h2>Shopping cart</h2>
+<div class="text-center">
+    <h2>Shopping cart</h2>
+</div>
+<div class="text-md-right align-text-bottom">
+    <h4>@Html.ActionLink("Check order history", "OrdersHistory", "ShopCart", new { style = "color:Black"})</h4>
+</div>
 
 @if (ViewBag.Message != null)
 {
@@ -66,9 +71,9 @@ else
                     }
                 </td>
                 <td>
-                    <a href="#" class="plusproduct" data-id="@item.ProductPL.Id">+</a>
-                    <a href="#" class="minusproduct" data-id="@item.ProductPL.Id">-</a>
-                    <a href="#" class="removeproduct" data-id="@item.ProductPL.Id">Remove</a>
+                    <a href="#" class="plusproduct" data-id="@item.ProductPL.Id">Add</a>
+                    <a href="#" class="minusproduct" data-id="@item.ProductPL.Id">Remove item</a>
+                    <a href="#" class="removeproduct" data-id="@item.ProductPL.Id">Clean</a>
                 </td>
                 <td class="total@(item.ProductPL.Id)">
                     @Html.DisplayFor(modelItem => item.Total)$

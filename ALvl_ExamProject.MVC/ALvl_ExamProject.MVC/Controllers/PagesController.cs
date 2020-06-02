@@ -1,15 +1,13 @@
 ﻿using ALvl_ExamProject.BL.Interfaces;
-using ALvl_ExamProject.BL.Models;
 using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ALvl_ExamProject.MVC.Controllers
 {
+    [AllowAnonymous]
     public class PagesController : Controller
     {
         private readonly IPageService _pageService;
@@ -23,7 +21,7 @@ namespace ALvl_ExamProject.MVC.Controllers
             _sidebarService = sidebarService;
         }
 
-
+        // GET: /Pages/Index
         public ActionResult Index(string page = "")
         {
             if (page == "")

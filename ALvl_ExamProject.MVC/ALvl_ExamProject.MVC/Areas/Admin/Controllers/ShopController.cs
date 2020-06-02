@@ -382,6 +382,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             return RedirectToAction("GetAllProducts");
         }
 
+        // GET: /Admin/Shop/OrdersHistory
         public ActionResult OrdersHistory()
         {
             List<OrdersPLAdmin> ordersHistory = new List<OrdersPLAdmin>();
