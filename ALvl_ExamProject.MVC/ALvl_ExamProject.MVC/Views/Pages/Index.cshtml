@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = ViewBag.PageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 <h4>@ViewBag.PageTitle</h4>
         @Html.Raw(Model.Body)

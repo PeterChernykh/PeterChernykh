@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ALvl_ExamProject.BL
 {
-    public class BLLAutomapperProfile: Profile
+    public class BLLAutomapperProfile : Profile
     {
         public BLLAutomapperProfile()
         {
@@ -23,6 +23,10 @@ namespace ALvl_ExamProject.BL
             CreateMap<PageBL, Page>().ReverseMap();
 
             CreateMap<SidebarBL, Sidebar>().ReverseMap();
+
+            CreateMap<OrderDetailBL, OrderDetail>().ReverseMap();
+
+            CreateMap<OrderBL, Order>().ReverseMap();
         }
     }
 }

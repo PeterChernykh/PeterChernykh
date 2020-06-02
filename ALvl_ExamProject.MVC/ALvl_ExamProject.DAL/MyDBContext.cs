@@ -20,6 +20,8 @@ namespace ALvl_ExamProject.DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<Sidebar> Sidebars { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Order { get; set; }
 
     }
 }

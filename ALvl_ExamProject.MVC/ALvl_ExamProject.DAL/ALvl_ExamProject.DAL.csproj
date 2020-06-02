@@ -63,8 +63,18 @@
     <Compile Include="Migrations\202005141023152_Products_table updated with ImagePath.designer.cs">
       <DependentUpon>202005141023152_Products_table updated with ImagePath.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005301208184_OrderDetailsAdded.cs" />
+    <Compile Include="Migrations\202005301208184_OrderDetailsAdded.designer.cs">
+      <DependentUpon>202005301208184_OrderDetailsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006021305253_Order table added.cs" />
+    <Compile Include="Migrations\202006021305253_Order table added.designer.cs">
+      <DependentUpon>202006021305253_Order table added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Sidebar.cs" />
@@ -82,6 +92,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005141023152_Products_table updated with ImagePath.resx">
       <DependentUpon>202005141023152_Products_table updated with ImagePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301208184_OrderDetailsAdded.resx">
+      <DependentUpon>202005301208184_OrderDetailsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006021305253_Order table added.resx">
+      <DependentUpon>202006021305253_Order table added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

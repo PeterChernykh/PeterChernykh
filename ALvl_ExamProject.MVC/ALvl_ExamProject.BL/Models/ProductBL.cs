@@ -18,7 +18,7 @@ namespace ALvl_ExamProject.BL.Models
 
         public string Slug { get; set; }
 
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         public int CategoryId { get; set; }
         public CategoryBL CategoryBL { get; set; }

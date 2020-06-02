@@ -15,6 +15,7 @@ namespace ALvl_ExamProject.MVC.Controllers
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
+
         public ShopController()
         {
 
@@ -26,7 +27,7 @@ namespace ALvl_ExamProject.MVC.Controllers
             _categoryService = categoryService;
             _mapper = mapper;
         }
-        // GET: Shop
+
         public ActionResult Index()
         {
             return RedirectToAction("Index", "Pages");

@@ -34,6 +34,8 @@ namespace ALvl_ExamProject.MVC.App_Start
             container.Register<ICategoryService, CategoryService>();
             container.Register<IPageService, PageService>();
             container.Register<ISidebarService, SidebarService>();
+            container.Register<IOrderDetailService, OrderDetailService>();
+            container.Register<IOrderService, OrderService>();
 
             container.EnableMvc();
         }

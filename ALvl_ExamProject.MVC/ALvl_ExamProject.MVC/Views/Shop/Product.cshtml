@@ -24,6 +24,9 @@
         <br />
         Price: @Html.DisplayFor(model => model.Price) $
 
+        @if (Request.IsAuthenticated)
+        {
+
         <div class="addproduct">
             <a href="#" class="addproduct btn btn-success">Add to cart</a>
             <span class="loading"><img src="~/Content/CustomImages/preloader.gif" height="50" /></span>
@@ -31,6 +34,14 @@
                 The product was added successfuly.
             </div>
         </div>
+        }
+
+        else
+        {
+            <div class="btn btn-warning">
+                Please, log in to order product.
+            </div>
+        }
     </div>
 </div>
 

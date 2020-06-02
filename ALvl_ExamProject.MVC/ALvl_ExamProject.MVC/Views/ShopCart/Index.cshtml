@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Shopping cart";
+
+    int count = 1;
 }
 
 <h2>Shopping cart</h2>
@@ -12,6 +14,12 @@
 }
 else
 {
+    <div class="preloaderajax">
+        <span>
+            <img src="~/Content/CustomImages/preloader.gif" />
+        </span>
+    </div>
+
     <table class="table">
         <tr>
             <th>
@@ -50,7 +58,7 @@ else
                 <td>
                     @if (item.ProductPL.ImagePath != null)
                     {
-                    <img src="/Images/Uploads/Products/Thumbs/@item.ProductPL.ImagePath" width="125" />
+                        <img src="/Images/Uploads/Products/Thumbs/@item.ProductPL.ImagePath" width="125" />
                     }
                     else
                     {
@@ -85,6 +93,31 @@ else
         </tr>
 
     </table>
+
+    <div class="paypal">
+        <form class="paypalform" action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1" />
+            <input type="hidden" name="business" value="sb-xd3e51959336@business.example.com">
+
+            @foreach (var item in Model)
+            {
+                <input type="hidden" name="item_name_@count" value="@item.ProductPL.Name">
+                <input type="hidden" name="amount_@count" value="@item.Price">
+                <input type="hidden" name="quantity_@count" value="@item.Quantity">
+                count++;
+            }
+
+            <input type="hidden" name="currency_code" value="USD">
+
+            <div style="display:none">
+                <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
+            </div>
+        </form>
+    </div>
+    <br />
+
+    <a href="#" class="createorder btn btn-primary float-right">Checkout</a>
 }
 @section Scripts
     {

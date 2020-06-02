@@ -192,6 +192,7 @@
     <Compile Include="Areas\Admin\Controllers\MainPageController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShopController.cs" />
+    <Compile Include="Areas\Admin\Models\OrdersPLAdmin.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
@@ -206,6 +207,8 @@
     <Compile Include="Models\CategoryPL.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderDetailPL.cs" />
+    <Compile Include="Models\OrderPL.cs" />
     <Compile Include="Models\PagePL.cs" />
     <Compile Include="Models\ProductPL.cs" />
     <Compile Include="Models\ShopCartPL.cs" />
@@ -945,6 +948,7 @@
     <Content Include="Areas\Admin\Views\Shop\GetAllProducts.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\PaginatedPage.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\EditProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\OrdersHistory.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -1086,6 +1090,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Roles\GetRoles.cshtml" />
     <Content Include="Views\Shared\_SimpleLayout.cshtml" />
+    <Content Include="Views\ShopCart\_PayPalPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

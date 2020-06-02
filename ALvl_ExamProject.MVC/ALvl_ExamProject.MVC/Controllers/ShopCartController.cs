@@ -1,9 +1,13 @@
 ﻿using ALvl_ExamProject.BL.Interfaces;
+using ALvl_ExamProject.BL.Models;
 using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,16 +17,15 @@ namespace ALvl_ExamProject.MVC.Controllers
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
+        private readonly IOrderDetailService _orderDetailService;
+        private readonly IOrderService _orderService;
 
-        public ShopCartController()
+        public ShopCartController(IProductService productService, IMapper mapper, IOrderDetailService orderDetailService, IOrderService orderService)
         {
-
-        }
-
-        public ShopCartController(IProductService productService, IMapper mapper)
-        {
+            _orderDetailService = orderDetailService;
             _productService = productService;
             _mapper = mapper;
+            _orderService = orderService;
         }
 
         // GET: ShopCart
@@ -30,7 +33,7 @@ namespace ALvl_ExamProject.MVC.Controllers
         {
             var cart = Session["cart"] as List<ShopCartPL> ?? new List<ShopCartPL>();
 
-            if(cart.Count() == 0|| Session["cart"] == null)
+            if (cart.Count() == 0 || Session["cart"] == null)
             {
                 ViewBag.Message = "Cart is empty!";
                 return View();
@@ -57,7 +60,7 @@ namespace ALvl_ExamProject.MVC.Controllers
 
             if (Session["Cart"] != null)
             {
-                var list = (List <ShopCartPL>) Session["Cart"];
+                var list = (List<ShopCartPL>)Session["Cart"];
 
                 foreach (var item in list)
                 {
@@ -79,7 +82,7 @@ namespace ALvl_ExamProject.MVC.Controllers
 
         public ActionResult AddToCartPartial(int id)
         {
-            List <ShopCartPL> cart = Session["cart"] as List<ShopCartPL> ?? new List<ShopCartPL>();
+            List<ShopCartPL> cart = Session["cart"] as List<ShopCartPL> ?? new List<ShopCartPL>();
 
             ShopCartPL cartPL = new ShopCartPL();
 
@@ -123,6 +126,7 @@ namespace ALvl_ExamProject.MVC.Controllers
         }
 
         //GET: /shopcart/AddProductToShopCart
+        [HttpGet]
         public JsonResult AddProductToShopCart(int prodId)
         {
             List<ShopCartPL> carts = Session["cart"] as List<ShopCartPL>;
@@ -137,6 +141,7 @@ namespace ALvl_ExamProject.MVC.Controllers
         }
 
         //GET: /shopcart/RemoveProductFromShopCart
+        [HttpGet]
         public ActionResult RemoveProductFromShopCart(int prodId)
         {
             List<ShopCartPL> carts = Session["cart"] as List<ShopCartPL>;
@@ -156,6 +161,7 @@ namespace ALvl_ExamProject.MVC.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         public void RemoveProduct(int prodId)
         {
             List<ShopCartPL> carts = Session["cart"] as List<ShopCartPL>;
@@ -164,6 +170,60 @@ namespace ALvl_ExamProject.MVC.Controllers
 
             carts.Remove(cart);
 
+        }
+
+        public ActionResult PayPalPartial()
+        {
+            List<ShopCartPL> cart = Session["cart"] as List<ShopCartPL>;
+
+            return PartialView("_PaypalPartial", cart);
+        }
+
+        //POST: /shopcart/CreateOrder
+        [HttpPost]
+        public void CreateOrder()
+        {
+            List<ShopCartPL> cart = Session["cart"] as List<ShopCartPL>;
+
+            string userId = User.Identity.GetUserId();
+
+            OrderPL orderPL = new OrderPL()
+            {
+                UserId = userId,
+                OrderDate = DateTime.Now
+            };
+
+            var orderBL = _mapper.Map<OrderBL>(orderPL);
+
+            _orderService.Add(orderBL);
+
+            var ordersBL = _orderService.GetAll().OrderByDescending(x=>x.OrderDate);
+            orderBL = ordersBL.FirstOrDefault(x => x.UserId == orderPL.UserId);
+
+            int orderId = orderBL.Id;
+
+            OrderDetailPL orderDetails = new OrderDetailPL();
+
+            foreach (var item in cart)
+            {
+                orderDetails.OrderId = orderId;
+                orderDetails.UserId = userId;
+                orderDetails.ProductId = item.ProductPL.Id;
+                orderDetails.Amount = item.Quantity;
+
+                var orderDetailsBL = _mapper.Map<OrderDetailBL>(orderDetails);
+
+                _orderDetailService.Add(orderDetailsBL);
+            }
+
+            var client = new SmtpClient("smtp.mailtrap.io", 2525)
+            {
+                Credentials = new NetworkCredential("0b3a671368563c", "d0a9df37ab2bb0"),
+                EnableSsl = true
+            };
+            client.Send("shop@example.com", "admin@example.com", "New order received", $"You have a new order.Order number: {orderId}");
+
+            Session["cart"] = null;
         }
     }
 }

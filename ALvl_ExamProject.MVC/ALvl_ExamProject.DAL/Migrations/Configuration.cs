@@ -54,7 +54,7 @@
                 context.Products.Add(new Product()
                 {
                     Name = "Air Jordan 2 Retro",
-                    Price = 22.30,        
+                    Price = 22.30m,        
                     CategoryId = context.Categories.Single(x => x.Name == "Basketball").Id,
                     Slug = "AirJordan2R",
                     Description = "The Air Jordan 1 Mid SE maintains the timeless appeal of the OG AJ1, revamped with fresh colors and" +
@@ -66,7 +66,7 @@
                 context.Products.Add(new Product()
                 {
                     Name = "Air Jordan 1 Mid SE",
-                    Price = 11.30,
+                    Price = 11.30m,
                     CategoryId = context.Categories.Single(x => x.Name == "Basketball").Id,
                     Slug = "AirJordan1MidSE",
                     Description = "The Air Jordan 1 Mid SE maintains the timeless appeal of the OG AJ1, revamped with fresh colors and" +
@@ -77,7 +77,7 @@
                 context.Products.Add(new Product()
                 {
                     Name = "Standard Metal Plates",
-                    Price = 110.30,
+                    Price = 110.30m,
                     CategoryId = context.Categories.Single(x => x.Name == "Powerlifting").Id,
                     Slug = "StandardMP",
                     Description = "Looking for quality and affordability? Experience high quality Olympic 2 plates" +
@@ -88,7 +88,7 @@
                 context.Products.Add(new Product()
                 {
                     Name = "Nike Phantom Vision Academy Dynamic Fit MG",
-                    Price = 19.90,
+                    Price = 19.90m,
                     CategoryId = context.Categories.Single(x => x.Name == "Football").Id,
                     Slug = "NikePVADFMG",
                     Description = "Show your creative vision on the pitch and lead your team to victory with the Nike Phantom Vision Academy" +
@@ -99,7 +99,7 @@
                 context.Products.Add(new Product()
                 {
                     Name = "Adidas Predator Malice Control FG",
-                    Price = 139.90,
+                    Price = 139.90m,
                     CategoryId = context.Categories.Single(x => x.Name == "Football").Id,
                     Slug = "AdidasPMCFG",
                     Description = "Engineered for players who see the bigger picture. These rugby boots offer a stable platform" +
@@ -111,7 +111,7 @@
                 context.Products.Add(new Product()
                 {
                     Name = "Everlast Elite Pro Style Training Gloves",
-                    Price = 2.90,
+                    Price = 2.90m,
                     CategoryId = context.Categories.Single(x => x.Name == "Boxing").Id,
                     Slug = "EverlastEPSTG",
                     Description= "Premium synthetic leather along with superior construction increases durability. " +
@@ -122,7 +122,7 @@
                 context.Products.Add(new Product()
                 {
                     Name = "Speedo Unisex-Adult Swim Cap Silicone",
-                    Price = 9.99,
+                    Price = 9.99m,
                     CategoryId = context.Categories.Single(x => x.Name == "Swimming").Id,
                     Slug = "SpeedoUASCS",
                     Description = "Man made materials. Imported. Amazing stretch for comfort. Resistant to snagging and tearing, Extra durable. " +

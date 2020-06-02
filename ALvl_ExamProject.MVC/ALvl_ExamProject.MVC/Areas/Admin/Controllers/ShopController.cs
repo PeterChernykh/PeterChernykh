@@ -1,9 +1,11 @@
 ﻿using ALvl_ExamProject.BL.Interfaces;
 using ALvl_ExamProject.BL.Models;
+using ALvl_ExamProject.MVC.Areas.Admin.Models;
 using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using PagedList;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,12 +22,16 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
+        private readonly IOrderDetailService _orderDetailService;
+        private readonly IOrderService _orderService;
 
-        public ShopController(ICategoryService categoryService, IProductService productService, IMapper mapper)
+        public ShopController(ICategoryService categoryService, IProductService productService, IMapper mapper, IOrderDetailService orderDetailService, IOrderService orderService)
         {
             _productService = productService;
             _categoryService = categoryService;
             _mapper = mapper;
+            _orderDetailService = orderDetailService;
+            _orderService = orderService;
         }
 
         public ActionResult Index()
@@ -374,6 +380,48 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
             _productService.Remove(id);
 
             return RedirectToAction("GetAllProducts");
+        }
+
+        public ActionResult OrdersHistory()
+        {
+            List<OrdersPLAdmin> ordersHistory = new List<OrdersPLAdmin>();
+
+            var ordersBL = _orderService.GetAll();
+
+            foreach (var order in ordersBL)
+            {
+                Dictionary<string, int> userOrderHistory = new Dictionary<string, int>();
+                    
+                var orderList = _orderDetailService.GetAll().Where(x => x.OrderId == order.Id);
+
+                ApplicationUserManager userManager = HttpContext.GetOwinContext()
+                                                    .GetUserManager<ApplicationUserManager>();
+
+                ApplicationUser user = userManager.FindById(order.UserId);
+
+                decimal total = 0m;
+
+                foreach (var orderDetails in orderList)
+                {
+                    var productBL = _productService.GetAll().FirstOrDefault(x => x.Id == orderDetails.ProductId);
+
+                    userOrderHistory.Add(productBL.Name, orderDetails.Amount);
+
+                    total += orderDetails.Amount * productBL.Price;
+                    
+                }
+
+                ordersHistory.Add(new OrdersPLAdmin
+                {
+                    OrderNumber = order.Id,
+                    UserName = user.UserName,
+                    UserOrderHistory = userOrderHistory,
+                    OrderDate = order.OrderDate,
+                    Total = total
+                });
+            }
+
+            return View(ordersHistory);
         }
     }
 }

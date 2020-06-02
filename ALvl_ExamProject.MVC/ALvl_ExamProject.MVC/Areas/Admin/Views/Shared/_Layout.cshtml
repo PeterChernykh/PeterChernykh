@@ -29,6 +29,12 @@
                 <li class="nav-item">
                     @Html.ActionLink("Products", "GetAllProducts", "Shop", "", new { @class = "nav-link" })
                 </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Client space", "Index", "Pages", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Order history", "OrdersHistory", "Shop","", new { @class = "nav-link" })
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li>

@@ -21,6 +21,8 @@ namespace ALvl_ExamProject.BL
             container.Register<IShopRepository<Category>, ShopRepository<Category>>();
             container.Register<IShopRepository<Page>, ShopRepository<Page>>();
             container.Register<IShopRepository<Sidebar>, ShopRepository<Sidebar>>();
+            container.Register<IShopRepository<OrderDetail>, ShopRepository<OrderDetail>>();
+            container.Register<IShopRepository<Order>, ShopRepository<Order>>();
 
 
             return container;

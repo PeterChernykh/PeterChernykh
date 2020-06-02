@@ -20,6 +20,10 @@ namespace ALvl_ExamProject.MVC.App_Start
                 .ReverseMap();
 
             CreateMap<SidebarPL, SidebarBL>().ReverseMap();
+
+            CreateMap<OrderDetailPL, OrderDetailBL>().ReverseMap();
+
+            CreateMap<OrderPL, OrderBL>().ReverseMap();
         }
     }
 }

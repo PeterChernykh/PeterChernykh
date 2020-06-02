@@ -18,6 +18,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
+                @if (User.IsInRole("admin"))
+                {
+                    <div class="navbar-text">
+                        @Html.ActionLink("Admin Panel", "Index", new { area = "Admin", controller = "MainPage" })
+                    </div>
+                }
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         @Html.Action("PartialPageMenu", "Pages")
