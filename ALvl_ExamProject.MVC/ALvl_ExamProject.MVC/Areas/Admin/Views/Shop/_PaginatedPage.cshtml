@@ -2,9 +2,6 @@
 @using PagedList;
 @model IPagedList<ALvl_ExamProject.MVC.Models.ProductPL>
 
-@{
-    var imageDirectory = System.Configuration.ConfigurationManager.AppSettings["ImageFolder"];
-}
 <p>
     @Html.ActionLink("Create product", "CreateProduct", "", new { @class = "btn btn-primary", @style = "margin:10px"})
 </p>

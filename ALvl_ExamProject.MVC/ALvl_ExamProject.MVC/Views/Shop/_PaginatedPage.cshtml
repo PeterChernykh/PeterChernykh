@@ -1,0 +1,54 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<ALvl_ExamProject.MVC.Models.ProductPL>
+
+@{
+    string conSlug = null;
+}
+<table class="table" style="word-wrap:break-word">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Image
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (conSlug == null)
+        {
+            conSlug = item.CategoryPL.Slug;
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)$
+            </td>
+            <td>
+                <a href="/shop/product-details/@item.Slug">
+                    <img src="/Images/Uploads/Products/Thumbs/@item.ImagePath" />
+                </a>
+            </td>
+            <td>
+                <a href="/Shop/product-details/@item.Slug" class="btn btn-primary">Details</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Category", new { page, name = conSlug }))

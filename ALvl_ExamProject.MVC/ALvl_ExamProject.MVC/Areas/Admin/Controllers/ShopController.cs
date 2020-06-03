@@ -230,7 +230,7 @@ namespace ALvl_ExamProject.MVC.Areas.Admin.Controllers
 
             var singlePage = listProducts.ToPagedList(pageNo, 3);
 
-            return PartialView(singlePage);
+            return PartialView("_PaginatedPage", singlePage);
 
         }
 

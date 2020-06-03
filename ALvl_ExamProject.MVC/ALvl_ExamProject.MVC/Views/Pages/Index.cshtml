@@ -2,7 +2,14 @@
 
 @{
     ViewBag.Title = ViewBag.PageTitle;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Model.Slug == "home")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+    }
 
 }
 <h4>@ViewBag.PageTitle</h4>

@@ -547,7 +547,7 @@
     <Content Include="Areas\Admin\Views\Shop\GetAllCategories.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\CreateProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\GetAllProducts.cshtml" />
-    <Content Include="Areas\Admin\Views\Shop\PaginatedPage.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\_PaginatedPage.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\EditProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\OrdersHistory.cshtml" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
@@ -708,6 +708,7 @@
     <Content Include="Views\Shared\_SimpleLayout.cshtml" />
     <Content Include="Views\ShopCart\_PayPalPartial.cshtml" />
     <Content Include="Views\ShopCart\OrdersHistory.cshtml" />
+    <Content Include="Views\Shop\_PaginatedPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,12 +1,10 @@
-﻿@model IEnumerable< ALvl_ExamProject.MVC.Models.CategoryPL>
+﻿@model IEnumerable<ALvl_ExamProject.MVC.Models.CategoryPL>
 
-    <h4>Category</h4>
-    <hr />
- 
-    <div class="list-inline">
+    <ul class="nav justify-content-center" style="padding-right:20px ">
         @foreach (var item in Model)
         {
-            <a class="list-group-item list-group-item-action" href="/shop/category/@item.Slug">@item.Name</a>
+            <li class="nav-item">
+                <b><a class="nav-link active" href="/shop/category/@item.Slug">@item.Name</a></b>
+            </li>
         }
-
-    </div>
+    </ul>

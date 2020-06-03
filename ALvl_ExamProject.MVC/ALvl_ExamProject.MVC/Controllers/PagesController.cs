@@ -22,8 +22,13 @@ namespace ALvl_ExamProject.MVC.Controllers
         }
 
         // GET: /Pages/Index
-        public ActionResult Index(string page = "")
+        public ActionResult Index(string page)
         {
+            if(page == null)
+            {
+                page = "";
+            }
+
             if (page == "")
                 page = "home";
 

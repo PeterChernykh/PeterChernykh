@@ -18,12 +18,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                    @if (User.IsInRole("admin"))
-                    {
-                        <div class="navbar-text">
-                            @Html.ActionLink("Admin Panel", "Index", new { area = "Admin", controller = "MainPage"})
-                        </div>
-                    }
+                @if (User.IsInRole("admin"))
+                {
+                    <div class="navbar-text">
+                        @Html.ActionLink("Admin Panel", "Index", new { area = "Admin", controller = "MainPage" })
+                    </div>
+                }
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         @Html.Action("PartialPageMenu", "Pages")
@@ -39,6 +39,10 @@
         </div>
     </nav>
 
+    <div class="container-fluid">
+            @Html.Action("PartialCategoryMenu", "Shop")
+    </div>
+
     <div class="carousel slide" data-ride="carousel" id="slides">
         <ul class="carousel-indicators">
             <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -52,7 +56,6 @@
                     <h1 class="display-2">It's time for sport</h1>
                     <h3>Be like a legend, buy Air Jordan</h3>
                     @Html.ActionLink("Buy", "Category", "Shop", new { name = "basketball" }, htmlAttributes: new { @class = "btn btn-outline-light btn-lg" })
-                    <button type="button" class="btn btn-warning btn-lg">Read more</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -75,7 +78,7 @@
                 </p>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-                <a href="#"><button class="btn btn-success btn-lg" type="button">Read more</button></a>
+                <a href="#aboutshop"><button class="btn btn-success btn-lg" type="button">Read more</button></a>
             </div>
         </div>
     </div>
@@ -111,16 +114,13 @@
                 </p>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-                <a href="#"><button class="btn btn-success btn-lg" type="button">Read more</button></a>
+                @Html.ActionLink("Read more", "Index", "Pages", new { page = "football" },htmlAttributes: new { @class = "btn btn-success btn-lg" })
             </div>
         </div>
     </div>
 
     <div class="container body-content" style="margin-top:30px">
         <div class="row">
-            <div class="col-sm-12 col-md-2 list-inline">
-                @Html.Action("PartialCategoryMenu", "Shop")
-            </div>
 
             @if (ViewBag.Sidebar == "Y")
             {
@@ -134,7 +134,7 @@
             }
             else
             {
-                <div class="col-sm-12 col-md-10" style="word-wrap:break-word">
+                <div class="col-sm-12 col-md-10" style="word-wrap:break-word" id="aboutshop">
                     @RenderBody()
                 </div>
             }

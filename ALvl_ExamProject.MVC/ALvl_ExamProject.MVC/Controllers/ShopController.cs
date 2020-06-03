@@ -1,9 +1,11 @@
 ﻿using ALvl_ExamProject.BL.Interfaces;
 using ALvl_ExamProject.MVC.Models;
 using AutoMapper;
+using PagedList;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace ALvl_ExamProject.MVC.Controllers
 {
@@ -85,6 +87,17 @@ namespace ALvl_ExamProject.MVC.Controllers
             var productPL = _mapper.Map<ProductPL>(productBL);
 
             return View("Product", productPL);
+        }
+
+        [ChildActionOnly]
+        public ActionResult PaginatedPage(int? page, List<ProductPL> listProducts)
+        {
+            var pageNo = page ?? 1;
+
+            var singlePage = listProducts.ToPagedList(pageNo, 3);
+
+            return PartialView("_PaginatedPage", singlePage);
+
         }
     }
 }
